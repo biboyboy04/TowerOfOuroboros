@@ -100,6 +100,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
+		Debug.Log("Ground Check" + grounded);
 
 		if (RB.velocity.y < -0.1 && !IsWallJumping && !IsWallSliding)
 		{

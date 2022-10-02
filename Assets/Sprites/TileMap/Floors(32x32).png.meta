@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: f85219300a256c04d9a32f77d3514b92
+guid: dcb353b04fdc7df4b8bcaacd359b2061
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 32
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -116,7 +116,7 @@ TextureImporter:
     buildTarget: WebGL
     maxTextureSize: 2048
     resizeAlgorithm: 0
-    textureFormat: 12
+    textureFormat: -1
     textureCompression: 1
     compressionQuality: 50
     crunchedCompression: 0
@@ -128,13 +128,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Floors (1)_0
+      name: Floors(32x32)_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 192
-        width: 64
-        height: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -142,20 +142,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a1d050cf09b86914ea7f8af878d723dc
-      internalID: 1116738915
+      spriteID: 97630ed2eeb6607409d77260f4854760
+      internalID: 2091972764
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Floors (1)_1
+      name: Floors(32x32)_1
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 96
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b37a566034976eb4ea5576a8ff4b7269
+      internalID: 1513240773
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floors(32x32)_2
       rect:
         serializedVersion: 2
         x: 64
-        y: 192
-        width: 64
-        height: 64
+        y: 96
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -163,104 +184,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 9ef098a6246b1cf49953409b178f7e5e
-      internalID: -544967173
+      spriteID: d1c9c651f392ccf47859069e46047ddc
+      internalID: -85134063
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Floors (1)_2
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 192
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 9f075f245eb19d84b9861a6ab69ad802
-      internalID: 88982132
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Floors (1)_3
-      rect:
-        serializedVersion: 2
-        x: 0
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 1d671b4f1b5e38647a39e778716520bb
-      internalID: 1274450376
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Floors (1)_4
-      rect:
-        serializedVersion: 2
-        x: 64
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 55e777bfdf714284f8acfcb0515f01e8
-      internalID: -1280081790
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Floors (1)_5
-      rect:
-        serializedVersion: 2
-        x: 128
-        y: 128
-        width: 64
-        height: 64
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: e421fcf8c2980a64ea095a604c8da441
-      internalID: 1567955016
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: Floors (1)_6
+      name: Floors(32x32)_3
       rect:
         serializedVersion: 2
         x: 0
         y: 64
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -268,20 +205,41 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3dfcfbce752ddf947a80acd023b331a0
-      internalID: -2097358551
+      spriteID: 34ea87cdf81a0404a82bfe88e03d736c
+      internalID: -313389868
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Floors (1)_7
+      name: Floors(32x32)_4
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 64
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad19a100ce3bb974f9b38057c8818076
+      internalID: -1372083927
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floors(32x32)_5
       rect:
         serializedVersion: 2
         x: 64
         y: 64
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -289,20 +247,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: a881067faeb650346b87a8b4dedacae8
-      internalID: -769794421
+      spriteID: 946f73ce2b073ba45bca634db5c1ca21
+      internalID: 471565645
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Floors (1)_8
+      name: Floors(32x32)_6
       rect:
         serializedVersion: 2
-        x: 128
-        y: 64
-        width: 64
-        height: 64
+        x: 0
+        y: 32
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -310,20 +268,62 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 626596a55f6be3245b367f5df8a344fc
-      internalID: 783035117
+      spriteID: 3bd992e657e68a44aa8fe087978c13f3
+      internalID: 1090066665
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Floors (1)_9
+      name: Floors(32x32)_7
+      rect:
+        serializedVersion: 2
+        x: 32
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cdb8d326935c5438694b0d7d959ebf
+      internalID: 1472946449
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floors(32x32)_8
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 32
+        width: 32
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2ba19c018cdc91140b57ec46792530e3
+      internalID: -1623873291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Floors(32x32)_9
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 64
-        height: 64
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -331,8 +331,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 98e7f929b4f58254e85ed886fb79edc0
-      internalID: -410710217
+      spriteID: 73edb634530ece044afa86fc1bc7551b
+      internalID: 1900120427
       vertices: []
       indices: 
       edges: []
@@ -348,16 +348,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Floors (1)_4: -1280081790
-      Floors (1)_5: 1567955016
-      Floors (1)_0: 1116738915
-      Floors (1)_7: -769794421
-      Floors (1)_2: 88982132
-      Floors (1)_8: 783035117
-      Floors (1)_9: -410710217
-      Floors (1)_1: -544967173
-      Floors (1)_6: -2097358551
-      Floors (1)_3: 1274450376
+      Floors(32x32)_9: 1900120427
+      Floors(32x32)_1: 1513240773
+      Floors(32x32)_8: -1623873291
+      Floors(32x32)_7: 1472946449
+      Floors(32x32)_3: -313389868
+      Floors(32x32)_4: -1372083927
+      Floors(32x32)_0: 2091972764
+      Floors(32x32)_5: 471565645
+      Floors(32x32)_2: -85134063
+      Floors(32x32)_6: 1090066665
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
