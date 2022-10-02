@@ -8,8 +8,9 @@ public class Player : MonoBehaviour
 	public int maxHealth = 100;
 	public int currentHealth;
     private Animator anim;
-    private bool dead;
+    public static bool isDead;
 	public HealthBar healthBar;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -35,11 +36,12 @@ public class Player : MonoBehaviour
         }
         else
         {
-            if (!dead)
+            if (!isDead)
             {
                 anim.SetTrigger("die");
                 GetComponent<PlayerMovement>().enabled = false;
-                dead = true;
+                isDead = true;
+                Debug.Log(isDead);
             }
         }
 
