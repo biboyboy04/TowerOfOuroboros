@@ -10868,6 +10868,7 @@ Tilemap:
     e31: 0
     e32: 0
     e33: 1
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &262620168
 GameObject:
   m_ObjectHideFlags: 0

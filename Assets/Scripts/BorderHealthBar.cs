@@ -6,7 +6,7 @@ public class BorderHealthBar : MonoBehaviour
 {
 
     public static Animator anim;
-    public bool dead;
+    private bool dead;
 
     // Start is called before the first frame update
     void Start()
@@ -18,8 +18,7 @@ public class BorderHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dead = Player.isDead;
-        Debug.Log("Updating" + dead);
+        dead = Health.dead;
         if(dead)
         {
            anim.SetTrigger("die");
