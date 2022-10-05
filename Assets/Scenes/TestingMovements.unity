@@ -7149,7 +7149,11 @@ MonoBehaviour:
   Data: {fileID: 11400000, guid: ff6f5e9278ee8f341a81f379804f0cae, type: 2}
   joystick: {fileID: 841603749}
   wallSlidingSpeed: 0
-  targetFrameRate: 30
+  targetFrameRate: 60
+  KBForce: 5
+  KBCounter: 0
+  KBTotalTime: 0.4
+  KnockFromRight: 0
   _groundCheckPoint: {fileID: 113618108}
   _groundCheckSize: {x: 0.34, y: 0.04}
   _frontWallCheckPoint: {fileID: 279878793}
@@ -7420,7 +7424,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 360749856}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 35.65, y: -3.11, z: -82.405266}
+  m_LocalPosition: {x: 34.63, y: -3.01, z: -82.405266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7440,6 +7444,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 205694792}
 --- !u!70 &360749859
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -7615,6 +7620,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 0}
 --- !u!70 &364284174
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -48864,6 +48870,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 0}
 --- !u!70 &627133879
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -49584,6 +49591,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 0}
 --- !u!70 &1070067246
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -49759,6 +49767,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 0}
 --- !u!70 &1137166261
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -49934,6 +49943,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 205694792}
 --- !u!70 &1193596975
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -50253,6 +50263,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 0}
 --- !u!70 &1616512951
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -50531,6 +50542,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
+  playerMovement: {fileID: 0}
 --- !u!70 &1745302648
 CapsuleCollider2D:
   m_ObjectHideFlags: 0

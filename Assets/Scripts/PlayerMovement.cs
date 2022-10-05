@@ -60,6 +60,13 @@ public class PlayerMovement : MonoBehaviour
 	private bool _isDashAttacking;
 	public int targetFrameRate = 30;
 
+	//Knockback
+	public float KBForce;
+	public float KBCounter;
+	public float KBTotalTime;
+
+	public bool KnockFromRight;
+
 	#endregion
 
 	#region INPUT PARAMETERS
@@ -111,23 +118,31 @@ public class PlayerMovement : MonoBehaviour
 			grounded = false;
 		}
 
-
-        #region TIMERS
-        LastOnGroundTime -= Time.deltaTime;
-		LastOnWallTime -= Time.deltaTime;
-		LastOnWallRightTime -= Time.deltaTime;
-		LastOnWallLeftTime -= Time.deltaTime;
-
-		LastPressedJumpTime -= Time.deltaTime;
-		LastPressedDashTime -= Time.deltaTime;
-		#endregion
-
-		#region INPUT HANDLER
+				#region INPUT HANDLER
 
 		// _moveInput.x = Input.GetAxisRaw("Horizontal");
 		// _moveInput.y = Input.GetAxisRaw("Vertical");
 		_moveInput.x = joystick.Horizontal;
 		_moveInput.y = joystick.Vertical;
+
+		// if(KBCounter <= 0)
+		// {
+		// 	_moveInput.x = joystick.Horizontal;
+		// 	_moveInput.y = joystick.Vertical;
+		// }
+		// else
+		// {
+		// 	if(KnockFromRight)
+		// 	{
+		// 		RB.velocity = new Vector2(-KBForce, KBForce);
+		// 	}
+		// 	if(!KnockFromRight)
+		// 	{
+		// 		RB.velocity = new Vector2(KBForce, KBForce);
+		// 	}
+		// 	KBCounter -= Time.deltaTime;
+		// }
+
 
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
@@ -147,6 +162,18 @@ public class PlayerMovement : MonoBehaviour
 			OnDashInput();
 		}
 		#endregion
+
+
+        #region TIMERS
+        LastOnGroundTime -= Time.deltaTime;
+		LastOnWallTime -= Time.deltaTime;
+		LastOnWallRightTime -= Time.deltaTime;
+		LastOnWallLeftTime -= Time.deltaTime;
+
+		LastPressedJumpTime -= Time.deltaTime;
+		LastPressedDashTime -= Time.deltaTime;
+		#endregion
+
 
 		#region COLLISION CHECKS
 		if (!IsDashing && !IsJumping)
@@ -331,16 +358,36 @@ public class PlayerMovement : MonoBehaviour
 
     private void FixedUpdate()
 	{
+
 		//Handle Run
 		if (!IsDashing)
 		{
 			if (IsWallJumping)
 			{
-
+				Run(Data.wallJumpRunLerp);
 			}
 				//Run(Data.wallJumpRunLerp);
 			else
-				Run(1);
+			{
+				if(KBCounter <= 0)
+				{
+					Run(1);
+				}
+				else
+				{
+					if(KnockFromRight)
+					{
+						RB.velocity = new Vector2(-KBForce, KBForce);
+					}
+					if(!KnockFromRight)
+					{
+						RB.velocity = new Vector2(KBForce, KBForce);
+					}
+					KBCounter -= Time.deltaTime;
+				}
+				
+			}
+				
 		}
 		else if (_isDashAttacking)
 		{
