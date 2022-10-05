@@ -58,6 +58,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool _dashRefilling;
 	private Vector2 _lastDashDir;
 	private bool _isDashAttacking;
+	public int targetFrameRate = 30;
 
 	#endregion
 
@@ -89,12 +90,16 @@ public class PlayerMovement : MonoBehaviour
 	{
 		RB = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
+		//Application.targetFramerate = 60;
 	}
 
 	private void Start()
 	{
 		SetGravityScale(Data.gravityScale);
 		IsFacingRight = true;
+
+		QualitySettings.vSyncCount = 0;
+        Application.targetFrameRate = targetFrameRate;
 		
 	}
 
