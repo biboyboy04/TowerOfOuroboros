@@ -97,7 +97,6 @@ public class PlayerMovement : MonoBehaviour
 	{
 		RB = GetComponent<Rigidbody2D>();
 		anim = GetComponent<Animator>();
-		//Application.targetFramerate = 60;
 	}
 
 	private void Start()
@@ -120,30 +119,11 @@ public class PlayerMovement : MonoBehaviour
 
 				#region INPUT HANDLER
 
-		// _moveInput.x = Input.GetAxisRaw("Horizontal");
-		// _moveInput.y = Input.GetAxisRaw("Vertical");
-		_moveInput.x = joystick.Horizontal;
-		_moveInput.y = joystick.Vertical;
-
-		// if(KBCounter <= 0)
-		// {
-		// 	_moveInput.x = joystick.Horizontal;
-		// 	_moveInput.y = joystick.Vertical;
-		// }
-		// else
-		// {
-		// 	if(KnockFromRight)
-		// 	{
-		// 		RB.velocity = new Vector2(-KBForce, KBForce);
-		// 	}
-		// 	if(!KnockFromRight)
-		// 	{
-		// 		RB.velocity = new Vector2(KBForce, KBForce);
-		// 	}
-		// 	KBCounter -= Time.deltaTime;
-		// }
-
-
+		_moveInput.x = Input.GetAxisRaw("Horizontal");
+		_moveInput.y = Input.GetAxisRaw("Vertical");
+		// _moveInput.x = joystick.Horizontal;
+		// _moveInput.y = joystick.Vertical;
+		
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
 
@@ -183,7 +163,6 @@ public class PlayerMovement : MonoBehaviour
 			{
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
 				grounded = true;
-				//canDoubleJump = false;
             }
 
 			//Right Wall Check
@@ -229,7 +208,6 @@ public class PlayerMovement : MonoBehaviour
 		}
 
 		//Jump
-		//#JUMPE
 		if (CanJump() && LastPressedJumpTime > 0)
 		{
 			IsJumping = true;
@@ -280,9 +258,6 @@ public class PlayerMovement : MonoBehaviour
 			IsWallJumping = false;
 			_isJumpCut = false;
 			canDoubleJump = true;
-			anim.SetTrigger("dash");
-
-
 
 			StartCoroutine(nameof(StartDash), _lastDashDir);
 		}
@@ -369,6 +344,7 @@ public class PlayerMovement : MonoBehaviour
 				//Run(Data.wallJumpRunLerp);
 			else
 			{
+				// Enemy Collision
 				if(KBCounter <= 0)
 				{
 					Run(1);
@@ -407,10 +383,9 @@ public class PlayerMovement : MonoBehaviour
 	{
 		LastPressedJumpTime = Data.jumpInputBufferTime;
 
-		if (grounded == false && canDoubleJump)
+		if (canDoubleJump)
 		{
 			DoubleJump();
-			anim.SetTrigger("doubleJump");
 		}
 	}
 
@@ -654,7 +629,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDoubleJump()
 	{
-		return canDoubleJump && !grounded;
+		return canDoubleJump && grounded == false;
 	}
 
 	private bool CanWallJump()
