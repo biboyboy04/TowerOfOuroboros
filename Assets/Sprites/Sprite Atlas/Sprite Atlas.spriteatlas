@@ -61,6 +61,7 @@ SpriteAtlas:
   - {fileID: -85134063, guid: dcb353b04fdc7df4b8bcaacd359b2061, type: 3}
   - {fileID: -313389868, guid: dcb353b04fdc7df4b8bcaacd359b2061, type: 3}
   - {fileID: 21300000, guid: 696807e4e5bdca74189638340db128fe, type: 3}
+  - {fileID: 21300000, guid: f9c616f7e12a9584da95ba7739f03cfd, type: 3}
   - {fileID: 21300000, guid: b12abcd893937b1408cea2ecb281de16, type: 3}
   - {fileID: -1388941443, guid: 8984dd493f1a3ce4dbe53ae3509dd180, type: 3}
   - {fileID: 355841286, guid: 8984dd493f1a3ce4dbe53ae3509dd180, type: 3}
@@ -72,6 +73,8 @@ SpriteAtlas:
   - {fileID: -766738896, guid: 8984dd493f1a3ce4dbe53ae3509dd180, type: 3}
   - {fileID: -540575891, guid: 8984dd493f1a3ce4dbe53ae3509dd180, type: 3}
   - {fileID: 21300000, guid: 5f71cab90f0bc564e96187bc8ed276c2, type: 3}
+  - {fileID: 21300000, guid: e3d6dd3c235b3b5499ef2959d941beb1, type: 3}
+  - {fileID: 21300000, guid: 8dcd3a7c8b1a690489d50c8bb9595693, type: 3}
   m_PackedSpriteNamesToIndex:
   - Floors(32x32)_8
   - Floors(32x32)_9
@@ -84,6 +87,7 @@ SpriteAtlas:
   - Floors(32x32)_2
   - Floors(32x32)_3
   - Platforms (1)
+  - Layer 1_updated floors05 (1)
   - Wall TYPE 1 (1)
   - Wall TYPE 1 (2)_8
   - Wall TYPE 1 (2)_2
@@ -95,6 +99,8 @@ SpriteAtlas:
   - Wall TYPE 1 (2)_4
   - Wall TYPE 1 (2)_5
   - Soil
+  - Layer 1_updated walls4 (1)
+  - Layer 1_updated walls1 (1)
   m_RenderDataMap: {}
   m_Tag: Sprite Atlas
   m_IsVariant: 0
