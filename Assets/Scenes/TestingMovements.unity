@@ -7180,7 +7180,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 205694791}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 12.21, y: -1.74, z: 0}
+  m_LocalPosition: {x: 89.37, y: -1.21, z: 0}
   m_LocalScale: {x: 2, y: 2, z: 5}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -7591,10 +7591,10 @@ GameObject:
   - component: {fileID: 364284172}
   - component: {fileID: 364284178}
   - component: {fileID: 364284177}
-  - component: {fileID: 364284176}
   - component: {fileID: 364284175}
   - component: {fileID: 364284174}
   - component: {fileID: 364284173}
+  - component: {fileID: 364284179}
   m_Layer: 10
   m_Name: Monster1 (3)
   m_TagString: Enemy
@@ -7610,7 +7610,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 364284171}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 89.21, y: -2.97, z: -82.405266}
+  m_LocalPosition: {x: 88.46, y: -2.99, z: -82.405266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -7663,27 +7663,6 @@ CapsuleCollider2D:
   m_Offset: {x: 0.011530399, y: 0.038435936}
   m_Size: {x: 0.6643286, y: 0.7847595}
   m_Direction: 0
---- !u!50 &364284176
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 364284171}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 7cd774f1cab18954ab27d36691ceb528, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!95 &364284177
 Animator:
   serializedVersion: 4
@@ -7756,6 +7735,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &364284179
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 364284171}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca65350759de042449634469c297aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 205694791}
+  speed: 2
 --- !u!1 &470363736
 GameObject:
   m_ObjectHideFlags: 0
@@ -49948,6 +49941,7 @@ GameObject:
   - component: {fileID: 1193596976}
   - component: {fileID: 1193596975}
   - component: {fileID: 1193596974}
+  - component: {fileID: 1193596980}
   m_Layer: 10
   m_Name: Monster1
   m_TagString: Enemy
@@ -49963,7 +49957,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1193596972}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 49.81, y: 4.15, z: -82.405266}
+  m_LocalPosition: {x: 93.72, y: 25.47, z: -82.405266}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -50109,6 +50103,20 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!114 &1193596980
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1193596972}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ca65350759de042449634469c297aa1a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  player: {fileID: 205694791}
+  speed: 1
 --- !u!1 &1203920437
 GameObject:
   m_ObjectHideFlags: 0
