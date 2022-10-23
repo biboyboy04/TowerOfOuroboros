@@ -6,6 +6,7 @@ TagManager:
   tags:
   - Ground
   - Enemy
+  - Checkpoint
   layers:
   - Default
   - TransparentFX
@@ -19,7 +20,7 @@ TagManager:
   - Items
   - Enemies
   - Traps
-  - 
+  - Checkpoint
   - 
   - 
   - 
@@ -48,6 +49,9 @@ TagManager:
     locked: 0
   - name: Foreground
     uniqueID: 2285441635
+    locked: 0
+  - name: Checkpoint
+    uniqueID: 2558164543
     locked: 0
   - name: Player
     uniqueID: 3120037211

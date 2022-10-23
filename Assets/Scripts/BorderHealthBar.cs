@@ -22,7 +22,7 @@ public class BorderHealthBar : MonoBehaviour
         if(dead)
         {
            anim.SetTrigger("die");
-           dead = !dead;
+            //dead = false;
         }
     }
 }
