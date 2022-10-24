@@ -18,7 +18,7 @@ public class BorderHealthBar : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        dead = Health.dead;
+        dead = Health.playerDead;
         if(dead)
         {
            anim.SetTrigger("die");

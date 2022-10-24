@@ -30,7 +30,7 @@ public class EnemyFollow : MonoBehaviour
 
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.5f);
 
-        if (distance < 10)
+        if (distance < 9)
         {
             
             transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime);

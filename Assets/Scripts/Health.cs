@@ -8,7 +8,8 @@ public class Health : MonoBehaviour
     [SerializeField] private float startingHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
-    public static bool dead;
+    public bool dead;
+    public static bool playerDead;
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
@@ -58,9 +59,15 @@ public class Health : MonoBehaviour
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;
-                
+
                 dead = true;
-                RespawnToCheckpoint();
+                
+                if (gameObject.tag == "Player")
+                {
+                    playerDead = dead;
+                }
+
+               // RespawnToCheckpoint();
             }
         }
     }
