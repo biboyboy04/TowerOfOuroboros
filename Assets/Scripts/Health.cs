@@ -24,12 +24,19 @@ public class Health : MonoBehaviour
     private void Awake()
     {
         
-
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
     }
 
+    private void Update() 
+    {
+        // Kill the player if they fall too deep
+        if (transform.position.y < -40)
+        {
+            TakeDamage(999);
+        }
+    }
 
 
     public void TakeDamage(float _damage)
