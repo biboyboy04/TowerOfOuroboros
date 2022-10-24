@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: ed476e5fa2318254aa0c9c1a76f45b5a
+guid: cc2732b905f8b254ba93167c286a77d0
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -128,54 +128,12 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: attack_greg_0
+      name: death_greg_0
       rect:
         serializedVersion: 2
-        x: 11
-        y: 62
-        width: 25
-        height: 33
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: 6b8a3d8d5c2b7bf4b85e3250bdaa6be2
-      internalID: -995971585
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack_greg_1
-      rect:
-        serializedVersion: 2
-        x: 55
-        y: 64
-        width: 37
-        height: 31
-      alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
-      outline: []
-      physicsShape: []
-      tessellationDetail: 0
-      bones: []
-      spriteID: c59ab9067649e654a9b0928a7dde564c
-      internalID: -874687482
-      vertices: []
-      indices: 
-      edges: []
-      weights: []
-    - serializedVersion: 2
-      name: attack_greg_2
-      rect:
-        serializedVersion: 2
-        x: 4
-        y: 15
-        width: 44
+        x: 1
+        y: 90
+        width: 31
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -184,20 +142,20 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 3d6117b5397760d40b50e52e3de9d440
-      internalID: -217611760
+      spriteID: 0d82c98032daf28449c33b686e5c1876
+      internalID: -1372699327
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: attack_greg_3
+      name: death_greg_1
       rect:
         serializedVersion: 2
-        x: 53
-        y: 14
-        width: 41
-        height: 34
+        x: 41
+        y: 93
+        width: 40
+        height: 29
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -205,8 +163,92 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 4641ea049d11d444692b24e25abe19ee
-      internalID: 1920747561
+      spriteID: f50e17e44d579a14c8b316d919fcdfd2
+      internalID: 1883664122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_greg_2
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 53
+        width: 40
+        height: 25
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7dbd25820a8b08748ae6c6daa15784a7
+      internalID: -577627487
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_greg_3
+      rect:
+        serializedVersion: 2
+        x: 41
+        y: 54
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 93dbf1cf5b551324eaaee257acf5d6e7
+      internalID: -605391892
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_greg_4
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 13
+        width: 40
+        height: 20
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f49732ea12e8fe94dbf97d17b8163fa7
+      internalID: 2080607696
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: death_greg_5
+      rect:
+        serializedVersion: 2
+        x: 42
+        y: 13
+        width: 39
+        height: 19
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 03d887ad763960641850e7ddbc4ef68f
+      internalID: -2046071831
       vertices: []
       indices: 
       edges: []
@@ -222,10 +264,12 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      attack_greg_1: -874687482
-      attack_greg_0: -995971585
-      attack_greg_2: -217611760
-      attack_greg_3: 1920747561
+      death_greg_2: -577627487
+      death_greg_4: 2080607696
+      death_greg_0: -1372699327
+      death_greg_5: -2046071831
+      death_greg_1: 1883664122
+      death_greg_3: -605391892
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

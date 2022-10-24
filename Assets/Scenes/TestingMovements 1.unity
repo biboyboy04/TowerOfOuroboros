@@ -49217,6 +49217,7 @@ MonoBehaviour:
   numberOfFlashes: 1
   components:
   - {fileID: 852026183}
+  - {fileID: 852026189}
 --- !u!1 &1026003280
 GameObject:
   m_ObjectHideFlags: 0
