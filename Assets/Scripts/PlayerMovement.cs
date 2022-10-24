@@ -112,12 +112,13 @@ public class PlayerMovement : MonoBehaviour
 	private void Update()
 	{
 
+		// Ground check
 		if (RB.velocity.y < -0.1 && !IsWallJumping && !IsWallSliding)
 		{
 			grounded = false;
 		}
 
-				#region INPUT HANDLER
+		#region INPUT HANDLER
 
 		_moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
@@ -607,10 +608,11 @@ public class PlayerMovement : MonoBehaviour
 		//float movement = speedDif * Data.slideAccel * 0.25f;
 		//So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
 		//The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
-		//movement = Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
+		//movement = -Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
 
-		//RB.AddForce(movement*0.5f * Vector2.up);
-		RB.velocity = new Vector2(RB.velocity.x, Mathf.Clamp(RB.velocity.y, -wallSlidingSpeed, float.MaxValue));
+		//RB.AddForce(movement*0.5f * Vector2.down);
+		RB.velocity = new Vector2(RB.velocity.x, -Mathf.Clamp(RB.velocity.y, wallSlidingSpeed, float.MaxValue));
+		//RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y * 0.1f);
 	}
     #endregion
 
