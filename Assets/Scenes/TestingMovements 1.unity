@@ -49467,12 +49467,12 @@ PrefabInstance:
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 12.74
+      value: 12.783
       objectReference: {fileID: 0}
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -2.94
+      value: -2.966
       objectReference: {fileID: 0}
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
@@ -49618,7 +49618,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 1250655667}
   attackPoint: {fileID: 1556818675}
-  attackRange: 0.38
+  attackRange: 3.02
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
@@ -49803,7 +49803,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1556818674}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.181, y: -0.775, z: -0.0041943877}
+  m_LocalPosition: {x: 0.191, y: -0.775, z: -0.0041943877}
   m_LocalScale: {x: 0.5, y: 0.5, z: 0.19999999}
   m_ConstrainProportionsScale: 0
   m_Children: []
