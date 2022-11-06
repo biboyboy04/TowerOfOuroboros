@@ -21,6 +21,8 @@ public class Health : MonoBehaviour
     private bool invulnerable;
 
     private Transform currentCheckpoint;
+    public GameManagerScript gameManager;
+    public BorderHealthBar borderHealthBar;
 
     private void Awake()
     {
@@ -55,6 +57,7 @@ public class Health : MonoBehaviour
             if (!dead)
             {
                 anim.SetTrigger("die");
+                
 
                 //Deactivate all attached component classes
                 foreach (Behaviour component in components)
@@ -65,9 +68,8 @@ public class Health : MonoBehaviour
                 if (gameObject.tag == "Player")
                 {
                     playerDead = dead;
+                    gameManager.gameOver();
                 }
-
-               // RespawnToCheckpoint();
             }
         }
     }
@@ -99,6 +101,7 @@ public class Health : MonoBehaviour
     public void Respawn()
     {
         dead = false;
+        playerDead = false;
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("idle");
@@ -117,6 +120,7 @@ public class Health : MonoBehaviour
         //Move the camera to the checkpoint's room
         //Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
     }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.gameObject.tag == "Checkpoint")
