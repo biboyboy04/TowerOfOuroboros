@@ -13,6 +13,7 @@ public class PlayerCombat : MonoBehaviour
     float nextAttackTime = 0f;
 
     [SerializeField] protected float damage;
+    [SerializeField] private AudioSource swordSlashSound;
 
     // Start is called before the first frame update
     void Start()
@@ -28,6 +29,7 @@ public class PlayerCombat : MonoBehaviour
             if (Input.GetKeyDown(KeyCode.R))
             {
                 Attack();
+                swordSlashSound.Play();
                 nextAttackTime = Time.time + 1f / attackRate;
             }
 
