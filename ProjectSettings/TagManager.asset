@@ -53,6 +53,9 @@ TagManager:
   - name: Checkpoint
     uniqueID: 2558164543
     locked: 0
+  - name: Traps
+    uniqueID: 1093453429
+    locked: 0
   - name: Player
     uniqueID: 3120037211
     locked: 0

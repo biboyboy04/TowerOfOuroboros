@@ -3,10 +3,14 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] protected float damage;
-    public PlayerMovement playerMovement;
+    PlayerMovement playerMovement;
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
+        //playerMovement = Greg.GetComponent<PlayerMovement>();
+        GameObject greg = GameObject.FindWithTag("Player");
+        playerMovement = greg.GetComponent<PlayerMovement>();
+
         if (collision.tag == "Player")
         {
             playerMovement.KBCounter = playerMovement.KBTotalTime;
