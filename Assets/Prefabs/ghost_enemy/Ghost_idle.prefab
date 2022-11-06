@@ -11,10 +11,10 @@ GameObject:
   - component: {fileID: 493823959460443745}
   - component: {fileID: 493823959460443775}
   - component: {fileID: 493823959460443774}
-  - component: {fileID: 493823959460443773}
   - component: {fileID: 493823959460443772}
   - component: {fileID: 493823959460443747}
   - component: {fileID: 493823959460443746}
+  - component: {fileID: -2415310973739857962}
   m_Layer: 10
   m_Name: Ghost_idle
   m_TagString: Enemy
@@ -109,27 +109,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!50 &493823959460443773
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 493823959460443744}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 1
-  m_LinearDrag: 0
-  m_AngularDrag: 0.05
-  m_GravityScale: 1
-  m_Material: {fileID: 6200000, guid: 7cd774f1cab18954ab27d36691ceb528, type: 2}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
 --- !u!70 &493823959460443772
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -176,3 +155,23 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 20
   playerMovement: {fileID: 0}
+--- !u!114 &-2415310973739857962
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 493823959460443744}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e447edafb0ad09f42bd06292a6b164e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  dead: 0
+  iFramesDuration: 1
+  numberOfFlashes: 1
+  components:
+  - {fileID: 493823959460443746}
+  - {fileID: 493823959460443774}
+  - {fileID: 493823959460443747}
