@@ -122,8 +122,8 @@ public class PlayerMovement : MonoBehaviour
 
 		_moveInput.x = Input.GetAxisRaw("Horizontal");
 		_moveInput.y = Input.GetAxisRaw("Vertical");
-		 //_moveInput.x = joystick.Horizontal;
-		 //_moveInput.y = joystick.Vertical;
+		// _moveInput.x = joystick.Horizontal;
+		// _moveInput.y = joystick.Vertical;
 		
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
@@ -326,7 +326,7 @@ public class PlayerMovement : MonoBehaviour
 		//sets animation parameters
 		anim.SetBool("run", (_moveInput.x > .3f || _moveInput.x < -.3f));
 		anim.SetBool("grounded", grounded);
-		anim.SetBool("dash", IsDashing);
+		//anim.SetBool("dash", IsDashing);
 		anim.SetBool("wallSliding", IsSliding);
 		anim.SetBool("doubleJump", IsDoubleJumping);
 

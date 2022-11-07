@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 2453031181440162326}
   - component: {fileID: 2453031181440162327}
   - component: {fileID: 2453031181440162333}
+  - component: {fileID: 1814006125585350721}
   m_Layer: 10
   m_Name: Ghost_follow
   m_TagString: Enemy
@@ -154,7 +155,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 20
-  playerMovement: {fileID: 0}
 --- !u!114 &2453031181440162333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,3 +169,28 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   player: {fileID: 0}
   speed: 10
+--- !u!114 &1814006125585350721
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453031181440162325}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e447edafb0ad09f42bd06292a6b164e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  startingHealth: 100
+  dead: 0
+  iFramesDuration: 1
+  numberOfFlashes: 1
+  components:
+  - {fileID: 2453031181440162326}
+  - {fileID: 2453031181440162329}
+  - {fileID: 2453031181440162327}
+  - {fileID: 2453031181440162333}
+  - {fileID: 1814006125585350721}
+  - {fileID: 2453031181440162331}
+  gameManager: {fileID: 0}
+  borderHealthBar: {fileID: 0}
