@@ -64,8 +64,11 @@ public class PlayerMovement : MonoBehaviour
 	public float KBForce;
 	public float KBCounter;
 	public float KBTotalTime;
+	public bool isMoving;
 
 	public bool KnockFromRight;
+
+	public AudioSource running;
 
 	#endregion
 
@@ -117,6 +120,18 @@ public class PlayerMovement : MonoBehaviour
 		{
 			grounded = false;
 		}
+		// if (RB.velocity.x != 0)
+		// {
+		// 	if(!running.isPlaying)
+		// 	{
+		// 		running.Play();
+		// 	}
+		// 	else 
+		// 	{
+		// 		running.Stop();
+		// 	}
+		// }
+
 
 		#region INPUT HANDLER
 
@@ -354,11 +369,11 @@ public class PlayerMovement : MonoBehaviour
 				{
 					if(KnockFromRight)
 					{
-						RB.velocity = new Vector2(-KBForce, KBForce);
+						RB.velocity = new Vector2(-KBForce, KBForce/2);
 					}
 					if(!KnockFromRight)
 					{
-						RB.velocity = new Vector2(KBForce, KBForce);
+						RB.velocity = new Vector2(KBForce, KBForce/2);
 					}
 					KBCounter -= Time.deltaTime;
 				}

@@ -58,7 +58,7 @@ public class PlayerCombat : MonoBehaviour
             {
                 Debug.Log("We hit" + enemy.name);
                 //enemy.new Vector2(KBForce, KBForce);
-                enemy.GetComponent<Health>()?.TakeDamage(50);
+                enemy.GetComponent<Health>()?.TakeDamage(damage);
                 (enemy.GetComponent<EnemyDamage>() as Behaviour).enabled = false;
                 // playerMovement.KBCounter = playerMovement.KBTotalTime;
                 

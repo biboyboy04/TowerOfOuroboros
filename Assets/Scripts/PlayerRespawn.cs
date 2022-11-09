@@ -4,10 +4,14 @@ public class PlayerRespawn : MonoBehaviour
 {
     private Transform currentCheckpoint;
     private Health playerHealth;
+    private SpriteRenderer spriteRend;
+
+    [SerializeField] private AudioSource checkpointSound;
 
     private void Awake()
     {
         playerHealth = GetComponent<Health>();
+        spriteRend = GetComponent<SpriteRenderer>();
     }
 
     private void Update()
@@ -28,8 +32,11 @@ public class PlayerRespawn : MonoBehaviour
         if (collision.gameObject.tag == "Checkpoint")
         {
             currentCheckpoint = collision.transform;
-           // SoundManager.instance.PlaySound(checkpoint);
+            checkpointSound.Play();
+            spriteRend.color = new Color(1, 0, 0, 0.5f);
+            spriteRend.color = Color.red;
             collision.GetComponent<Collider2D>().enabled = false;
+
           // collision.GetComponent<Animator>().SetTrigger("activate");
         }
     }

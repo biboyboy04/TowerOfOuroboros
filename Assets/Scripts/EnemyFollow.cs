@@ -28,14 +28,12 @@ public class EnemyFollow : MonoBehaviour
         Vector2 direction = player.transform.position - transform.position;
         direction.Normalize();
 
-        Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.5f);
+        Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.1f);
 
         if (distance < 9)
         {
             
-            transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime);
-            spriteRend.color = new Color(1, 0, 0, 0.5f);
-            spriteRend.color = Color.red;
+            transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime/2);
         }
         else 
         {

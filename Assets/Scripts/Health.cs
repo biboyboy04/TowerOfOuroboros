@@ -23,6 +23,7 @@ public class Health : MonoBehaviour
     private Transform currentCheckpoint;
     public GameManagerScript gameManager;
     public BorderHealthBar borderHealthBar;
+    [SerializeField] private AudioSource checkpointSound;
 
     private void Awake()
     {
@@ -73,10 +74,12 @@ public class Health : MonoBehaviour
             }
         }
     }
+
     public void AddHealth(float _value)
     {
         currentHealth = Mathf.Clamp(currentHealth + _value, 0, startingHealth);
     }
+
     private IEnumerator Invunerability()
     {
         invulnerable = true;
@@ -115,6 +118,10 @@ public class Health : MonoBehaviour
     public void RespawnToCheckpoint()
     {
         Respawn(); //Restore player health and reset animation
+        if (currentCheckpoint == null)
+        {
+            gameManager.restart();
+        }
         transform.position = currentCheckpoint.position; //Move player to checkpoint location 
 
         //Move the camera to the checkpoint's room
@@ -126,7 +133,10 @@ public class Health : MonoBehaviour
         if (collision.gameObject.tag == "Checkpoint")
         {
             currentCheckpoint = collision.transform;
-            // SoundManager.instance.PlaySound(checkpoint);
+            checkpointSound.Play();
+            collision.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 1);
+            //spriteRend.color = new Color(1, 0, 0, 0.5f);
+            //spriteRend.color = Color.red;
             collision.GetComponent<Collider2D>().enabled = false;
             // collision.GetComponent<Animator>().SetTrigger("activate");
         }
