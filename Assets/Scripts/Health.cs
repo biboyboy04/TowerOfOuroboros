@@ -23,7 +23,14 @@ public class Health : MonoBehaviour
     private Transform currentCheckpoint;
     public GameManagerScript gameManager;
     public BorderHealthBar borderHealthBar;
+
     [SerializeField] private AudioSource checkpointSound;
+
+    [SerializeField] private AudioSource playerHurtSound;
+    [SerializeField] private AudioSource playerDeadSound;
+
+    [SerializeField] private AudioSource ghostHurtSound;
+    [SerializeField] private AudioSource ghostDeadSound;
 
     private void Awake()
     {
@@ -51,7 +58,16 @@ public class Health : MonoBehaviour
 
         if (currentHealth > 0)
         {
-            anim.SetTrigger("hurt");
+            if (gameObject.tag == "Player")
+            {
+                playerHurtSound.Play();
+                anim.SetTrigger("hurt");
+            }
+            if (gameObject.tag == "Ghost") 
+            {
+                ghostHurtSound.Play();
+            }
+
             StartCoroutine(Invunerability());
         }
         else
@@ -70,7 +86,13 @@ public class Health : MonoBehaviour
                 if (gameObject.tag == "Player")
                 {
                     playerDead = dead;
+                    playerDeadSound.Play();
                     gameManager.gameOver();
+                }
+
+                if (gameObject.tag == "Ghost")
+                {
+                    ghostDeadSound.Play();
                 }
             }
         }
