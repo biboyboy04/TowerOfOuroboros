@@ -11,20 +11,28 @@ public class EnemyDamage : MonoBehaviour
         GameObject greg = GameObject.FindWithTag("Player");
         playerMovement = greg.GetComponent<PlayerMovement>();
 
+        Health playerHealth = collision.GetComponent<Health>();
+
+
         if (collision.tag == "Player")
         {
-            playerMovement.KBCounter = playerMovement.KBTotalTime;
+            if (damage < playerHealth.currentHealth)
+            {
+                playerMovement.KBCounter = playerMovement.KBTotalTime;
             
-            if (collision.transform.position.x <= transform.position.x)
-            {
-                playerMovement.KnockFromRight = true;
-            }
-            if (collision.transform.position.x > transform.position.x)
-            {
-                playerMovement.KnockFromRight = false;
+                if (collision.transform.position.x <= transform.position.x)
+                {
+                    playerMovement.KnockFromRight = true;
+                }
+
+                if (collision.transform.position.x > transform.position.x)
+                {
+                    playerMovement.KnockFromRight = false;
+                }
             }
 
-            collision.GetComponent<Health>().TakeDamage(damage);
+            playerHealth.TakeDamage(damage);
+            
         }
             
     }
