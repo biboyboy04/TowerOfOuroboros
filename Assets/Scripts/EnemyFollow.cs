@@ -14,10 +14,7 @@ public class EnemyFollow : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
         spriteRend = GetComponent<SpriteRenderer>();
-    //    originColor = spriteRend.Color;
-
     }
 
     // Update is called once per frame
@@ -30,14 +27,9 @@ public class EnemyFollow : MonoBehaviour
 
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.1f);
 
-        if (distance < 9)
+        if (distance < 9 && !Health.invulnerable)
         {
-            
             transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime/2);
-        }
-        else 
-        {
-             spriteRend.color = Color.white;
         }
     }
 }

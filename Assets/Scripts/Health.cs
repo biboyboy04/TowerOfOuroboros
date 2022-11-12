@@ -18,7 +18,7 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
-    private bool invulnerable;
+    public static bool invulnerable;
 
     private Transform currentCheckpoint;
     public GameManagerScript gameManager;
