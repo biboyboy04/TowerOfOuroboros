@@ -40,6 +40,7 @@ public class Health : MonoBehaviour
         {
             TakeDamage(999);
         }
+
     }
 
 
@@ -109,6 +110,7 @@ public class Health : MonoBehaviour
         anim.ResetTrigger("die");
         anim.Play("idle");
         StartCoroutine(Invunerability());
+        //invulnerable = false; 
 
         //Activate all attached component classes
         foreach (Behaviour component in components)
@@ -117,10 +119,12 @@ public class Health : MonoBehaviour
 
     public void RespawnToCheckpoint()
     {
-        Respawn(); //Restore player health and reset animation
+        Respawn();//Restore player health and reset animation
+        
         if (currentCheckpoint == null)
         {
             gameManager.restart();
+            invulnerable = false;
         }
         transform.position = currentCheckpoint.position; //Move player to checkpoint location 
 
