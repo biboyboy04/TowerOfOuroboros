@@ -11,7 +11,7 @@ public class GameManagerScript : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        
+        Health.playerDead = false;
     }
 
     // Update is called once per frame
@@ -27,7 +27,6 @@ public class GameManagerScript : MonoBehaviour
 
     public void restart()
     {
-        Health.playerDead = false;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -36,5 +35,10 @@ public class GameManagerScript : MonoBehaviour
         health.RespawnToCheckpoint();
         gameOverUI.SetActive(false);
         
+    }
+
+    public void menu()
+    {
+        SceneManager.LoadScene("GameMenu");
     }
 }

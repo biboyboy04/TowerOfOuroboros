@@ -135,10 +135,10 @@ public class PlayerMovement : MonoBehaviour
 
 		#region INPUT HANDLER
 
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
-		// _moveInput.x = joystick.Horizontal;
-		// _moveInput.y = joystick.Vertical;
+		// _moveInput.x = Input.GetAxisRaw("Horizontal");
+		// _moveInput.y = Input.GetAxisRaw("Vertical");
+		_moveInput.x = joystick.Horizontal;
+		_moveInput.y = joystick.Vertical;
 		
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
@@ -520,8 +520,8 @@ public class PlayerMovement : MonoBehaviour
 		//This means we'll always feel like we jump the same amount 
 		//(setting the player's Y velocity to 0 beforehand will likely work the same, but I find this more elegant :D)
 		float force = Data.jumpForce;
-		//if (RB.velocity.y < 0)
-			//force -= RB.velocity.y;
+		if (RB.velocity.y < 0)
+			force -= RB.velocity.y;
 
 		//RB.AddForce(Vector2.up * force, ForceMode2D.Impulse);
 		RB.velocity = Vector2.up * force;
@@ -530,7 +530,6 @@ public class PlayerMovement : MonoBehaviour
 
 	private void DoubleJump()
 	{
-		float force = Data.jumpForce;
 		RB.velocity = new Vector2(RB.velocity.x, Data.jumpForce);
 
 		canDoubleJump = false;
@@ -548,15 +547,15 @@ public class PlayerMovement : MonoBehaviour
 		Vector2 force = new Vector2(Data.wallJumpForce.x, Data.wallJumpForce.y);
 		force.x *= dir; //apply force in opposite direction of wall
 
-		//if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
-		//	force.x -= RB.velocity.x;
+		if (Mathf.Sign(RB.velocity.x) != Mathf.Sign(force.x))
+			force.x -= RB.velocity.x;
 
-		//if (RB.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
-			//force.y -= RB.velocity.y;
+		if (RB.velocity.y < 0) //checks whether player is falling, if so we subtract the velocity.y (counteracting force of gravity). This ensures the player always reaches our desired jump force or greater
+			force.y -= RB.velocity.y;
 
 		//Unlike in the run we want to use the Impulse mode.
 		//The default mode will apply are force instantly ignoring masss
-		RB.AddForce(force, ForceMode2D.Impulse);
+		RB.velocity = new Vector2(RB.velocity.x, Data.jumpForce);
 		#endregion
 	}
 	#endregion

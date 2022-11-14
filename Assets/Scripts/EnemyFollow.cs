@@ -9,7 +9,6 @@ public class EnemyFollow : MonoBehaviour
     private SpriteRenderer spriteRend;
     private Color originColor;
 
-
     private float distance;
     // Start is called before the first frame update
     void Start()
@@ -27,7 +26,7 @@ public class EnemyFollow : MonoBehaviour
 
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.1f);
 
-        if (distance < 9 && !Health.invulnerable)
+        if (distance < 8 && !Health.invulnerable)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime/2);
         }
