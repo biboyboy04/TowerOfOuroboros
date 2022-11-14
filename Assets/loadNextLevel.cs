@@ -27,6 +27,7 @@ public class loadNextLevel : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
+            PlayerPrefs.SetInt("levelReached", 2);
             Invoke("LoadScene", 0.5f);
         }
     }
@@ -42,4 +43,5 @@ public class loadNextLevel : MonoBehaviour
             SceneManager.LoadScene(sLevelToLoad);
         }
     }
+
 }
