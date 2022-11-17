@@ -43,7 +43,7 @@ public class Health : MonoBehaviour
     private void Update() 
     {
         // Kill the player if they fall too deep
-        if (transform.position.y < -40)
+        if (transform.position.y < -10)
         {
             TakeDamage(999);
         }

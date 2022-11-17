@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 2453031181440162324}
   - component: {fileID: 2453031181440162330}
   - component: {fileID: 2453031181440162331}
-  - component: {fileID: 2453031181440162329}
   - component: {fileID: 2453031181440162326}
   - component: {fileID: 2453031181440162327}
   - component: {fileID: 2453031181440162333}
@@ -112,22 +111,6 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
---- !u!70 &2453031181440162329
-CapsuleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2453031181440162325}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.011530399, y: 0.038435936}
-  m_Size: {x: 0.6643286, y: 0.7847595}
-  m_Direction: 0
 --- !u!70 &2453031181440162326
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -189,7 +172,7 @@ MonoBehaviour:
   numberOfFlashes: 1
   components:
   - {fileID: 2453031181440162326}
-  - {fileID: 2453031181440162329}
+  - {fileID: 0}
   - {fileID: 2453031181440162327}
   - {fileID: 2453031181440162333}
   - {fileID: 1814006125585350721}
