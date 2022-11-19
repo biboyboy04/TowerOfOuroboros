@@ -1344,6 +1344,11 @@ PrefabInstance:
       propertyPath: borderHealthBar
       value: 
       objectReference: {fileID: 1029450856}
+    - target: {fileID: 7258378842002252547, guid: 128e5ff785c01d84e9eeaf955484d82f,
+        type: 3}
+      propertyPath: deathCountObject
+      value: 
+      objectReference: {fileID: 8986218542871650318}
     - target: {fileID: 7258378842002252555, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_Name
@@ -1357,12 +1362,12 @@ PrefabInstance:
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 291.6
+      value: 76.75
       objectReference: {fileID: 0}
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.8
+      value: 1.21
       objectReference: {fileID: 0}
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
@@ -2892,6 +2897,16 @@ Tilemap:
       serializedVersion: 2
       m_TileIndex: 4
       m_TileSpriteIndex: 4
+      m_TileMatrixIndex: 0
+      m_TileColorIndex: 0
+      m_TileObjectToInstantiateIndex: 65535
+      dummyAlignment: 0
+      m_AllTileFlags: 1073741825
+  - first: {x: 268, y: 0, z: 0}
+    second:
+      serializedVersion: 2
+      m_TileIndex: 3
+      m_TileSpriteIndex: 3
       m_TileMatrixIndex: 0
       m_TileColorIndex: 0
       m_TileObjectToInstantiateIndex: 65535
@@ -5775,8 +5790,8 @@ Tilemap:
     m_Data: {fileID: 11400000, guid: a3df6cd9a6b8be34ba229e5e4e20d2bb, type: 2}
   - m_RefCount: 55
     m_Data: {fileID: 11400000, guid: 17c09b9e3afcda44ea65fe8433b71314, type: 2}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 11400000, guid: 59a20ebce3232af4a8d302805cd95182, type: 2}
   - m_RefCount: 42
     m_Data: {fileID: 11400000, guid: 7110f8bb6c0e2a94f85b482832661554, type: 2}
   - m_RefCount: 51
@@ -5788,14 +5803,14 @@ Tilemap:
     m_Data: {fileID: -1971338526, guid: 2873c64238770304dadca3b40eaf5fce, type: 3}
   - m_RefCount: 55
     m_Data: {fileID: 1459988367, guid: 2873c64238770304dadca3b40eaf5fce, type: 3}
-  - m_RefCount: 0
-    m_Data: {fileID: 0}
+  - m_RefCount: 1
+    m_Data: {fileID: 2114456240, guid: 2873c64238770304dadca3b40eaf5fce, type: 3}
   - m_RefCount: 42
     m_Data: {fileID: -1386542241, guid: 2873c64238770304dadca3b40eaf5fce, type: 3}
   - m_RefCount: 51
     m_Data: {fileID: 21300000, guid: 696807e4e5bdca74189638340db128fe, type: 3}
   m_TileMatrixArray:
-  - m_RefCount: 420
+  - m_RefCount: 421
     m_Data:
       e00: 1
       e01: 0
@@ -5814,7 +5829,7 @@ Tilemap:
       e32: 0
       e33: 1
   m_TileColorArray:
-  - m_RefCount: 369
+  - m_RefCount: 370
     m_Data: {r: 1, g: 1, b: 1, a: 1}
   - m_RefCount: 51
     m_Data: {r: 0.9843137, g: 0.11534355, b: 0.11534355, a: 1}
@@ -7058,8 +7073,8 @@ TilemapRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
+  m_SortingLayerID: -2009525661
+  m_SortingLayer: 2
   m_SortingOrder: 0
   m_ChunkSize: {x: 32, y: 32, z: 32}
   m_ChunkCullingBounds: {x: 0, y: 0, z: 0}
@@ -114067,3 +114082,9 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}
+--- !u!1 &8986218542871650318 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 4115011069106169710, guid: 2fbae59a948ef054fa9eac34463fa899,
+    type: 3}
+  m_PrefabInstance: {fileID: 8986218542871650317}
+  m_PrefabAsset: {fileID: 0}

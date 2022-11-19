@@ -1,6 +1,7 @@
 using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
@@ -24,6 +25,9 @@ public class Health : MonoBehaviour
     public GameManagerScript gameManager;
     public BorderHealthBar borderHealthBar;
 
+    public GameObject deathCountObject;
+    private TMP_Text deathCountText;
+
     [SerializeField] private AudioSource checkpointSound;
 
     [SerializeField] private AudioSource playerHurtSound;
@@ -38,6 +42,19 @@ public class Health : MonoBehaviour
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
+        deathCountText = deathCountObject.GetComponent<TextMeshProUGUI>();
+
+
+        if((PlayerPrefs.GetInt("deathCount") == null)) 
+        {
+            PlayerPrefs.SetInt("deathCount", 0);
+        }
+        else
+        {
+            PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount"));
+        }
+        
+        deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
     }
 
     private void Update() 
@@ -49,7 +66,6 @@ public class Health : MonoBehaviour
         }
 
     }
-
 
     public void TakeDamage(float _damage)
     {
@@ -86,6 +102,8 @@ public class Health : MonoBehaviour
                 if (gameObject.tag == "Player")
                 {
                     playerDead = dead;
+                    PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount") +1 );
+                    deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
                     playerDeadSound.Play();
                     gameManager.gameOver();
                 }
