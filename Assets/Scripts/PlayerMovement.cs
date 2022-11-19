@@ -58,7 +58,7 @@ public class PlayerMovement : MonoBehaviour
 	private bool _dashRefilling;
 	private Vector2 _lastDashDir;
 	private bool _isDashAttacking;
-	public int targetFrameRate = 30;
+	public int targetFrameRate;
 
 	//Knockback
 	public float KBForce;
@@ -646,7 +646,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDoubleJump()
 	{
-		return canDoubleJump && grounded == false;
+		return (canDoubleJump) && grounded == false;
 	}
 
 	private bool CanWallJump()

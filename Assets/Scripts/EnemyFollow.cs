@@ -14,6 +14,7 @@ public class EnemyFollow : MonoBehaviour
     void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
+
     }
 
     // Update is called once per frame

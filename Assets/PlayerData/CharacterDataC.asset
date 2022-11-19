@@ -29,7 +29,7 @@ MonoBehaviour:
   jumpHeight: 3.5
   jumpTimeToApex: 0.4
   jumpForce: 17.5
-  jumpCutGravityMult: 1.5
+  jumpCutGravityMult: 2
   jumpHangGravityMult: 1
   jumpHangTimeThreshold: 0
   jumpHangAccelerationMult: 1
@@ -40,8 +40,8 @@ MonoBehaviour:
   doTurnOnWallJump: 1
   slideSpeed: 0
   slideAccel: 0
-  coyoteTime: 0.25
-  jumpInputBufferTime: 0.25
+  coyoteTime: 0.1
+  jumpInputBufferTime: 0.1
   dashAmount: 1
   dashSpeed: 45
   dashSleepTime: 0.05

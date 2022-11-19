@@ -10,6 +10,8 @@ public class PauseComponent : MonoBehaviour
     [SerializeField] private Behaviour[] components;
     private float time;
     private bool canDisable;
+    public Sprite spriteStart;
+    private SpriteRenderer spriteRend;
 
 
     void Start() 
@@ -17,6 +19,7 @@ public class PauseComponent : MonoBehaviour
        // nextTimeCall = Time.time + 1f;
        canDisable = true;
        time = 0f;
+       spriteRend = GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
@@ -53,12 +56,13 @@ public class PauseComponent : MonoBehaviour
     {
         foreach (Behaviour component in components)
             component.enabled = false;
+        spriteRend.sprite = spriteStart;
         
     } 
 
 
     private float animationTimeToSeconds()
     {
-       return (animationTime * animationNumber) / 60;
+       return (animationTime * animationNumber) / 60f;
     }
 }
