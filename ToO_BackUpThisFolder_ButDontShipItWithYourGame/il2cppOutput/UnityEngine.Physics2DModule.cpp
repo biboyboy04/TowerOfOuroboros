@@ -630,6 +630,11 @@ struct CapsuleCollider2D_tBC93B7F1D1569FF805567D2D4C17438E95F927EE  : public Col
 struct CircleCollider2D_t5D665D58EACA966EA4033BCF0EE91E198552E786  : public Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52
 {
 };
+
+// UnityEngine.EdgeCollider2D
+struct EdgeCollider2D_tB7A39F2B1345894C40577A62FD62244702DE3710  : public Collider2D_t6A17BA7734600EF3F26588E9ED903617D5B8EB52
+{
+};
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
@@ -2958,6 +2963,14 @@ IL2CPP_EXTERN_C IL2CPP_METHOD_ATTR void Collider2D__ctor_mC4E4C5F6A2093B4902A09B
 		return;
 	}
 }
+#ifdef __clang__
+#pragma clang diagnostic pop
+#endif
+#ifdef __clang__
+#pragma clang diagnostic push
+#pragma clang diagnostic ignored "-Winvalid-offsetof"
+#pragma clang diagnostic ignored "-Wunused-variable"
+#endif
 #ifdef __clang__
 #pragma clang diagnostic pop
 #endif
