@@ -9,6 +9,8 @@ public class loadNextLevel : MonoBehaviour
     public int iLevelToLoad;
     public string sLevelToLoad;
 
+    public int nextFloorNumber;
+
     public bool useIntegerToLoadLevel = false;
 
     // Start is called before the first frame update
@@ -27,7 +29,7 @@ public class loadNextLevel : MonoBehaviour
     {
         if (collision.tag == "Player")
         {
-            PlayerPrefs.SetInt("levelReached", 2);
+            PlayerPrefs.SetInt("levelReached", nextFloorNumber);
             Invoke("LoadScene", 0.5f);
         }
     }
