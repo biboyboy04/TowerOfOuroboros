@@ -120,17 +120,6 @@ public class PlayerMovement : MonoBehaviour
 		{
 			grounded = false;
 		}
-		// if (RB.velocity.x != 0)
-		// {
-		// 	if(!running.isPlaying)
-		// 	{
-		// 		running.Play();
-		// 	}
-		// 	else 
-		// 	{
-		// 		running.Stop();
-		// 	}
-		// }
 
 
 		#region INPUT HANDLER
@@ -169,7 +158,7 @@ public class PlayerMovement : MonoBehaviour
 		LastPressedJumpTime -= Time.deltaTime;
 		LastPressedDashTime -= Time.deltaTime;
 		#endregion
-
+		
 
 		#region COLLISION CHECKS
 		if (!IsDashing && !IsJumping)
@@ -357,7 +346,6 @@ public class PlayerMovement : MonoBehaviour
 			{
 				Run(Data.wallJumpRunLerp);
 			}
-				//Run(Data.wallJumpRunLerp);
 			else
 			{
 				// Enemy Collision
@@ -630,7 +618,7 @@ public class PlayerMovement : MonoBehaviour
 		//RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y * 0.1f);
 	}
     #endregion
-
+	
 
     #region CHECK METHODS
     public void CheckDirectionToFace(bool isMovingRight)
@@ -667,7 +655,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDash()
 	{
-		if (!IsDashing && _dashesLeft < Data.dashAmount && !_dashRefilling)
+		if (!IsDashing && _dashesLeft < Data.dashAmount && !_dashRefilling && (LastOnGroundTime > 0))
 		{
 			StartCoroutine(nameof(RefillDash), 1);
 		}
