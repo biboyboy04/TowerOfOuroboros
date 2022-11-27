@@ -4,6 +4,7 @@ public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] protected float damage;
     PlayerMovement playerMovement;
+    
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {
@@ -34,6 +35,7 @@ public class EnemyDamage : MonoBehaviour
             playerHealth.TakeDamage(damage);
             
         }
+
             
     }
 }

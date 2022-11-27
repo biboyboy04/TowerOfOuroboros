@@ -6,7 +6,7 @@ using TMPro;
 public class Health : MonoBehaviour
 {
     [Header ("Health")]
-    [SerializeField] private float startingHealth;
+    [SerializeField] public float startingHealth;
     public float currentHealth { get; private set; }
     private Animator anim;
     public bool dead;
@@ -106,11 +106,6 @@ public class Health : MonoBehaviour
                     deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
                     playerDeadSound.Play();
                     gameManager.gameOver();
-                }
-
-                if (gameObject.tag == "Ghost")
-                {
-                    ghostDeadSound.Play();
                 }
             }
         }
