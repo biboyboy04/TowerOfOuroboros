@@ -6,26 +6,32 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartSceen.unity
-    guid: bae6bf2bd6587904d9133e2b38758909
+    path: Assets/Scenes/Scenes/StartSceen.unity
+    guid: 64235b69c37b5904a93002ace561ae7f
   - enabled: 1
-    path: Assets/Scenes/GameMenu.unity
-    guid: 3b6e50f7275f68947b18aaf8e45116fc
+    path: Assets/Scenes/Scenes/GameMenu.unity
+    guid: 5b16730083261694aa2147564803f88c
   - enabled: 1
-    path: Assets/Scenes/LevelSelect.unity
-    guid: c0aaa703df6140c439a059bb34dc028e
+    path: Assets/Scenes/Scenes/LevelSelect.unity
+    guid: 52bd3bfb453f4e742ab80d7c8a9e497d
   - enabled: 1
-    path: Assets/Scenes/Floor1.unity
-    guid: 4176678513807904b90831367eabc192
+    path: Assets/Scenes/Scenes/Floor1.unity
+    guid: c2b0c8f288f4307459dd9a807eeada76
   - enabled: 1
-    path: Assets/Scenes/Floor2.unity
-    guid: f08af3a3376c95b448881d7ec4e574c4
+    path: Assets/Scenes/Scenes/Floor2.unity
+    guid: 597ada92f28db6d4f838e0697ee1327a
   - enabled: 1
     path: Assets/Scenes/Scenes/Floor3.unity
     guid: d332c38933a70f848adda32703cc3b05
   - enabled: 1
     path: Assets/Scenes/Scenes/Floor4.unity
     guid: 7749160098399534dbb7a7f9e974ccc2
+  - enabled: 1
+    path: Assets/Scenes/Scenes/Floor5.unity
+    guid: 68cfc7c6789c76e45bc47ea47ce4e52f
+  - enabled: 1
+    path: Assets/Scenes/Scenes/Boss.unity
+    guid: 8252eda56f6946a4987b72ce344d699f
   - enabled: 0
     path: 
     guid: 00000000000000000000000000000000
