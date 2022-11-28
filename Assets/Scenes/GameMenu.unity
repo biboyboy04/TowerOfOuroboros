@@ -505,7 +505,7 @@ MonoBehaviour:
       type: 3}
     m_SelectedSprite: {fileID: -949973426, guid: 01d849a3cbbe0df4db56480c05a1e9cd,
       type: 3}
-    m_DisabledSprite: {fileID: -949973426, guid: 01d849a3cbbe0df4db56480c05a1e9cd,
+    m_DisabledSprite: {fileID: 111108435, guid: ac9bf3982c5dd1a4392e296a61795703,
       type: 3}
   m_AnimationTriggers:
     m_NormalTrigger: Normal
@@ -513,7 +513,7 @@ MonoBehaviour:
     m_PressedTrigger: Pressed
     m_SelectedTrigger: Selected
     m_DisabledTrigger: Disabled
-  m_Interactable: 1
+  m_Interactable: 0
   m_TargetGraphic: {fileID: 416677850}
   m_OnClick:
     m_PersistentCalls:
@@ -531,7 +531,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.44705883}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1

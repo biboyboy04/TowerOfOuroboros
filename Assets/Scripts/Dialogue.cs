@@ -9,6 +9,7 @@ public class Dialogue : MonoBehaviour
     public string[] lines;
     public float textSpeed;
     public GameObject bg;
+    public GameObject leanTouch;
 
     private int index;
 
@@ -21,18 +22,7 @@ public class Dialogue : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(Input.GetMouseButtonDown(0))
-        {
-            if(textComponent.text == lines[index])
-            {
-                NextLine();
-            }
-            else
-            {
-                StopAllCoroutines();
-                textComponent.text = lines[index];
-            }
-        }
+
     }
 
     void StartDialogue()
@@ -50,6 +40,19 @@ public class Dialogue : MonoBehaviour
         }
     }
 
+    public void NextLineInput()
+    {
+        if(textComponent.text == lines[index])
+        {
+            NextLine();
+        }
+        else
+        {
+            StopAllCoroutines();
+            textComponent.text = lines[index];
+        }
+    }
+
     void NextLine()
     {
         if(index < lines.Length-1)
@@ -62,6 +65,8 @@ public class Dialogue : MonoBehaviour
         {
             gameObject.SetActive(false);
             bg.SetActive(false);
+            leanTouch.SetActive(false);
+            
         }
     }
 }

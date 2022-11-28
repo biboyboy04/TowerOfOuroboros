@@ -12,6 +12,8 @@ public class GameManagerScript : MonoBehaviour
 
     private bool isPaused;
 
+    [SerializeField] private AudioSource pauseSound;
+
     // Start is called before the first frame update
     void Start()
     {
@@ -45,6 +47,8 @@ public class GameManagerScript : MonoBehaviour
 
     public void pause()
     {
+        pauseSound.Play();
+        
         if(isPaused)
         {
             isPaused = false;
