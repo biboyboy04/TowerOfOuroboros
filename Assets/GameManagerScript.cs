@@ -6,12 +6,17 @@ using UnityEngine.SceneManagement;
 public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
+    public GameObject pauseUI;
     public Health health;
     public BorderHealthBar borderHealthBar;
+
+    private bool isPaused;
+
     // Start is called before the first frame update
     void Start()
     {
         Health.playerDead = false;
+        isPaused = true;
     }
 
     // Update is called once per frame
@@ -27,6 +32,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void restart()
     {
+        Time.timeScale = 1;
         SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
     }
 
@@ -36,6 +42,24 @@ public class GameManagerScript : MonoBehaviour
         gameOverUI.SetActive(false);
         
     }
+
+    public void pause()
+    {
+        if(isPaused)
+        {
+            isPaused = false;
+            pauseUI.SetActive(true);
+            Time.timeScale = 0;
+        }
+        else
+        {
+            isPaused = true;
+            pauseUI.SetActive(false);
+            Time.timeScale = 1;
+        }
+
+    }
+
 
     public void menu()
     {
