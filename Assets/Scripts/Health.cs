@@ -107,6 +107,11 @@ public class Health : MonoBehaviour
                     playerDeadSound.Play();
                     gameManager.gameOver();
                 }
+
+                if (gameObject.tag == "Ghost")
+                {
+                    ghostDeadSound.Play();
+                }
             }
         }
     }

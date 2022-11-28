@@ -14,14 +14,15 @@ public class SideAttack : EnemyDamage
     private bool attacking;
     private bool canChangeValue;
     private Health health;
+    private bool canChangeColor;
     
 
     [Header("SFX")]
     [SerializeField] private AudioClip impactSound;
     private void Start()
     {
-        health = this.GetComponent<Health>();
         canChangeValue = true;
+        canChangeColor = false;
     }
 
     private void OnEnable()
@@ -31,13 +32,19 @@ public class SideAttack : EnemyDamage
     private void Update()
     {
 
-        if(IsHalfHealth())
+        if(this.tag == "Miniboss")
         {
-            canChangeValue = false;
-            this.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
-            speed*=2;
-            checkDelay/=2;
+            //changeColor();
+
+            if(IsHalfHealth())
+            {
+                canChangeValue = false;
+                speed*=2;
+                checkDelay/=2;
+            }
         }
+
+
 
         //Move spikehead to destination only if attacking
         if (attacking)
@@ -48,6 +55,7 @@ public class SideAttack : EnemyDamage
         else
         {
             checkTimer += Time.deltaTime;
+            
             if (checkTimer > checkDelay)
             {
                 CheckForPlayer();
@@ -57,8 +65,9 @@ public class SideAttack : EnemyDamage
     private void CheckForPlayer()
     {
         CalculateDirections();
-        //Change color to indicate that the enemy is ready for the charge
-        this.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        canChangeColor = true;
+        changeColor();
+       
         //Check if spikehead sees player in all 4 directions
         for (int i = 0; i < directions.Length; i++)
         {
@@ -85,7 +94,18 @@ public class SideAttack : EnemyDamage
     {
         destination = transform.position; //Set destination as current position so it doesn't move
         attacking = false;
-        this.GetComponent<SpriteRenderer>().color = Color.white;
+        canChangeColor = false;
+        changeColor();
+    }
+
+    private void changeColor()
+    {
+        if(canChangeColor)
+        {
+            this.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
+        }
+        else
+            this.GetComponent<SpriteRenderer>().color = Color.white;
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -97,6 +117,8 @@ public class SideAttack : EnemyDamage
 
     private bool IsHalfHealth()
     {   
+
+        health = this.GetComponent<Health>();
         if(canChangeValue)
         {
             return health.currentHealth <= (health.startingHealth / 2);

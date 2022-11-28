@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
 
     public void ContinueGame()
     {
+        PlayerPrefs.SetInt("levelReached", 7);
         SceneManager.LoadScene("LevelSelect");
     }
 

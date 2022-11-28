@@ -77,8 +77,8 @@ SpriteRenderer:
   m_AutoUVMaxDistance: 0.5
   m_AutoUVMaxAngle: 89
   m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: -2009525661
-  m_SortingLayer: 2
+  m_SortingLayerID: 65782757
+  m_SortingLayer: 6
   m_SortingOrder: 0
   m_Sprite: {fileID: -78127985, guid: a8e3b4f28f74d514baab1b26f5c998e5, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
@@ -153,7 +153,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 7
+  speed: 11
+  distanceBetween: 8
 --- !u!114 &1814006125585350721
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -172,13 +173,13 @@ MonoBehaviour:
   numberOfFlashes: 1
   components:
   - {fileID: 2453031181440162326}
-  - {fileID: 0}
+  - {fileID: 2453031181440162331}
   - {fileID: 2453031181440162327}
   - {fileID: 2453031181440162333}
   - {fileID: 1814006125585350721}
-  - {fileID: 2453031181440162331}
   gameManager: {fileID: 0}
   borderHealthBar: {fileID: 0}
+  deathCountObject: {fileID: 0}
   checkpointSound: {fileID: 0}
   playerHurtSound: {fileID: 0}
   playerDeadSound: {fileID: 0}

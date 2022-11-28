@@ -1,13 +1,8 @@
-/*
-	Created by @DawnosaurDev at youtube.com/c/DawnosaurStudios
-	Thanks so much for checking this out and I hope you find it helpful! 
-	If you have any further queries, questions or feedback feel free to reach out on my twitter or leave a comment on youtube :D
-
-	Feel free to use this in your own games, and I'd love to see anything you make!
- */
 
 using System.Collections;
 using UnityEngine;
+
+// Credits to Dawnosaur
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -124,10 +119,10 @@ public class PlayerMovement : MonoBehaviour
 
 		#region INPUT HANDLER
 
-		_moveInput.x = Input.GetAxisRaw("Horizontal");
-		_moveInput.y = Input.GetAxisRaw("Vertical");
-		// _moveInput.x = joystick.Horizontal;
-		// _moveInput.y = joystick.Vertical;
+		// _moveInput.x = Input.GetAxisRaw("Horizontal");
+		// _moveInput.y = Input.GetAxisRaw("Vertical");
+		_moveInput.x = joystick.Horizontal;
+		_moveInput.y = joystick.Vertical;
 		
 		if (_moveInput.x != 0)
 			CheckDirectionToFace(_moveInput.x > 0);
@@ -687,4 +682,3 @@ public class PlayerMovement : MonoBehaviour
 	
 }
 
-// created by Dawnosaur :D
