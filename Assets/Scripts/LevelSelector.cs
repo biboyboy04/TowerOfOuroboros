@@ -22,6 +22,7 @@ public class LevelSelector : MonoBehaviour
 
 	public void Select (string levelName)
 	{
+		Time.timeScale = 1;
         SceneManager.LoadScene(levelName);
     }
 

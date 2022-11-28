@@ -7,7 +7,7 @@ public class MainMenu : MonoBehaviour
     public void NewGame()
     {
         PlayerPrefs.DeleteAll();
-        SceneManager.LoadScene("Floor1");
+        SceneManager.LoadScene("Prologue");
     }
 
     public void ContinueGame()

@@ -276,6 +276,141 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1801382458}
   m_PrefabAsset: {fileID: 0}
+--- !u!1 &206128350
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 206128351}
+  - component: {fileID: 206128353}
+  - component: {fileID: 206128352}
+  m_Layer: 5
+  m_Name: Text (TMP)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &206128351
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206128350}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 528376899}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: 0, y: -0.000030517578}
+  m_SizeDelta: {x: 1500, y: 300}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &206128352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206128350}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f4688fdb7df04437aeb418b961361dc5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_text: New Text
+  m_isRightToLeft: 0
+  m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
+  m_fontSharedMaterials: []
+  m_fontMaterial: {fileID: 0}
+  m_fontMaterials: []
+  m_fontColor32:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+  m_enableVertexGradient: 0
+  m_colorMode: 3
+  m_fontColorGradient:
+    topLeft: {r: 1, g: 1, b: 1, a: 1}
+    topRight: {r: 1, g: 1, b: 1, a: 1}
+    bottomLeft: {r: 1, g: 1, b: 1, a: 1}
+    bottomRight: {r: 1, g: 1, b: 1, a: 1}
+  m_fontColorGradientPreset: {fileID: 0}
+  m_spriteAsset: {fileID: 0}
+  m_tintAllSprites: 0
+  m_StyleSheet: {fileID: 0}
+  m_TextStyleHashCode: -1183493901
+  m_overrideHtmlColors: 0
+  m_faceColor:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_fontSize: 36
+  m_fontSizeBase: 36
+  m_fontWeight: 400
+  m_enableAutoSizing: 0
+  m_fontSizeMin: 18
+  m_fontSizeMax: 72
+  m_fontStyle: 0
+  m_HorizontalAlignment: 1
+  m_VerticalAlignment: 256
+  m_textAlignment: 65535
+  m_characterSpacing: 0
+  m_wordSpacing: 0
+  m_lineSpacing: 0
+  m_lineSpacingMax: 0
+  m_paragraphSpacing: 0
+  m_charWidthMaxAdj: 0
+  m_enableWordWrapping: 1
+  m_wordWrappingRatios: 0.4
+  m_overflowMode: 0
+  m_linkedTextComponent: {fileID: 0}
+  parentLinkedComponent: {fileID: 0}
+  m_enableKerning: 1
+  m_enableExtraPadding: 0
+  checkPaddingRequired: 0
+  m_isRichText: 1
+  m_parseCtrlCharacters: 1
+  m_isOrthographic: 1
+  m_isCullingEnabled: 0
+  m_horizontalMapping: 0
+  m_verticalMapping: 0
+  m_uvLineOffset: 0
+  m_geometrySortingOrder: 0
+  m_IsTextObjectScaleStatic: 0
+  m_VertexBufferAutoSizeReduction: 0
+  m_useMaxVisibleDescender: 1
+  m_pageToDisplay: 1
+  m_margin: {x: 172.07184, y: 28.505486, z: 211.30225, w: 22.981125}
+  m_isUsingLegacyAnimationComponent: 0
+  m_isVolumetricText: 0
+  m_hasFontAssetChanged: 0
+  m_baseMaterial: {fileID: 0}
+  m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
+--- !u!222 &206128353
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 206128350}
+  m_CullTransparentMesh: 1
 --- !u!4 &249227575 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 2453031181440162324, guid: 5854aa07f8db5e94aa12f925ca38d242,
@@ -875,10 +1010,54 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 609206238048819, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}
+      propertyPath: m_RootOrder
+      value: 9
+      objectReference: {fileID: 0}
+    - target: {fileID: 1687771758384250695, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1683144581}
+    - target: {fileID: 1687771758384250695, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: menu
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776423274301883030, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1683144581}
+    - target: {fileID: 4776423274301883030, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: pause
+      objectReference: {fileID: 0}
+    - target: {fileID: 4776423274301883030, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: GameManagerScript, Assembly-CSharp
+      objectReference: {fileID: 0}
     - target: {fileID: 6058394047930171765, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 355
+      objectReference: {fileID: 0}
+    - target: {fileID: 6594986514762084260, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 7514603242331717442, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 1683144581}
+    - target: {fileID: 7514603242331717442, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: restart
       objectReference: {fileID: 0}
     - target: {fileID: 8986218541826780001, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
@@ -1100,6 +1279,177 @@ GameObject:
     type: 3}
   m_PrefabInstance: {fileID: 524582806}
   m_PrefabAsset: {fileID: 0}
+--- !u!224 &524582809 stripped
+RectTransform:
+  m_CorrespondingSourceObject: {fileID: 8986218542019636097, guid: 2fbae59a948ef054fa9eac34463fa899,
+    type: 3}
+  m_PrefabInstance: {fileID: 524582806}
+  m_PrefabAsset: {fileID: 0}
+--- !u!1 &528376898
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 528376899}
+  - component: {fileID: 528376901}
+  - component: {fileID: 528376900}
+  - component: {fileID: 528376902}
+  m_Layer: 5
+  m_Name: DialogueBox
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &528376899
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528376898}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 206128351}
+  m_Father: {fileID: 952099971}
+  m_RootOrder: 1
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: 10.523941, y: -180.6907}
+  m_SizeDelta: {x: 1194.7493, y: 300.36096}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &528376900
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528376898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &528376901
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528376898}
+  m_CullTransparentMesh: 1
+--- !u!114 &528376902
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 528376898}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3506dd026cf64e44dae0c0dc537c34e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  textComponent: {fileID: 206128352}
+  lines:
+  - "Greg: \u2026what the hell is this place? "
+  - "(The intercom crackles. We can see Overseer Ixion at the unseen observatory. 
+    \tSome feedback sounded through the speakers.) "
+  - 'Ixion: Is this thing working? '
+  - "Greg: What the\u2013"
+  - "Ixion: There we go. Anyways. Welcome to the Tower! Another lab rat, I see, let\u2019s
+    check the papers the agent sent you"
+  - "Greg: How the hell can they do that? I\u2019ve just been hauled up and\u2013"
+  - ' (There''s the faint sound of papers being shuffled around.) '
+  - " Ixion: Ah, ah, no whining, lab rat. Alright, here we go; Greg Gibson\u2026
+    gambler, sentenced to life due to murder of several hired debt collectors\u2026
+    a common demographic, save the murder\u2026 "
+  - "Greg: \u2026You glossed over the part I just\u2013"
+  - "Ixion: It\u2019s not even supporting why you\u2019re here, now hush. You'll
+    be participating in the latest experiment, \"The Extent of A Human's Desperation
+    in Surviving Odds\"--ohh, oh dear. I hope you never drop dead like fish out of
+    water. I wouldn't be surprised if you died. "
+  - "Greg: \u2026"
+  - "Ixion: Now, beyond that red line\u2013I-don't-know-if-you-can-see-it, in the
+    area you're standing\u2014beyond that, is the actual training course. Protocol
+    says we are supposed to train you up before we start the initial tests. Get to
+    it! We don't have all day. "
+  - 'Ixion: Also, bring the weapon.'
+  - (A stick falls from the ceiling. Greg is rather chagrined.)
+  - "Greg: A stick\u2026! What did you take me for\u2026?! Hey, Overseer\u2013"
+  - (The intercom clicks off.)
+  - "Greg: \u2026I guess it's time to start pulling my weight\u2026"
+  - "Overseer Ixion: Ahh, not dead yet? I\u2019m glad, I\u2019m glad. Hey, it\u2019s
+    just a short course, but if you want to listen, just listen. "
+  - (Greg looks so done.)
+  - "Overseer Ixion: I\u2019ve been\u2026 ughhh, having one of those days. Woke up,
+    thinking that I owned the place, then one of the guards said, \u201CGood morning,
+    Overseer.\u201D, can\u2019t I have that little thought to myself until I put
+    on a new, starched uniform for the day? You\u2019re just\u2026 here, pardoned
+    by Nona Ouroboros. Without being aware of what you\u2019re actually in for."
+  - "Overseer Ixion: I heard debts aren\u2019t the most forgiving thing, and quite,
+    yes\u2026 It\u2019s not a good thing the one who asked for debt just runs away
+    without intending to pay\u2026 damn this report! Jormungandr should be cleaning
+    this up\u2014why is it always up to me? We don\u2019t call him the Tower Defender
+    of nothing\u2013oh?"
+  - "Overseer Ixion:Oh, I see. That guy just doesn\u2019t show he works as hard as
+    we. No, cancel that banquet, I hate the fact they\u2019re serving the same wine
+    they\u2019re trying to mask the poison with; am I even in the right mood to attend
+    parties? I feel, as Overseer, you\u2019d rot in this Tower."
+  - "Overseer Ixion:\u2014ohh, my father? He\u2019s expecting my call later? Ahh,
+    damn it. It\u2019s unfortunate he\u2019s tied down to Alva Edison. I was thinking
+    he\u2019d be transferred to Roentgen. "
+  - "Overseer Ixion:But then, the pieces don't simply \"fall\" into where I want
+    it. You know\u2026 it\u2019s difficult to be strong. It seems so unfair that
+    there\u2019s always someone better to make you pinned to reality; to where you
+    actually stand, that unbearable Jormungandr\u2014ah, I\u2019ve spoken out of
+    tone. Well, are you even closer to the elevator? The Inject-o-Vend\u2019s just
+    right before the exit elevator."
+  - 'Greg (to himself): A gem?'
+  - "(Greg picks it up. For a few seconds, it pulsed, then memories of the nameless
+    warrior, as if Greg\u2019s seeing him in his own eyes, were before him. A lush
+    field, with a somber sunset, and a lit bonfire.)"
+  - 'NW: Ouroboros is true evil, an evil everyone must unite to eliminate it. I shall
+    seek warriors of strength to bring it down with me.'
+  - "(Unknowingly, he\u2019s gazing at Greg, which in truth, he was only looking
+    at the firepit)"
+  - "NW: The Ordo Naturalis will begin and end with me. Let this be my penance for
+    my failure, Gaia\u2026 all those who perished. "
+  - '(When Greg enters the elevator, it redirects him to the Operation Room, where
+    Asclepius is expecting him. The room is sterile, maybe too sterile, as if to
+    hide malicious traces of failed attempts at making patients return to tiptop
+    shape.) '
+  - "Greg (to himself): Dad, you\u2026 you just don't know when to quit before."
+  - "Greg (to himself): Perhaps if there\u2019s more of this, I\u2019ll get what\u2019s
+    really under their skin here. "
+  - (One of the soldiers is before Ixion.)
+  textSpeed: 0.1
+  bg: {fileID: 1968593869}
 --- !u!1001 &529925900
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1747,6 +2097,12 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 844006845}
   m_CullTransparentMesh: 1
+--- !u!1 &907455699 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 1970473232872603882, guid: 2fbae59a948ef054fa9eac34463fa899,
+    type: 3}
+  m_PrefabInstance: {fileID: 524582806}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &919450776
 GameObject:
   m_ObjectHideFlags: 0
@@ -1882,6 +2238,44 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 919450776}
   m_CullTransparentMesh: 1
+--- !u!1 &952099970
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 952099971}
+  m_Layer: 5
+  m_Name: Dialog
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &952099971
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 952099970}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children:
+  - {fileID: 1968593870}
+  - {fileID: 528376899}
+  m_Father: {fileID: 524582809}
+  m_RootOrder: 7
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 0.5}
+  m_AnchorMax: {x: 0.5, y: 0.5}
+  m_AnchoredPosition: {x: -2.7177124, y: -0.9846802}
+  m_SizeDelta: {x: -0.5098572, y: -9.982178}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!4 &1064596179 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 3332125775208711041, guid: b309a12aa48739041bde42d14af29bb2,
@@ -55682,6 +56076,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gameOverUI: {fileID: 524582808}
+  pauseUI: {fileID: 907455699}
   health: {fileID: 760225084}
   borderHealthBar: {fileID: 524582807}
 --- !u!4 &1683144582
@@ -56387,6 +56782,82 @@ Transform:
   m_Father: {fileID: 1993784599}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1968593869
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1968593870}
+  - component: {fileID: 1968593872}
+  - component: {fileID: 1968593871}
+  m_Layer: 5
+  m_Name: DialogBG
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &1968593870
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968593869}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 952099971}
+  m_RootOrder: 0
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
+  m_AnchoredPosition: {x: -0.000045776367, y: -0}
+  m_SizeDelta: {x: 1479.4594, y: 739.7297}
+  m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1968593871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968593869}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: fe87c0e1cc204ed48ad3b37840f39efc, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 0, g: 0, b: 0, a: 0.64705884}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_Sprite: {fileID: 10907, guid: 0000000000000000f000000000000000, type: 0}
+  m_Type: 1
+  m_PreserveAspect: 0
+  m_FillCenter: 1
+  m_FillMethod: 4
+  m_FillAmount: 1
+  m_FillClockwise: 1
+  m_FillOrigin: 0
+  m_UseSpriteMesh: 0
+  m_PixelsPerUnitMultiplier: 1
+--- !u!222 &1968593872
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1968593869}
+  m_CullTransparentMesh: 1
 --- !u!1 &1993784598
 GameObject:
   m_ObjectHideFlags: 0
