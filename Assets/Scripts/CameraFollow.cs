@@ -22,7 +22,11 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Follow();
+        if(!Health.playerDead)
+        {
+            Follow();
+        }
+        
     }
 
     void Follow()
