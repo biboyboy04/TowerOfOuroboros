@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 
 public class loadNextLevel : MonoBehaviour
@@ -12,6 +13,11 @@ public class loadNextLevel : MonoBehaviour
     public int nextFloorNumber;
 
     public bool useIntegerToLoadLevel = false;
+
+    public GameObject loadingScreen;
+    public Slider slider;
+
+    //public Text progressText;
 
     // Start is called before the first frame update
     void Start()
@@ -30,19 +36,20 @@ public class loadNextLevel : MonoBehaviour
         if (collision.tag == "Player")
         {
             PlayerPrefs.SetInt("levelReached", nextFloorNumber);
-            Invoke("LoadScene", 0.5f);
+            StartCoroutine(LoadAsynchronously());
         }
     }
 
-    void LoadScene()
+    IEnumerator LoadAsynchronously ()
     {
-        if(useIntegerToLoadLevel)
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sLevelToLoad);
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
         {
-            SceneManager.LoadScene(iLevelToLoad);
-        }
-        else 
-        {
-            SceneManager.LoadScene(sLevelToLoad);
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
         }
     }
 

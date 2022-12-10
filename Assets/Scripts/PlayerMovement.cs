@@ -648,7 +648,7 @@ public class PlayerMovement : MonoBehaviour
 		return IsWallJumping && RB.velocity.y > 0;
 	}
 
-	private bool CanDash()
+	public bool CanDash()
 	{
 		if (!IsDashing && _dashesLeft < Data.dashAmount && !_dashRefilling && (LastOnGroundTime > 0 ||LastOnWallTime > 0))
 		{
