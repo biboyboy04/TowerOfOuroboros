@@ -213,28 +213,28 @@ PrefabInstance:
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[0]
       value: 
-      objectReference: {fileID: 30824750}
+      objectReference: {fileID: 30824747}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[1]
       value: 
-      objectReference: {fileID: 30824749}
+      objectReference: {fileID: 30824748}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[2]
       value: 
-      objectReference: {fileID: 30824748}
+      objectReference: {fileID: 30824749}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[3]
       value: 
-      objectReference: {fileID: 30824747}
+      objectReference: {fileID: 30824750}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[4]
@@ -54603,6 +54603,12 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1572549461}
   m_PrefabAsset: {fileID: 0}
+--- !u!70 &1074177783 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2453031181440162326, guid: 5854aa07f8db5e94aa12f925ca38d242,
+    type: 3}
+  m_PrefabInstance: {fileID: 1973639640}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &1088128923
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -55214,7 +55220,7 @@ PrefabInstance:
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
@@ -55225,7 +55231,7 @@ PrefabInstance:
         type: 3}
       propertyPath: components.Array.data[1]
       value: 
-      objectReference: {fileID: 1191701160}
+      objectReference: {fileID: 1191701158}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[2]
@@ -55235,7 +55241,7 @@ PrefabInstance:
         type: 3}
       propertyPath: components.Array.data[3]
       value: 
-      objectReference: {fileID: 1191701158}
+      objectReference: {fileID: 1191701160}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[4]
@@ -56837,23 +56843,28 @@ PrefabInstance:
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
+        type: 3}
+      propertyPath: components.Array.data[0]
+      value: 
+      objectReference: {fileID: 1632024804}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[1]
       value: 
-      objectReference: {fileID: 1632024806}
+      objectReference: {fileID: 1632024805}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[2]
       value: 
-      objectReference: {fileID: 1632024805}
+      objectReference: {fileID: 1632024806}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[3]
       value: 
-      objectReference: {fileID: 1632024804}
+      objectReference: {fileID: 1632024810}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[4]
@@ -56975,6 +56986,12 @@ MonoBehaviour:
 --- !u!95 &1632024807 stripped
 Animator:
   m_CorrespondingSourceObject: {fileID: 2453031181440162331, guid: 5854aa07f8db5e94aa12f925ca38d242,
+    type: 3}
+  m_PrefabInstance: {fileID: 1632024803}
+  m_PrefabAsset: {fileID: 0}
+--- !u!70 &1632024810 stripped
+CapsuleCollider2D:
+  m_CorrespondingSourceObject: {fileID: 2453031181440162326, guid: 5854aa07f8db5e94aa12f925ca38d242,
     type: 3}
   m_PrefabInstance: {fileID: 1632024803}
   m_PrefabAsset: {fileID: 0}
@@ -58853,23 +58870,28 @@ PrefabInstance:
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.size
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
+    - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
+        type: 3}
+      propertyPath: components.Array.data[0]
+      value: 
+      objectReference: {fileID: 1973639643}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[1]
       value: 
-      objectReference: {fileID: 1973639645}
+      objectReference: {fileID: 1973639644}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[2]
       value: 
-      objectReference: {fileID: 1973639644}
+      objectReference: {fileID: 1973639645}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[3]
       value: 
-      objectReference: {fileID: 1973639643}
+      objectReference: {fileID: 1074177783}
     - target: {fileID: 1814006125585350721, guid: 5854aa07f8db5e94aa12f925ca38d242,
         type: 3}
       propertyPath: components.Array.data[4]

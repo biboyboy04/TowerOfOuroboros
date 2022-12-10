@@ -13530,18 +13530,18 @@ struct DelegateEntry_tEF8C32582207CB5E2FE7AE07C62560D8CDA846DC  : public Runtime
 	DelegateEntry_tEF8C32582207CB5E2FE7AE07C62560D8CDA846DC* ___delegateEntry_6;
 };
 
-// Dialogue/<TypeLine>d__8
-struct U3CTypeLineU3Ed__8_tBD27B8508A8BE8957762979D48E37CE08C8CC7E9  : public RuntimeObject
+// Dialogue/<TypeLine>d__9
+struct U3CTypeLineU3Ed__9_t1FEF6EE5C85F47EA30AF9B8380C28AEC949D7FF7  : public RuntimeObject
 {
-	// System.Int32 Dialogue/<TypeLine>d__8::<>1__state
+	// System.Int32 Dialogue/<TypeLine>d__9::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object Dialogue/<TypeLine>d__8::<>2__current
+	// System.Object Dialogue/<TypeLine>d__9::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// Dialogue Dialogue/<TypeLine>d__8::<>4__this
+	// Dialogue Dialogue/<TypeLine>d__9::<>4__this
 	Dialogue_tD1682404890757CDB2A7139EA303E9C424D2B455* ___U3CU3E4__this_2;
-	// System.Char[] Dialogue/<TypeLine>d__8::<>7__wrap1
+	// System.Char[] Dialogue/<TypeLine>d__9::<>7__wrap1
 	CharU5BU5D_t799905CF001DD5F13F7DBB310181FC4D8B7D0AAB* ___U3CU3E7__wrap1_3;
-	// System.Int32 Dialogue/<TypeLine>d__8::<>7__wrap2
+	// System.Int32 Dialogue/<TypeLine>d__9::<>7__wrap2
 	int32_t ___U3CU3E7__wrap2_4;
 };
 
@@ -48682,8 +48682,10 @@ struct Dialogue_tD1682404890757CDB2A7139EA303E9C424D2B455  : public MonoBehaviou
 	float ___textSpeed_6;
 	// UnityEngine.GameObject Dialogue::bg
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___bg_7;
+	// UnityEngine.GameObject Dialogue::leanTouch
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___leanTouch_8;
 	// System.Int32 Dialogue::index
-	int32_t ___index_8;
+	int32_t ___index_9;
 };
 
 // DoNotDestroy
@@ -48805,6 +48807,8 @@ struct GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0  : public Mon
 	BorderHealthBar_tCF81F30D3D2E1EF003AB0032228833AC5F43421B* ___borderHealthBar_7;
 	// System.Boolean GameManagerScript::isPaused
 	bool ___isPaused_8;
+	// UnityEngine.AudioSource GameManagerScript::pauseSound
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___pauseSound_9;
 };
 
 // UnityEngine.Grid
@@ -59046,7 +59050,7 @@ const Il2CppTypeDefinitionSizes g_typeDefinitionSize3215 = { sizeof(CameraFollow
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3216;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3216 = { sizeof(CameraMovement_tF96219C0A51576E5F631C99326572CE14C492022), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3217;
-const Il2CppTypeDefinitionSizes g_typeDefinitionSize3217 = { sizeof(U3CTypeLineU3Ed__8_tBD27B8508A8BE8957762979D48E37CE08C8CC7E9), -1, 0, 0 };
+const Il2CppTypeDefinitionSizes g_typeDefinitionSize3217 = { sizeof(U3CTypeLineU3Ed__9_t1FEF6EE5C85F47EA30AF9B8380C28AEC949D7FF7), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3218;
 const Il2CppTypeDefinitionSizes g_typeDefinitionSize3218 = { sizeof(Dialogue_tD1682404890757CDB2A7139EA303E9C424D2B455), -1, 0, 0 };
 extern const Il2CppTypeDefinitionSizes g_typeDefinitionSize3219;
