@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class GameManagerScript : MonoBehaviour
 {
@@ -9,6 +10,8 @@ public class GameManagerScript : MonoBehaviour
     public GameObject pauseUI;
     public Health health;
     public BorderHealthBar borderHealthBar;
+    public GameObject loadingScreen;
+    public Slider slider;
 
     private bool isPaused;
 
@@ -21,12 +24,34 @@ public class GameManagerScript : MonoBehaviour
         isPaused = true;
     }
 
-    // Update is called once per frame
-    void Update()
+    // StartMenu
+    public void menu()
     {
-        
+        StartCoroutine(LoadAsynchronously(1));
     }
 
+
+    // GameMenu
+    public void NewGame()
+    {
+        PlayerPrefs.DeleteAll();
+        StartCoroutine(LoadAsynchronously(3));
+    }
+
+    public void ContinueGame()
+    {
+        PlayerPrefs.SetInt("levelReached", 7);
+        StartCoroutine(LoadAsynchronously(2));
+    }
+
+    public void QuitGame()
+    {
+        Application.Quit();
+    }
+
+
+    // Game
+    // Cant refactor methods because i need to reference all the method to each buttons (tedious)
     public void gameOver()
     {
         gameOverUI.SetActive(true);
@@ -35,7 +60,7 @@ public class GameManagerScript : MonoBehaviour
     public void restart()
     {
         Time.timeScale = 1;
-        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex);
+        StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
     }
 
     public void respawn()
@@ -65,8 +90,16 @@ public class GameManagerScript : MonoBehaviour
     }
 
 
-    public void menu()
+    IEnumerator LoadAsynchronously (int sceneToLoad)
     {
-        SceneManager.LoadScene("GameMenu");
+        AsyncOperation operation = SceneManager.LoadSceneAsync(sceneToLoad);
+        loadingScreen.SetActive(true);
+
+        while (!operation.isDone)
+        {
+            float progress = Mathf.Clamp01(operation.progress / .9f);
+            slider.value = progress;
+            yield return null;
+        }
     }
 }
