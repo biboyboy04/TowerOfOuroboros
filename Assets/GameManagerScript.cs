@@ -13,7 +13,7 @@ public class GameManagerScript : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
 
-    private bool isPaused;
+    public static bool isPaused = false;
 
     [SerializeField] private AudioSource pauseSound;
 
@@ -21,15 +21,14 @@ public class GameManagerScript : MonoBehaviour
     void Start()
     {
         Health.playerDead = false;
-        isPaused = true;
     }
 
     // StartMenu
     public void menu()
     {
         StartCoroutine(LoadAsynchronously(1));
+        
     }
-
 
     // GameMenu
     public void NewGame()
@@ -40,7 +39,6 @@ public class GameManagerScript : MonoBehaviour
 
     public void ContinueGame()
     {
-        PlayerPrefs.SetInt("levelReached", 7);
         StartCoroutine(LoadAsynchronously(2));
     }
 
@@ -59,7 +57,6 @@ public class GameManagerScript : MonoBehaviour
 
     public void restart()
     {
-        Time.timeScale = 1;
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
     }
 
@@ -72,22 +69,43 @@ public class GameManagerScript : MonoBehaviour
 
     public void pause()
     {
-        pauseSound.Play();
-        
-        if(isPaused)
+        // If the game is paused, unpause it
+        if (isPaused)
         {
-            isPaused = false;
-            pauseUI.SetActive(true);
-            Time.timeScale = 0;
+            UnpauseGame();
         }
+        // Otherwise, pause the game
         else
         {
-            isPaused = true;
-            pauseUI.SetActive(false);
-            Time.timeScale = 1;
+            PauseGame();
         }
-
     }
+
+    void PauseGame()
+    {
+        // Set the isPaused flag to true
+        isPaused = true;
+
+        // Enable the pause menu
+        pauseUI.SetActive(true);
+
+        // Freeze time
+      //  Time.timeScale = 0f;
+    }
+
+    // Unpause the game
+    void UnpauseGame()
+    {
+        // Set the isPaused flag to false
+        isPaused = false;
+
+        // Disable the pause menu
+        pauseUI.SetActive(false);
+
+        // Unfreeze time
+       // Time.timeScale = 1f;
+    }
+
 
 
     IEnumerator LoadAsynchronously (int sceneToLoad)

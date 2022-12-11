@@ -4,8 +4,8 @@ using UnityEngine;
 
 public class BorderHealthBar : MonoBehaviour
 {
-
-    public static Animator anim;
+    public Health playerHealth;
+    private Animator anim;
    // private bool dead;
 
     // Start is called before the first frame update
@@ -20,11 +20,11 @@ public class BorderHealthBar : MonoBehaviour
     {
         if(Health.playerDead)
         {
-           anim.SetTrigger("die");
+           anim.SetTrigger("crack");
         } 
         else
         {
-            anim.SetTrigger("alive");
+            anim.SetTrigger("idle");
         }
     }
 }

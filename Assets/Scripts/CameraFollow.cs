@@ -12,7 +12,6 @@ public class CameraFollow : MonoBehaviour
     [HideInInspector]
     public Vector3 minValues, maxValue;
 
-
     //Editors Fields
     [HideInInspector]
     public bool setupComplete = false;

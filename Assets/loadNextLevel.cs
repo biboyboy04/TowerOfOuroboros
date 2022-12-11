@@ -34,8 +34,9 @@ public class loadNextLevel : MonoBehaviour
     private void OnTriggerEnter2D(Collider2D collision) 
     {
         if (collision.tag == "Player")
-        {
+        {   
             PlayerPrefs.SetInt("levelReached", nextFloorNumber);
+            Debug.Log("nextfloor" + nextFloorNumber);
             StartCoroutine(LoadAsynchronously());
         }
     }

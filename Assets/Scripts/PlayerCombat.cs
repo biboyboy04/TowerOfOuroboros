@@ -25,7 +25,7 @@ public class PlayerCombat : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Time.time >= nextAttackTime)
+        if (CanAttack())
         {
             if (Input.GetKeyDown(KeyCode.R))
             {
@@ -44,7 +44,7 @@ public class PlayerCombat : MonoBehaviour
 
     public void Attack()
     {
-        if (Time.time >= nextAttackTime)
+        if (CanAttack())
         {
             //Play attack animation
             animator.SetTrigger("attack");
@@ -75,6 +75,11 @@ public class PlayerCombat : MonoBehaviour
             swordSlashSound.Play();
             nextAttackTime = Time.time + 1f / attackRate;
          }
+    }
+
+    public bool CanAttack()
+    {
+        return Time.time >= nextAttackTime;
     }
 
 

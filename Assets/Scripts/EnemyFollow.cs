@@ -40,7 +40,7 @@ public class EnemyFollow : MonoBehaviour
 
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.1f);
 
-        if (distance < distanceBetween && !Health.invulnerable)
+        if (distance < distanceBetween && !Health.invulnerable && !GameManagerScript.isPaused)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime/2);
         }

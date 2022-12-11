@@ -2118,6 +2118,7 @@ MonoBehaviour:
   smoothFactor: 10
   minValues: {x: 78.41, y: 1.89, z: -10}
   maxValue: {x: 351.13, y: 93.87, z: -10}
+  playerHealth: {fileID: 760225084}
   setupComplete: 1
   ss: 0
 --- !u!81 &433990396
@@ -2193,6 +2194,11 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 5030700836590186598, guid: 128e5ff785c01d84e9eeaf955484d82f,
+        type: 3}
+      propertyPath: MinDistance
+      value: 0.06014824
+      objectReference: {fileID: 0}
     - target: {fileID: 7258378841379467582, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.y
@@ -2251,12 +2257,12 @@ PrefabInstance:
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: 76.68
+      value: 120.84
       objectReference: {fileID: 0}
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.9
+      value: 52.74
       objectReference: {fileID: 0}
     - target: {fileID: 7258378842002252557, guid: 128e5ff785c01d84e9eeaf955484d82f,
         type: 3}
@@ -2338,7 +2344,7 @@ RectTransform:
   - {fileID: 1292091401}
   - {fileID: 82484144}
   m_Father: {fileID: 8986218542871650319}
-  m_RootOrder: 7
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
@@ -113410,6 +113416,7 @@ MonoBehaviour:
   borderHealthBar: {fileID: 1029450856}
   loadingScreen: {fileID: 8986218542871650324}
   slider: {fileID: 8986218542871650321}
+  playerHealth: {fileID: 760225084}
   pauseSound: {fileID: 1683144583}
 --- !u!4 &1683144582
 Transform:
@@ -115392,17 +115399,21 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 528574843, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 528574844, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}
       propertyPath: m_RootOrder
-      value: 8
+      value: 7
       objectReference: {fileID: 0}
     - target: {fileID: 2145080083, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}
       propertyPath: m_RootOrder
-      value: 11
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 609206238048819, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}
       propertyPath: m_RootOrder
-      value: 10
+      value: 11
       objectReference: {fileID: 0}
     - target: {fileID: 1687771758384250695, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
@@ -115429,10 +115440,35 @@ PrefabInstance:
       propertyPath: m_Delegates.Array.data[0].callback.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
       value: GameManagerScript, Assembly-CSharp
       objectReference: {fileID: 0}
+    - target: {fileID: 5402666715024968774, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: playerCombat
+      value: 
+      objectReference: {fileID: 760225082}
+    - target: {fileID: 5856879698513263921, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: playerMovement
+      value: 
+      objectReference: {fileID: 760225085}
     - target: {fileID: 6058394047930171765, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: m_AnchoredPosition.x
       value: 357
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061910112376638661, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 760225085}
+    - target: {fileID: 6061910112376638661, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: OnDashInput
+      objectReference: {fileID: 0}
+    - target: {fileID: 6061910112376638661, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerMovement, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 6594986514762084260, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
@@ -115453,6 +115489,21 @@ PrefabInstance:
         type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: restart
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561071913470526964, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
+      value: 
+      objectReference: {fileID: 760225082}
+    - target: {fileID: 8561071913470526964, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
+      value: Attack
+      objectReference: {fileID: 0}
+    - target: {fileID: 8561071913470526964, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_TargetAssemblyTypeName
+      value: PlayerCombat, Assembly-CSharp
       objectReference: {fileID: 0}
     - target: {fileID: 8986218541826780001, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
@@ -115589,6 +115640,11 @@ PrefabInstance:
       propertyPath: m_Camera
       value: 
       objectReference: {fileID: 0}
+    - target: {fileID: 8986218542310257938, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 6
+      objectReference: {fileID: 0}
     - target: {fileID: 8986218542310257939, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: m_IsActive
@@ -115625,6 +115681,16 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 1683144581}
     - target: {fileID: 9080053157386703473, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: playerHealth
+      value: 
+      objectReference: {fileID: 760225084}
+    - target: {fileID: 9080053158533551325, guid: 2fbae59a948ef054fa9eac34463fa899,
+        type: 3}
+      propertyPath: health
+      value: 
+      objectReference: {fileID: 760225084}
+    - target: {fileID: 9080053158533551325, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: playerHealth
       value: 

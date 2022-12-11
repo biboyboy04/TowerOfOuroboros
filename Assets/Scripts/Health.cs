@@ -149,7 +149,6 @@ public class Health : MonoBehaviour
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("idle");
-        StartCoroutine(Invunerability());
         //invulnerable = false; 
 
         //Activate all attached component classes
