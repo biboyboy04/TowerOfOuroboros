@@ -2118,7 +2118,6 @@ MonoBehaviour:
   smoothFactor: 10
   minValues: {x: 78.41, y: 1.89, z: -10}
   maxValue: {x: 351.13, y: 93.87, z: -10}
-  playerHealth: {fileID: 760225084}
   setupComplete: 1
   ss: 0
 --- !u!81 &433990396
@@ -113416,7 +113415,6 @@ MonoBehaviour:
   borderHealthBar: {fileID: 1029450856}
   loadingScreen: {fileID: 8986218542871650324}
   slider: {fileID: 8986218542871650321}
-  playerHealth: {fileID: 760225084}
   pauseSound: {fileID: 1683144583}
 --- !u!4 &1683144582
 Transform:
@@ -115633,7 +115631,7 @@ PrefabInstance:
     - target: {fileID: 8986218542019636101, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 8986218542019636102, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
@@ -115698,12 +115696,12 @@ PrefabInstance:
     - target: {fileID: 9080053159062948256, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: m_AnchorMax.x
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 9080053159062948256, guid: 2fbae59a948ef054fa9eac34463fa899,
         type: 3}
       propertyPath: m_AnchorMax.y
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2fbae59a948ef054fa9eac34463fa899, type: 3}

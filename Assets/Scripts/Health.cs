@@ -69,7 +69,7 @@ public class Health : MonoBehaviour
 
     public void TakeDamage(float _damage)
     {
-        if (invulnerable) return;
+        if (invulnerable && gameObject.tag == "Player") return;
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0)
@@ -124,7 +124,15 @@ public class Health : MonoBehaviour
     private IEnumerator Invunerability()
     {
         invulnerable = true;
-        Physics2D.IgnoreLayerCollision(10, 11, true);
+
+        int enemies = 10;
+        int traps = 11;
+
+        if (gameObject.tag == "Player")
+        {
+            Physics2D.IgnoreLayerCollision(enemies, traps, true);
+        }
+    
         for (int i = 0; i < numberOfFlashes; i++)
         {
             spriteRend.color = new Color(1, 0, 0, 0.5f);

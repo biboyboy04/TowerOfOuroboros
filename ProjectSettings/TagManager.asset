@@ -10,6 +10,7 @@ TagManager:
   - Music
   - Ghost
   - Miniboss
+  - Light
   layers:
   - Default
   - TransparentFX

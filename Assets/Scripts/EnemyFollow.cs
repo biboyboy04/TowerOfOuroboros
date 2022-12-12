@@ -10,12 +10,15 @@ public class EnemyFollow : MonoBehaviour
     private Color originColor;
     public float distanceBetween;
     public bool IsFacingRight { get; private set; }
-
+    public GameObject[] lights;
     private float distance;
+    private Animator animator;
+
     // Start is called before the first frame update
     void Start()
     {
         spriteRend = GetComponent<SpriteRenderer>();
+        animator = GetComponent<Animator>();
         IsFacingRight = true;
 
     }
@@ -40,9 +43,20 @@ public class EnemyFollow : MonoBehaviour
 
         Vector2 playerPosition = new Vector2(player.transform.position.x, player.transform.position.y - 0.1f);
 
-        if (distance < distanceBetween && !Health.invulnerable && !GameManagerScript.isPaused)
+        if (distance < distanceBetween && !Health.invulnerable)
         {
             transform.position = Vector2.MoveTowards(this.transform.position, playerPosition, speed * Time.deltaTime/2);
+            
+            // Enable all lights in the array
+            foreach (GameObject light in lights) { light.SetActive(true); }
+            //animator.enabled = false;
+        }
+
+        else
+        {     
+            //disabling the Light
+            foreach (GameObject light in lights) { light.SetActive(false); }
+             //animator.enabled = true;
         }
 
     }

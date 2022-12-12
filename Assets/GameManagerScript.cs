@@ -13,19 +13,21 @@ public class GameManagerScript : MonoBehaviour
     public GameObject loadingScreen;
     public Slider slider;
 
-    public static bool isPaused = false;
+    public bool canPause = true;
 
     [SerializeField] private AudioSource pauseSound;
 
     // Start is called before the first frame update
     void Start()
     {
+        // To make camera follow and healthbar animation work if the player restart while dead
         Health.playerDead = false;
     }
 
     // StartMenu
     public void menu()
     {
+        Time.timeScale = 1f;
         StartCoroutine(LoadAsynchronously(1));
         
     }
@@ -57,6 +59,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void restart()
     {
+        Time.timeScale = 1f;
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
     }
 
@@ -69,43 +72,23 @@ public class GameManagerScript : MonoBehaviour
 
     public void pause()
     {
-        // If the game is paused, unpause it
-        if (isPaused)
+
+        pauseSound.Play();
+
+        if (canPause)
         {
-            UnpauseGame();
+            canPause = false;
+            pauseUI.SetActive(true);
+            Time.timeScale = 0f;
         }
-        // Otherwise, pause the game
+
         else
         {
-            PauseGame();
+            canPause = true;
+            pauseUI.SetActive(false);
+            Time.timeScale = 1f;
         }
     }
-
-    void PauseGame()
-    {
-        // Set the isPaused flag to true
-        isPaused = true;
-
-        // Enable the pause menu
-        pauseUI.SetActive(true);
-
-        // Freeze time
-      //  Time.timeScale = 0f;
-    }
-
-    // Unpause the game
-    void UnpauseGame()
-    {
-        // Set the isPaused flag to false
-        isPaused = false;
-
-        // Disable the pause menu
-        pauseUI.SetActive(false);
-
-        // Unfreeze time
-       // Time.timeScale = 1f;
-    }
-
 
 
     IEnumerator LoadAsynchronously (int sceneToLoad)

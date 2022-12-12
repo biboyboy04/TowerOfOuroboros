@@ -13,18 +13,22 @@ public class LevelSelectorButton : MonoBehaviour
     public Slider slider;
     void Start()
     {
-        int levelReached = PlayerPrefs.GetInt("levelReached", 1);
-
+        //int levelReached = PlayerPrefs.GetInt("levelReached", 1);
+		int levelReached = 7;
+		Debug.Log(levelReached);
 		for (int i = 0; i < levelButtons.Length; i++)
 		{
 			if (i + 1 > levelReached)
+			{
 				levelButtons[i].interactable = false;
+				levelButtons[i].GetComponent<Image>().color = new Color32(55, 55, 55, 0);
+			}
+
 		}
     }
 
 	public void Select (string levelName)
 	{
-		Time.timeScale = 1;
 		StartCoroutine(LoadAsynchronously(levelName));
     }
  
