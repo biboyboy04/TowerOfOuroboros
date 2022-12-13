@@ -2,6 +2,7 @@ using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 using TMPro;
+using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
@@ -27,8 +28,11 @@ public class Health : MonoBehaviour
 
     public GameObject deathCountObject;
     private TMP_Text deathCountText;
+    public int highestFloorCompleted;
+    public string floorName;
+    public int currentFloor;
 
-    public GameObject itemToDrop;
+    public GameObject[] itemsToDrop;
 
     [SerializeField] private AudioSource checkpointSound;
 
@@ -59,6 +63,12 @@ public class Health : MonoBehaviour
         }
         
         deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
+
+
+        if((PlayerPrefs.GetInt("levelReached") == null)) 
+        {
+            PlayerPrefs.SetInt("levelReached", 1);
+        }
     }
 
     private void Update() 
@@ -68,6 +78,14 @@ public class Health : MonoBehaviour
         {
             TakeDamage(999);
         }
+
+        highestFloorCompleted = PlayerPrefs.GetInt("levelReached");
+
+        floorName = SceneManager.GetActiveScene().name;
+        currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
+
+            Debug.Log("currentFloor" + currentFloor);
+            Debug.Log("highestFloorCompleted" + (highestFloorCompleted));
 
     }
 
@@ -207,11 +225,21 @@ public class Health : MonoBehaviour
 
     public void DropItem()
     {
-        if (itemToDrop != null)
+
+        floorName = SceneManager.GetActiveScene().name;
+        currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
+
+        if(itemsToDrop != null && currentFloor >= PlayerPrefs.GetInt("levelReached"))
         {
-            // Spawn the item at the enemy's position
-            Instantiate(itemToDrop, transform.position, Quaternion.identity);
+            Debug.Log("currentFloor" + currentFloor);
+            Debug.Log("highestFloorCompleted" + PlayerPrefs.GetInt("levelReached"));
+            foreach (GameObject itemToDrop in itemsToDrop) 
+            {
+                // Drop an item at the position of the carrier and put some offset
+                Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.5f, 0.5f), 
+                Random.Range(-0.5f, 0.5f), transform.position.z) , Quaternion.identity); 
+            }
         }
     }
-
+ 
 }
