@@ -19,7 +19,7 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
-    public static bool invulnerable;
+    public bool invulnerable;
 
     private Transform currentCheckpoint;
     public GameManagerScript gameManager;
@@ -28,6 +28,8 @@ public class Health : MonoBehaviour
     public GameObject deathCountObject;
     private TMP_Text deathCountText;
 
+    public GameObject itemToDrop;
+
     [SerializeField] private AudioSource checkpointSound;
 
     [SerializeField] private AudioSource playerHurtSound;
@@ -35,6 +37,8 @@ public class Health : MonoBehaviour
 
     [SerializeField] private AudioSource ghostHurtSound;
     [SerializeField] private AudioSource ghostDeadSound;
+
+    [SerializeField] private AudioSource chestOpenSound;
 
     private void Awake()
     {
@@ -111,6 +115,13 @@ public class Health : MonoBehaviour
                 if (gameObject.tag == "Ghost")
                 {
                     ghostDeadSound.Play();
+                    DropItem();
+                }
+
+                if (gameObject.tag == "Chest")
+                {
+                    chestOpenSound.Play();
+                    DropItem();
                 }
             }
         }
@@ -140,7 +151,8 @@ public class Health : MonoBehaviour
             spriteRend.color = Color.white;
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
-        Physics2D.IgnoreLayerCollision(10, 11, false);
+
+        Physics2D.IgnoreLayerCollision(enemies, traps, false);
         invulnerable = false;
     }
 
@@ -190,6 +202,15 @@ public class Health : MonoBehaviour
             //spriteRend.color = Color.red;
             collision.GetComponent<Collider2D>().enabled = false;
             // collision.GetComponent<Animator>().SetTrigger("activate");
+        }
+    }
+
+    public void DropItem()
+    {
+        if (itemToDrop != null)
+        {
+            // Spawn the item at the enemy's position
+            Instantiate(itemToDrop, transform.position, Quaternion.identity);
         }
     }
 
