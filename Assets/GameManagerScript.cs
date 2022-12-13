@@ -36,6 +36,7 @@ public class GameManagerScript : MonoBehaviour
     public void NewGame()
     {
         PlayerPrefs.DeleteAll();
+        PlayerPrefs.SetFloat("soulCount", 0);
         StartCoroutine(LoadAsynchronously(3));
     }
 
@@ -60,6 +61,7 @@ public class GameManagerScript : MonoBehaviour
     public void restart()
     {
         Time.timeScale = 1f;
+        PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCountStart"));
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
     }
 

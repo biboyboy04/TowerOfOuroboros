@@ -13,7 +13,7 @@ public class PlayerCombat : MonoBehaviour
     public float attackRate = 2f;
     float nextAttackTime = 0f;
 
-    [SerializeField] protected float damage;
+    [SerializeField] public float damage;
     [SerializeField] private AudioSource swordSlashSound;
 
     // Start is called before the first frame update

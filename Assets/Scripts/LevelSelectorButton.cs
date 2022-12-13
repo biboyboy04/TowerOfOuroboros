@@ -11,6 +11,10 @@ public class LevelSelectorButton : MonoBehaviour
 	public Button[] levelButtons;
 	public GameObject loadingScreen;
     public Slider slider;
+    public GameManagerScript gameManagerScript;
+
+    private int floorNumber;
+
     void Start()
     {
         //int levelReached = PlayerPrefs.GetInt("levelReached", 1);
@@ -25,10 +29,27 @@ public class LevelSelectorButton : MonoBehaviour
 			}
 
 		}
+        
+        if(SceneManager.GetActiveScene().name == "Prologue")
+        {
+            PlayerPrefs.SetInt("levelReached", 1);
+        }
+        
     }
 
 	public void Select (string levelName)
 	{
+        floorNumber = System.Int32.Parse(levelName.Substring(levelName.Length - 1));
+
+        // If player go to mainmenu and start the level again, restart the soul count same as the 
+        // started soul count when the level start
+
+        if(floorNumber == PlayerPrefs.GetInt("levelReached"))
+        {
+            //PlayerPrefs.SetFloat("soulCountStart", PlayerPrefs.GetFloat("soulCount"));
+            PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCountStart"));
+        }
+        
 		StartCoroutine(LoadAsynchronously(levelName));
     }
  

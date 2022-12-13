@@ -218,6 +218,8 @@ GameObject:
   - component: {fileID: 1814006125585350721}
   - component: {fileID: 1228555770}
   - component: {fileID: 1228555771}
+  - component: {fileID: 1610699056}
+  - component: {fileID: 6360175019543587621}
   m_Layer: 10
   m_Name: Ghost
   m_TagString: Ghost
@@ -341,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55cf0e81f4c4de49994b1ae915445b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 25
+  damage: 50
 --- !u!114 &2453031181440162333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -355,8 +357,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   player: {fileID: 0}
-  speed: 11
+  speed: 10
   distanceBetween: 8
+  playerHealth: {fileID: 0}
   lights:
   - {fileID: 1136660603976724604}
   - {fileID: 6282138270895588101}
@@ -378,22 +381,27 @@ MonoBehaviour:
   iFramesDuration: 0.5
   numberOfFlashes: 1
   components:
-  - {fileID: 2453031181440162326}
-  - {fileID: 2453031181440162331}
-  - {fileID: 2453031181440162327}
-  - {fileID: 2453031181440162333}
   - {fileID: 1814006125585350721}
+  - {fileID: 2453031181440162333}
+  - {fileID: 2453031181440162327}
+  - {fileID: 2453031181440162326}
   - {fileID: 1123299594870728665}
   - {fileID: 7515711389006814167}
   - {fileID: 297270831237168420}
+  - {fileID: 6360175019543587621}
+  invulnerable: 0
   gameManager: {fileID: 0}
   borderHealthBar: {fileID: 0}
   deathCountObject: {fileID: 0}
+  itemsToDrop:
+  - {fileID: 7120981561838499699, guid: e7d53050c66b05e498c70d96c00e1a14, type: 3}
+  - {fileID: 7120981561838499699, guid: a7924757c168f3c4eb2d78b5e7f87d5f, type: 3}
   checkpointSound: {fileID: 0}
   playerHurtSound: {fileID: 0}
   playerDeadSound: {fileID: 0}
   ghostHurtSound: {fileID: 1228555771}
   ghostDeadSound: {fileID: 1228555770}
+  chestOpenSound: {fileID: 0}
 --- !u!82 &1228555770
 AudioSource:
   m_ObjectHideFlags: 0
@@ -586,6 +594,43 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
+--- !u!50 &1610699056
+Rigidbody2D:
+  serializedVersion: 4
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453031181440162325}
+  m_BodyType: 0
+  m_Simulated: 1
+  m_UseFullKinematicContacts: 0
+  m_UseAutoMass: 0
+  m_Mass: 50
+  m_LinearDrag: 1
+  m_AngularDrag: 0
+  m_GravityScale: 0
+  m_Material: {fileID: 0}
+  m_Interpolate: 0
+  m_SleepingMode: 1
+  m_CollisionDetection: 0
+  m_Constraints: 4
+--- !u!58 &6360175019543587621
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2453031181440162325}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: -0.0016816258, y: 0.019622684}
+  serializedVersion: 2
+  m_Radius: 0.26799458
 --- !u!1 &5962799856968409033
 GameObject:
   m_ObjectHideFlags: 0

@@ -11,6 +11,7 @@ TagManager:
   - Ghost
   - Miniboss
   - Light
+  - Chest
   layers:
   - Default
   - TransparentFX

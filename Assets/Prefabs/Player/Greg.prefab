@@ -196,7 +196,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1604609613256234794}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24, y: -0.386, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -510,7 +510,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 3988847010287128824}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.24, y: -0.386, z: 0}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -923,7 +923,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5892644971566635552}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.72, y: 0.658, z: 0}
+  m_LocalPosition: {x: 0.72, y: 0.495, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1456,7 +1456,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6513791607966190878}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0.25, y: 0.02, z: 0}
+  m_LocalPosition: {x: 0.375, y: 0.161, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1553,7 +1553,7 @@ GameObject:
   - component: {fileID: 6072348818538469796}
   - component: {fileID: 2506772154534830183}
   - component: {fileID: 5030700836590186598}
-  - component: {fileID: 4336328422070146243}
+  - component: {fileID: 7449323054117446971}
   m_Layer: 6
   m_Name: Greg
   m_TagString: Player
@@ -1762,18 +1762,20 @@ MonoBehaviour:
   numberOfFlashes: 1
   components:
   - {fileID: 7258378842002252545}
-  - {fileID: 4336328422070146243}
-  - {fileID: 7258378842002252544}
+  - {fileID: 760225082}
   - {fileID: 7258378842002252547}
-  - {fileID: 4336328422070146243}
+  - {fileID: 7258378842002252544}
+  invulnerable: 0
   gameManager: {fileID: 0}
   borderHealthBar: {fileID: 0}
   deathCountObject: {fileID: 0}
+  itemsToDrop: []
   checkpointSound: {fileID: 2506772154534830183}
   playerHurtSound: {fileID: 6851364440505828855}
   playerDeadSound: {fileID: 760225101}
   ghostHurtSound: {fileID: 760225103}
   ghostDeadSound: {fileID: 760225102}
+  chestOpenSound: {fileID: 0}
 --- !u!114 &760225082
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1788,12 +1790,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   animator: {fileID: 7258378842002252558}
   attackPoint: {fileID: 7250611110000645631}
-  attackRange: 0.82
+  attackRange: 1
   enemyLayers:
     serializedVersion: 2
     m_Bits: 1024
   RB: {fileID: 7258378842002252559}
-  attackRate: 2
+  attackRate: 3.5
   damage: 10
   swordSlashSound: {fileID: 760225083}
 --- !u!82 &760225083
@@ -2852,28 +2854,24 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &4336328422070146243
+--- !u!114 &7449323054117446971
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7258378842002252555}
-  m_Enabled: 0
+  m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 097be29074036fd4a88cf19fd0565213, type: 3}
+  m_Script: {fileID: 11500000, guid: 06118a44210b4b74fa16bd81ef6c84c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  animator: {fileID: 7258378842002252558}
-  attackPoint: {fileID: 0}
-  attackRange: 0.82
-  enemyLayers:
-    serializedVersion: 2
-    m_Bits: 1024
-  RB: {fileID: 7258378842002252559}
-  attackRate: 2
-  damage: 10
-  swordSlashSound: {fileID: 6072348818538469796}
+  startingSouls: 0
+  lights:
+  - {fileID: 5959109850959892218}
+  - {fileID: 3988847010287128824}
+  - {fileID: 1604609613256234794}
+  - {fileID: 5892644971566635552}
 --- !u!1 &7258378842013535059
 GameObject:
   m_ObjectHideFlags: 0
