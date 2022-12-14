@@ -29,15 +29,17 @@ public class LevelSelectorButton : MonoBehaviour
 
 		}
         
-        if(SceneManager.GetActiveScene().name == "Prologue")
-        {
-            PlayerPrefs.SetInt("levelReached", 1);
-        }
+
         
     }
 
 	public void Select (string levelName)
 	{
+
+        if(SceneManager.GetActiveScene().name == "Prologue")
+        {
+            PlayerPrefs.SetInt("levelReached", 1);
+        }
 
         floorNumber = System.Int32.Parse(levelName.Substring(levelName.Length - 1));
         
