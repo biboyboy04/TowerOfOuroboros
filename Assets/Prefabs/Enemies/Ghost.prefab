@@ -343,7 +343,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a55cf0e81f4c4de49994b1ae915445b2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  damage: 50
+  damage: 25
 --- !u!114 &2453031181440162333
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -393,9 +393,12 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   borderHealthBar: {fileID: 0}
   deathCountObject: {fileID: 0}
+  highestFloorCompleted: 0
+  floorName: 
+  currentFloor: 0
   itemsToDrop:
   - {fileID: 7120981561838499699, guid: e7d53050c66b05e498c70d96c00e1a14, type: 3}
-  - {fileID: 7120981561838499699, guid: a7924757c168f3c4eb2d78b5e7f87d5f, type: 3}
+  - {fileID: 7120981561838499699, guid: e739944d4d29ae04abe749bbe697fe27, type: 3}
   checkpointSound: {fileID: 0}
   playerHurtSound: {fileID: 0}
   playerDeadSound: {fileID: 0}

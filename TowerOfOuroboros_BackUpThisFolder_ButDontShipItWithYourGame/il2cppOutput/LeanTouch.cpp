@@ -16277,12 +16277,12 @@ IL_006c_1:
 				L_19 = LeanTouchSimulator_get_FingerTexture_mF8741A1A025D6B7C8151DE8326966F64E8CD9FA6_inline(__this, NULL);
 				NullCheck(L_19);
 				int32_t L_20;
-				L_20 = VirtualFuncInvoker0< int32_t >::Invoke(4 /* System.Int32 UnityEngine.Texture::get_width() */, L_19);
+				L_20 = VirtualFuncInvoker0< int32_t >::Invoke(5 /* System.Int32 UnityEngine.Texture::get_width() */, L_19);
 				Texture2D_tE6505BC111DD8A424A9DBE8E05D7D09E11FFFCF4* L_21;
 				L_21 = LeanTouchSimulator_get_FingerTexture_mF8741A1A025D6B7C8151DE8326966F64E8CD9FA6_inline(__this, NULL);
 				NullCheck(L_21);
 				int32_t L_22;
-				L_22 = VirtualFuncInvoker0< int32_t >::Invoke(6 /* System.Int32 UnityEngine.Texture::get_height() */, L_21);
+				L_22 = VirtualFuncInvoker0< int32_t >::Invoke(7 /* System.Int32 UnityEngine.Texture::get_height() */, L_21);
 				Rect__ctor_m18C3033D135097BEE424AAA68D91C706D2647F23((&V_5), (0.0f), (0.0f), ((float)L_20), ((float)L_22), NULL);
 				// screenRect.center = new Vector2(screenPosition.x, Screen.height - screenPosition.y);
 				Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_23 = V_4;

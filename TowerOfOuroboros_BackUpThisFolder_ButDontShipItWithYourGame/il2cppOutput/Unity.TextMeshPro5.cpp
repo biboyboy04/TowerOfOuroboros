@@ -3269,9 +3269,9 @@ struct Object_tC12DECB6760A7F2CBF65D9DCF18D044C2D97152C_marshaled_com
 struct Plane_tB7D8CC6F7AACF5F3AA483AF005C1102A8577BC0C 
 {
 	// UnityEngine.Vector3 UnityEngine.Plane::m_Normal
-	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Normal_0;
+	Vector3_t24C512C7B96BBABAD472002D0BA2BDA40A5A80B2 ___m_Normal_1;
 	// System.Single UnityEngine.Plane::m_Distance
-	float ___m_Distance_1;
+	float ___m_Distance_2;
 };
 
 // Unity.Profiling.ProfilerMarker
@@ -18370,7 +18370,7 @@ IL_01b2:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_140 = L_139->___spriteSheet_12;
 		NullCheck(L_140);
 		int32_t L_141;
-		L_141 = VirtualFuncInvoker0< int32_t >::Invoke(4 /* System.Int32 UnityEngine.Texture::get_width() */, L_140);
+		L_141 = VirtualFuncInvoker0< int32_t >::Invoke(5 /* System.Int32 UnityEngine.Texture::get_width() */, L_140);
 		TMP_SpriteCharacter_t98295D0A81320909AC4AD5F2602DD69EACBB449E* L_142 = V_3;
 		NullCheck(L_142);
 		Glyph_t700CF8EBE04ED4AEAB520885AAA1B309E02A103F* L_143;
@@ -18386,7 +18386,7 @@ IL_01b2:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_147 = L_146->___spriteSheet_12;
 		NullCheck(L_147);
 		int32_t L_148;
-		L_148 = VirtualFuncInvoker0< int32_t >::Invoke(6 /* System.Int32 UnityEngine.Texture::get_height() */, L_147);
+		L_148 = VirtualFuncInvoker0< int32_t >::Invoke(7 /* System.Int32 UnityEngine.Texture::get_height() */, L_147);
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&V_12), ((float)(((float)L_138)/((float)L_141))), ((float)(((float)L_145)/((float)L_148))), NULL);
 		// Vector2 uv1 = new Vector2(uv0.x, (float)(spriteCharacter.glyph.glyphRect.y + spriteCharacter.glyph.glyphRect.height) / spriteAsset.spriteSheet.height);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_149 = V_12;
@@ -18416,7 +18416,7 @@ IL_01b2:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_160 = L_159->___spriteSheet_12;
 		NullCheck(L_160);
 		int32_t L_161;
-		L_161 = VirtualFuncInvoker0< int32_t >::Invoke(6 /* System.Int32 UnityEngine.Texture::get_height() */, L_160);
+		L_161 = VirtualFuncInvoker0< int32_t >::Invoke(7 /* System.Int32 UnityEngine.Texture::get_height() */, L_160);
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&V_13), L_150, ((float)(((float)((int32_t)il2cpp_codegen_add(L_154, L_158)))/((float)L_161))), NULL);
 		// Vector2 uv2 = new Vector2((float)(spriteCharacter.glyph.glyphRect.x + spriteCharacter.glyph.glyphRect.width) / spriteAsset.spriteSheet.width, uv1.y);
 		TMP_SpriteCharacter_t98295D0A81320909AC4AD5F2602DD69EACBB449E* L_162 = V_3;
@@ -18444,7 +18444,7 @@ IL_01b2:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_171 = L_170->___spriteSheet_12;
 		NullCheck(L_171);
 		int32_t L_172;
-		L_172 = VirtualFuncInvoker0< int32_t >::Invoke(4 /* System.Int32 UnityEngine.Texture::get_width() */, L_171);
+		L_172 = VirtualFuncInvoker0< int32_t >::Invoke(5 /* System.Int32 UnityEngine.Texture::get_width() */, L_171);
 		Vector2_t1FD6F485C871E832B347AB2DC8CBA08B739D8DF7 L_173 = V_13;
 		float L_174 = L_173.___y_1;
 		Vector2__ctor_m9525B79969AFFE3254B303A40997A56DEEB6F548_inline((&V_14), ((float)(((float)((int32_t)il2cpp_codegen_add(L_165, L_169)))/((float)L_172))), L_174, NULL);

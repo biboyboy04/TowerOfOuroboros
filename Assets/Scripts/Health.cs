@@ -84,9 +84,6 @@ public class Health : MonoBehaviour
         floorName = SceneManager.GetActiveScene().name;
         currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
 
-            Debug.Log("currentFloor" + currentFloor);
-            Debug.Log("highestFloorCompleted" + (highestFloorCompleted));
-
     }
 
     public void TakeDamage(float _damage)
@@ -229,17 +226,19 @@ public class Health : MonoBehaviour
         floorName = SceneManager.GetActiveScene().name;
         currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
 
+        Vector3 originalTransformPos = transform.position;
+
         if(itemsToDrop != null && currentFloor >= PlayerPrefs.GetInt("levelReached"))
         {
-            Debug.Log("currentFloor" + currentFloor);
-            Debug.Log("highestFloorCompleted" + PlayerPrefs.GetInt("levelReached"));
             foreach (GameObject itemToDrop in itemsToDrop) 
             {
                 // Drop an item at the position of the carrier and put some offset
-                Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.5f, 0.5f), 
-                Random.Range(-0.5f, 0.5f), transform.position.z) , Quaternion.identity); 
+                Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.2f, 0.2f), 
+                Random.Range(-0.2f, 0.2f), transform.position.z) , Quaternion.identity); 
             }
         }
+
+        transform.position = originalTransformPos;
     }
  
 }

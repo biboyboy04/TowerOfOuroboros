@@ -8071,11 +8071,11 @@ IL_0038:
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_8 = ___image1;
 		NullCheck(L_8);
 		int32_t L_9;
-		L_9 = VirtualFuncInvoker0< int32_t >::Invoke(4 /* System.Int32 UnityEngine.Texture::get_width() */, L_8);
+		L_9 = VirtualFuncInvoker0< int32_t >::Invoke(5 /* System.Int32 UnityEngine.Texture::get_width() */, L_8);
 		Texture_t791CBB51219779964E0E8A2ED7C1AA5F92A4A700* L_10 = ___image1;
 		NullCheck(L_10);
 		int32_t L_11;
-		L_11 = VirtualFuncInvoker0< int32_t >::Invoke(6 /* System.Int32 UnityEngine.Texture::get_height() */, L_10);
+		L_11 = VirtualFuncInvoker0< int32_t >::Invoke(7 /* System.Int32 UnityEngine.Texture::get_height() */, L_10);
 		___imageAspect4 = ((float)(((float)L_9)/((float)L_11)));
 	}
 

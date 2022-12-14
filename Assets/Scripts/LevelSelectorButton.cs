@@ -17,8 +17,7 @@ public class LevelSelectorButton : MonoBehaviour
 
     void Start()
     {
-        //int levelReached = PlayerPrefs.GetInt("levelReached", 1);
-		int levelReached = 7;
+        int levelReached = PlayerPrefs.GetInt("levelReached", 0);
 		Debug.Log(levelReached);
 		for (int i = 0; i < levelButtons.Length; i++)
 		{
@@ -39,15 +38,21 @@ public class LevelSelectorButton : MonoBehaviour
 
 	public void Select (string levelName)
 	{
+
         floorNumber = System.Int32.Parse(levelName.Substring(levelName.Length - 1));
+        
+        
 
         // If player go to mainmenu and start the level again, restart the soul count same as the 
         // started soul count when the level start
 
+        Debug.Log("floorNumber" + floorNumber);
+        Debug.Log("PlayerPrefs.GetInt" + PlayerPrefs.GetInt("levelReached"));
+
         if(floorNumber == PlayerPrefs.GetInt("levelReached"))
         {
-            //PlayerPrefs.SetFloat("soulCountStart", PlayerPrefs.GetFloat("soulCount"));
             PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCountStart"));
+            Debug.Log("Set playercountsoul");
         }
         
 		StartCoroutine(LoadAsynchronously(levelName));
