@@ -12,8 +12,11 @@ public class GameManagerScript : MonoBehaviour
     public BorderHealthBar borderHealthBar;
     public GameObject loadingScreen;
     public Slider slider;
+    public AudioSource uiSound;
 
     public bool canPause = true;
+
+
 
     [SerializeField] private AudioSource pauseSound;
 
@@ -27,6 +30,7 @@ public class GameManagerScript : MonoBehaviour
     // StartMenu
     public void menu()
     {
+        uiSound.Play();
         Time.timeScale = 1f;
         StartCoroutine(LoadAsynchronously(1));
         
@@ -35,18 +39,22 @@ public class GameManagerScript : MonoBehaviour
     // GameMenu
     public void NewGame()
     {
+        uiSound.Play();
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("soulCount", 0);
+        //PlayerPrefs.SetBool("isNewGame", true);
         StartCoroutine(LoadAsynchronously(3));
     }
 
     public void ContinueGame()
     {
+        uiSound.Play();
         StartCoroutine(LoadAsynchronously(2));
     }
 
     public void QuitGame()
     {
+        uiSound.Play();
         Application.Quit();
     }
 
@@ -60,6 +68,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void restart()
     {
+        uiSound.Play();
         Time.timeScale = 1f;
         PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCountStart"));
         StartCoroutine(LoadAsynchronously(SceneManager.GetActiveScene().buildIndex));
@@ -67,6 +76,7 @@ public class GameManagerScript : MonoBehaviour
 
     public void respawn()
     {
+        uiSound.Play();
         health.RespawnToCheckpoint();
         gameOverUI.SetActive(false);
         

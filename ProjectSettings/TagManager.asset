@@ -12,6 +12,7 @@ TagManager:
   - Miniboss
   - Light
   - Chest
+  - Ice
   layers:
   - Default
   - TransparentFX
