@@ -28,9 +28,15 @@ public class Health : MonoBehaviour
 
     public GameObject deathCountObject;
     private TMP_Text deathCountText;
+
+    public GameObject portalPrefab;
+
     public int highestFloorCompleted;
     public string floorName;
     public int currentFloor;
+
+    public GameObject thankYouPanel;
+
 
     public GameObject[] itemsToDrop;
 
@@ -50,7 +56,11 @@ public class Health : MonoBehaviour
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
-        deathCountText = deathCountObject.GetComponent<TextMeshProUGUI>();
+        if(deathCountObject!=null)
+        {
+            deathCountText = deathCountObject.GetComponent<TextMeshProUGUI>();
+        }
+        
 
 
         if((PlayerPrefs.GetInt("deathCount") == null)) 
@@ -62,7 +72,11 @@ public class Health : MonoBehaviour
             PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount"));
         }
         
-        deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
+        if(deathCountObject!=null)
+        {
+            deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
+        }
+        
 
 
         if((PlayerPrefs.GetInt("levelReached") == null)) 
@@ -83,6 +97,8 @@ public class Health : MonoBehaviour
 
         floorName = SceneManager.GetActiveScene().name;
         currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
+        // Debug.Log("Scene number -3" + (SceneManager.GetActiveScene().buildIndex-3 ));
+        // Debug.Log("levelReached"+PlayerPrefs.GetInt("levelReached"));
 
     }
 
@@ -138,6 +154,23 @@ public class Health : MonoBehaviour
                     chestOpenSound.Play();
                     DropItem();
                 }
+
+                if (gameObject.tag == "Miniboss")
+                {
+                    if(SceneManager.GetActiveScene().name == "Miniboss3")
+                    {
+                        thankYouPanel.SetActive(true);
+                    }
+                    ghostDeadSound.Play();
+                    DropItem();
+                    //DropPortal
+                    Debug.Log("Portal dropped");
+                    Instantiate(portalPrefab, transform.position = new Vector3(transform.position.x, 
+                    Random.Range(1, 1.1f), transform.position.z) , Quaternion.identity);
+
+
+                }
+                
             }
         }
     }
@@ -224,21 +257,34 @@ public class Health : MonoBehaviour
     {
 
         floorName = SceneManager.GetActiveScene().name;
-        currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
-
-        Vector3 originalTransformPos = transform.position;
-
-        if(itemsToDrop != null && currentFloor >= PlayerPrefs.GetInt("levelReached"))
+        if(floorName.Contains("Miniboss"))
         {
             foreach (GameObject itemToDrop in itemsToDrop) 
             {
                 // Drop an item at the position of the carrier and put some offset
-                Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.2f, 0.2f), 
-                Random.Range(-0.2f, 0.2f), transform.position.z) , Quaternion.identity); 
+                Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.5f, 0.5f), 
+                Random.Range(0, 0.1f), transform.position.z) , Quaternion.identity); 
             }
         }
+        else 
+        {
+            currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
 
-        transform.position = originalTransformPos;
+            Vector3 originalTransformPos = transform.position;
+
+            if(itemsToDrop != null && (SceneManager.GetActiveScene().buildIndex-3) >= PlayerPrefs.GetInt("levelReached"))
+            {
+
+                foreach (GameObject itemToDrop in itemsToDrop) 
+                {
+                    // Drop an item at the position of the carrier and put some offset
+                    Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.5f, 0.5f), 
+                    Random.Range(0, 0.1f), transform.position.z) , Quaternion.identity); 
+                }
+            }
+            transform.position = originalTransformPos;
+        }
+        
     }
  
 }

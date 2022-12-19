@@ -1720,6 +1720,7 @@ GameObject:
   - component: {fileID: 2506772154534830183}
   - component: {fileID: 5030700836590186598}
   - component: {fileID: 7449323054117446971}
+  - component: {fileID: 795267066548933231}
   m_Layer: 6
   m_Name: Greg
   m_TagString: Player
@@ -1901,6 +1902,7 @@ MonoBehaviour:
   KBTotalTime: 0.3
   isMoving: 0
   KnockFromRight: 0
+  slideSpeed: 5
   dashSound: {fileID: 3649455121222986287}
   _groundCheckPoint: {fileID: 7258378841379467582}
   _groundCheckSize: {x: 0.49, y: 0.03}
@@ -1935,9 +1937,11 @@ MonoBehaviour:
   gameManager: {fileID: 0}
   borderHealthBar: {fileID: 0}
   deathCountObject: {fileID: 0}
+  portalPrefab: {fileID: 0}
   highestFloorCompleted: 0
   floorName: 
   currentFloor: 0
+  thankYouPanel: {fileID: 0}
   itemsToDrop: []
   checkpointSound: {fileID: 2506772154534830183}
   playerHurtSound: {fileID: 6851364440505828855}
@@ -3044,6 +3048,14 @@ MonoBehaviour:
   - {fileID: 4577547123025411486}
   playerCombat: {fileID: 760225082}
   swordColor: {r: 0.1490196, g: 0.8941177, b: 1, a: 1}
+--- !u!81 &795267066548933231
+AudioListener:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7258378842002252555}
+  m_Enabled: 1
 --- !u!1 &7258378842013535059
 GameObject:
   m_ObjectHideFlags: 0

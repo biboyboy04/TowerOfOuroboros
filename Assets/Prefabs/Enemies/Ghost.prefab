@@ -218,8 +218,6 @@ GameObject:
   - component: {fileID: 1814006125585350721}
   - component: {fileID: 1228555770}
   - component: {fileID: 1228555771}
-  - component: {fileID: 1610699056}
-  - component: {fileID: 6360175019543587621}
   m_Layer: 10
   m_Name: Ghost
   m_TagString: Ghost
@@ -388,14 +386,15 @@ MonoBehaviour:
   - {fileID: 1123299594870728665}
   - {fileID: 7515711389006814167}
   - {fileID: 297270831237168420}
-  - {fileID: 6360175019543587621}
   invulnerable: 0
   gameManager: {fileID: 0}
   borderHealthBar: {fileID: 0}
   deathCountObject: {fileID: 0}
+  portalPrefab: {fileID: 0}
   highestFloorCompleted: 0
   floorName: 
   currentFloor: 0
+  thankYouPanel: {fileID: 0}
   itemsToDrop:
   - {fileID: 7120981561838499699, guid: e7d53050c66b05e498c70d96c00e1a14, type: 3}
   - {fileID: 7120981561838499699, guid: e739944d4d29ae04abe749bbe697fe27, type: 3}
@@ -597,43 +596,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!50 &1610699056
-Rigidbody2D:
-  serializedVersion: 4
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2453031181440162325}
-  m_BodyType: 0
-  m_Simulated: 1
-  m_UseFullKinematicContacts: 0
-  m_UseAutoMass: 0
-  m_Mass: 50
-  m_LinearDrag: 1
-  m_AngularDrag: 0
-  m_GravityScale: 0
-  m_Material: {fileID: 0}
-  m_Interpolate: 0
-  m_SleepingMode: 1
-  m_CollisionDetection: 0
-  m_Constraints: 4
---- !u!58 &6360175019543587621
-CircleCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2453031181440162325}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: -0.0016816258, y: 0.019622684}
-  serializedVersion: 2
-  m_Radius: 0.26799458
 --- !u!1 &5962799856968409033
 GameObject:
   m_ObjectHideFlags: 0
