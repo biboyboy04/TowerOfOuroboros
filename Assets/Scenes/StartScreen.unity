@@ -390,8 +390,8 @@ MonoBehaviour:
   pauseUI: {fileID: 0}
   health: {fileID: 0}
   borderHealthBar: {fileID: 0}
-  loadingScreen: {fileID: 0}
-  slider: {fileID: 0}
+  loadingScreen: {fileID: 1504423546}
+  slider: {fileID: 1374227808}
   uiSound: {fileID: 235905626}
   canPause: 1
   pauseSound: {fileID: 235905623}
