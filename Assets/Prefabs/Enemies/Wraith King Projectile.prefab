@@ -10,10 +10,10 @@ GameObject:
   m_Component:
   - component: {fileID: 2380436720186517721}
   - component: {fileID: 2380436720186517717}
-  - component: {fileID: 2380436720186517718}
   - component: {fileID: 2380436720186517719}
   - component: {fileID: 2380436720186517716}
   - component: {fileID: -4931928248809610317}
+  - component: {fileID: 2552216338416479131}
   m_Layer: 10
   m_Name: Wraith King Projectile
   m_TagString: Enemy
@@ -88,32 +88,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!61 &2380436720186517718
-BoxCollider2D:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2380436720186517722}
-  m_Enabled: 1
-  m_Density: 1
-  m_Material: {fileID: 0}
-  m_IsTrigger: 1
-  m_UsedByEffector: 0
-  m_UsedByComposite: 0
-  m_Offset: {x: 0.068466246, y: -0.10758728}
-  m_SpriteTilingProperty:
-    border: {x: 0, y: 0, z: 0, w: 0}
-    pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 2.56, y: 2.56}
-    newSize: {x: 0.90625, y: 0.09375}
-    adaptiveTilingThreshold: 0.5
-    drawMode: 0
-    adaptiveTiling: 0
-  m_AutoTiling: 0
-  serializedVersion: 2
-  m_Size: {x: 1.0431825, y: 1.2283062}
-  m_EdgeRadius: 0
 --- !u!50 &2380436720186517719
 Rigidbody2D:
   serializedVersion: 4
@@ -161,3 +135,19 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   damage: 34
+--- !u!58 &2552216338416479131
+CircleCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2380436720186517722}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 1
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0.0026934147}
+  serializedVersion: 2
+  m_Radius: 0.31309795
