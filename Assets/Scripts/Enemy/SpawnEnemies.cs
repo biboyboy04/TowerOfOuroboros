@@ -21,10 +21,15 @@ public class SpawnEnemies : MonoBehaviour
 
     public bool canActivateAbility;
 
+    public AudioSource spawnSound;
+
+    bool canChangeValue = true;
+
+    private Health enemyHealth;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -36,8 +41,15 @@ public class SpawnEnemies : MonoBehaviour
     
     void Update()
     {
+        
          if(playerHealth.currentHealth > 0)
         {
+
+            if(IsHalfHealth())
+            {
+                canChangeValue = false;
+                interval/=2;
+            }
            // AbilityActivateIndicator();
             // Increment the timer by the amount of time that has passed since the last frame
             timer += Time.deltaTime;
@@ -71,6 +83,7 @@ public class SpawnEnemies : MonoBehaviour
 
     void Spawn()
     {
+        spawnSound.Play();
         for (int i = 0; i < enemyCount; i++)
         {
             // Calculate a random position within the spawn radius
@@ -78,6 +91,18 @@ public class SpawnEnemies : MonoBehaviour
             // Instantiate the enemy prefab at the spawn position
             Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
         }
+    }
+
+     private bool IsHalfHealth()
+    {   
+
+        enemyHealth = this.GetComponent<Health>();
+        if(canChangeValue)
+        {
+            return enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2);
+        }
+        else
+            return false;
     }
 
 }

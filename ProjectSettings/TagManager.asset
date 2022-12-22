@@ -13,6 +13,8 @@ TagManager:
   - Light
   - Chest
   - Ice
+  - Boss
+  - Platform
   layers:
   - Default
   - TransparentFX

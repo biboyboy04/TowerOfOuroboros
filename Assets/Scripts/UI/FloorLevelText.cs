@@ -40,7 +40,11 @@ public class FloorLevelText : MonoBehaviour
             }
             else if(floorName == "Miniboss3")
             {
-                floorLevelText.text = "ARCH-SINNER OF MALICE";
+                floorLevelText.text = "MUD TITAN";
+            }
+            else if(floorName == "FinalBoss")
+            {
+                floorLevelText.text = "Greg(OUROBOROS)";
             }
             else
             {

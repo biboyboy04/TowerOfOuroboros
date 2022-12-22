@@ -14,7 +14,7 @@ public class ShootInRange : MonoBehaviour
     public GameObject playerObject;
     
     public bool isBoss;
-    public float attackCooldown;
+    public float attackCooldown = 8f;
     private float cooldownTimer;
     
     private float changeAttackCooldownTimer;
@@ -28,6 +28,10 @@ public class ShootInRange : MonoBehaviour
 
     private Health enemyHealth;
     public Health playerHealth;
+
+    public AudioSource rapidFireSound;
+
+    bool canChangeValue = true;
     
 
     // Start is called before the first frame update
@@ -62,7 +66,6 @@ public class ShootInRange : MonoBehaviour
                Turn();
         }
          
-        Debug.Log("cooldownTimer" + cooldownTimer); 
         if(playerHealth.currentHealth > 0)
         {
             cooldownTimer += Time.deltaTime;
@@ -71,6 +74,13 @@ public class ShootInRange : MonoBehaviour
             
             if(isBoss)
             {
+
+                if(IsHalfHealth())
+                {
+                    canChangeValue = false;
+                    anim.SetBool("rage", true);
+                }
+
                 if(enemyHealth.invulnerable == false && playerHealth.invulnerable == false)
                 {
                     transform.position = Vector2.MoveTowards(this.transform.position, player.position, speed * Time.deltaTime);
@@ -131,6 +141,7 @@ public class ShootInRange : MonoBehaviour
     {
         if(changeAttackCooldownTimer >= changeAttackCooldown-1)
         {
+            rapidFireSound.Play();
             this.GetComponent<SpriteRenderer>().color = new Color(1, 0, 0, 1);
         }
         else
@@ -150,4 +161,16 @@ public class ShootInRange : MonoBehaviour
 
 		IsFacingRight = !IsFacingRight;
 	}
+
+    private bool IsHalfHealth()
+    {   
+
+        enemyHealth = this.GetComponent<Health>();
+        if(canChangeValue)
+        {
+            return enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2);
+        }
+        else
+            return false;
+    }
 }

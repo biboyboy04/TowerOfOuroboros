@@ -32,6 +32,7 @@ public class GameManagerScript : MonoBehaviour
     {
         uiSound.Play();
         Time.timeScale = 1f;
+        PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCountStart"));
         StartCoroutine(LoadAsynchronously(1));
         
     }

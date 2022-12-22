@@ -397,7 +397,7 @@ public class PlayerMovement : MonoBehaviour
             {
                 slideDirection += Vector2.right;
             }
-            else if (RB.velocity.x < -.2)
+            else if (RB.velocity.x < -.5)
             {
                 slideDirection += Vector2.left;
             }

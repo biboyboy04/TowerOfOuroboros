@@ -63,12 +63,8 @@ public class Souls : MonoBehaviour
         soulUpgradeCount = PlayerPrefs.GetInt("souldUpgradeCount");
         playerDamage = PlayerPrefs.GetFloat("playerDamage", 10f);
 
-        Debug.Log("Player soulcount"+  PlayerPrefs.GetInt("souldUpgradeCount"));
         PlayerPrefs.SetInt("souldUpgradeCount", soulUpgradeCount + 1);
-        Debug.Log("Player soulcount"+  PlayerPrefs.GetInt("souldUpgradeCount"));
-        Debug.Log("Player damage"+ PlayerPrefs.GetFloat("playerDamage", 10f));
         PlayerPrefs.SetFloat("playerDamage", playerDamage + 10f);
-        Debug.Log("Player damage"+ PlayerPrefs.GetFloat("playerDamage", 10f));
         StartCoroutine(AnimateColor());
         //foreach (GameObject light in lights) { light.GetComponent<UnityEngine.Rendering.Universal.Light2D>().color = new Color(1, 0, 0, 0.5f); }
     }
@@ -102,7 +98,7 @@ public class Souls : MonoBehaviour
                     swordColor = soulUpgrade5;
                     break;
                 default:
-                    swordColor = new Color(0.1490196f, 0.8941177f, 1f, 1f);
+                    swordColor = soulUpgrade5;
                     break;
             }
 

@@ -1905,7 +1905,7 @@ MonoBehaviour:
   slideSpeed: 5
   dashSound: {fileID: 3649455121222986287}
   _groundCheckPoint: {fileID: 7258378841379467582}
-  _groundCheckSize: {x: 0.49, y: 0.03}
+  _groundCheckSize: {x: 0.21, y: 0.03}
   _frontWallCheckPoint: {fileID: 7258378841771591632}
   _backWallCheckPoint: {fileID: 7258378842491331521}
   _wallCheckSize: {x: 0.26, y: 0.59}
@@ -1941,13 +1941,12 @@ MonoBehaviour:
   highestFloorCompleted: 0
   floorName: 
   currentFloor: 0
-  thankYouPanel: {fileID: 0}
   itemsToDrop: []
   checkpointSound: {fileID: 2506772154534830183}
   playerHurtSound: {fileID: 6851364440505828855}
   playerDeadSound: {fileID: 760225101}
-  ghostHurtSound: {fileID: 760225103}
-  ghostDeadSound: {fileID: 760225102}
+  enemyHurtSound: {fileID: 0}
+  enemyDeadSound: {fileID: 0}
   chestOpenSound: {fileID: 0}
 --- !u!114 &760225082
 MonoBehaviour:

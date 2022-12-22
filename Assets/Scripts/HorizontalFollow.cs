@@ -6,11 +6,11 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class HorizontalFollow : MonoBehaviour
+public class FinalBossAttackAndMovement : MonoBehaviour
 {
     public float moveSpeed = 5.0f; // the speed at which the boss will move towards the player
 
-    private Transform playerTransform; // a reference to the player's transform component
+    public Transform playerTransform; // a reference to the player's transform component
     private Rigidbody2D bossRigidbody; // a reference to the boss's rigidbody component
 
     bool IsFacingRight;
@@ -31,31 +31,28 @@ public class HorizontalFollow : MonoBehaviour
 
         //References
     private Animator anim;
-    private Health playerHealth;
+    public TeleportToPlayer teleport;
+    private Health enemyHealth;
+    public Health playerHealth;
+
+
+    private void Awake()
+    {
+        anim = GetComponent<Animator>();
+    }
+
 
     void Start()
     {
         // get references to the player's transform and the boss's rigidbody
-        playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
+       // playerTransform = GameObject.FindGameObjectWithTag("Player").transform;
         bossRigidbody = GetComponent<Rigidbody2D>();
+        enemyHealth = this.GetComponent<Health>();
         IsFacingRight = false;
-        anim = GetComponent<Animator>();
     }
 
     void Update()
     {
-
-        if(this.transform.position.x > player.transform.position.x && IsFacingRight){
-               Turn();
-        } 
-
-        // If enemy is at the left side of the player
-        if(this.transform.position.x < player.transform.position.x && !IsFacingRight){ 
-               Turn();
-        }
-        // calculate the distance between the boss and the player
-        float distance = Mathf.Abs(transform.position.x - playerTransform.position.x);
-
 
          cooldownTimer += Time.deltaTime;
         // if the distance between the boss and the player is less than the attack range, attack the player
@@ -67,19 +64,33 @@ public class HorizontalFollow : MonoBehaviour
                 anim.SetTrigger("attack");
             }
         }
-
         else
         {
-            // otherwise, move towards the player horizontally
-            float xMovement = moveSpeed * Mathf.Sign(playerTransform.position.x - transform.position.x);
-            bossRigidbody.velocity = new Vector2(xMovement, bossRigidbody.velocity.y);
-        }
-    }
-    
+            if(playerHealth.currentHealth > 0)
+            {
+                if(enemyHealth.invulnerable == false && playerHealth.invulnerable == false)
+                {
+                    if(this.transform.position.x > player.transform.position.x && IsFacingRight){
+                        Turn();
+                    } 
 
-    void Attack()
-    {
-        // attack the player here
+                    // If enemy is at the left side of the player
+                    if(this.transform.position.x < player.transform.position.x && !IsFacingRight){ 
+                        Turn();
+                    }
+                    // calculate the distance between the boss and the player
+                    float distance = Mathf.Abs(transform.position.x - playerTransform.position.x);
+                    // otherwise, move towards the player horizontally
+                    float xMovement = moveSpeed * Mathf.Sign(playerTransform.position.x - transform.position.x);
+                    bossRigidbody.velocity = new Vector2(xMovement, bossRigidbody.velocity.y);
+                }
+            }
+            else
+            {
+                anim.SetBool("idle", true);
+            }
+        }
+        
     }
 
     private void Turn()

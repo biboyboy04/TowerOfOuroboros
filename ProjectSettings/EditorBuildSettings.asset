@@ -6,7 +6,7 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Scenes/StartSceen.unity
+    path: Assets/Scenes/StartScreen.unity
     guid: bae6bf2bd6587904d9133e2b38758909
   - enabled: 1
     path: Assets/Scenes/GameMenu.unity
@@ -39,8 +39,20 @@ EditorBuildSettings:
     path: Assets/Scenes/Miniboss2.unity
     guid: 4677e00513620974e99c982756968ae7
   - enabled: 1
+    path: Assets/Scenes/Floor6.unity
+    guid: dc53bdb6b3a39d84a9890d5e4ae1e974
+  - enabled: 1
+    path: Assets/Scenes/Floor7.unity
+    guid: ededac83d87748846b6e97049caf3017
+  - enabled: 1
     path: Assets/Scenes/Miniboss3.unity
-    guid: 8252eda56f6946a4987b72ce344d699f
+    guid: 02131a1b766fe8c4fb6006557a18ddb0
+  - enabled: 1
+    path: Assets/Scenes/FinalBoss.unity
+    guid: 7e186637fba480b48a7fe77ebb1443a3
+  - enabled: 1
+    path: Assets/Scenes/Ending.unity
+    guid: 3797350b5d5909840a67f46018087dc5
   m_configObjects:
     com.unity.xr.management.loader_settings: {fileID: 11400000, guid: d253289e90ab15e44bd56ba1f5ec93a3,
       type: 2}

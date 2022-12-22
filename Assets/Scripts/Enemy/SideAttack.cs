@@ -15,14 +15,19 @@ public class SideAttack : EnemyDamage
     private bool canChangeValue;
     private Health health;
     private bool canChangeColor;
-    
+
+    private float teleportTimer;
+    public bool canTeleport;
+    public AudioSource bossDashSound;
+    private Animator anim;
 
     [Header("SFX")]
-    [SerializeField] private AudioClip impactSound;
+    public AudioSource impactSound;
     private void Start()
     {
         canChangeValue = true;
         canChangeColor = false;
+        anim = GetComponent<Animator>();
     }
 
     private void OnEnable()
@@ -31,30 +36,62 @@ public class SideAttack : EnemyDamage
     }
     private void Update()
     {
+        Debug.Log(gameObject.name);
 
-        if(this.tag == "Miniboss")
+        if(this.tag == "Boss")
         {
             //changeColor();
 
             if(IsHalfHealth())
             {
                 canChangeValue = false;
-                speed*=2;
-                checkDelay/=2;
+                speed*=0.8f;
+                checkDelay/=1.5f;
+            }
+
+            if(checkTimer >= (checkDelay - 4))
+            {
+                if(bossDashSound!=null)
+                {
+                    bossDashSound.Play();
+                }
+                
             }
         }
 
 
-
         //Move spikehead to destination only if attacking
+        anim.SetBool("charging", attacking);
         if (attacking)
         {
+            Debug.Log("attacking");
+            if(gameObject.name == "Ouroboros")
+            {
+                teleportTimer+=Time.deltaTime;
+
+                if(teleportTimer >= 1.5)
+                {
+                    teleportTimer=0;
+                    canTeleport = true;
+                    attacking = false;
+                }
+            }
+
             transform.Translate(destination * Time.deltaTime * speed);
         }
-
         else
         {
+            canTeleport = false;
+
             checkTimer += Time.deltaTime;
+
+
+            
+            if(checkTimer > checkDelay - 1)
+            {
+                canChangeColor = true;
+                changeColor();
+            }
             
             if (checkTimer > checkDelay)
             {
@@ -71,16 +108,31 @@ public class SideAttack : EnemyDamage
         //Check if spikehead sees player in all 4 directions
         for (int i = 0; i < directions.Length; i++)
         {
-            Debug.DrawRay(transform.position, directions[i], Color.red);
 
-            RaycastHit2D hit = Physics2D.Raycast(transform.position, directions[i], range, playerLayer);
-
-            if (hit.collider != null && !attacking)
+            if(gameObject.name == "MudTitan") 
             {
-                attacking = true;
-                destination = directions[i];
-                checkTimer = 0;
+                Vector2 newPosition = transform.position;
+                newPosition.y -= 2;
+                RaycastHit2D hit = Physics2D.Raycast(newPosition, directions[i], range, playerLayer);
+                if (hit.collider != null && !attacking)
+                {
+                    attacking = true;
+                    destination = directions[i];
+                    checkTimer = 0;
+                }
+                Debug.Log("working");
             }
+            else
+            {
+                RaycastHit2D hit = Physics2D.Raycast(transform.position, directions[i], range, playerLayer);
+                if (hit.collider != null && !attacking)
+                {
+                    attacking = true;
+                    destination = directions[i];
+                    checkTimer = 0;
+                }
+            }
+
         }
     }
     private void CalculateDirections()
@@ -110,7 +162,9 @@ public class SideAttack : EnemyDamage
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-       // SoundManager.instance.PlaySound(impactSound);
+        if(attacking)
+        impactSound.Play();
+
         base.OnTriggerEnter2D(collision);
         Stop(); //Stop spikehead once he hits something
     }

@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
     public string floorName;
     public int currentFloor;
 
-    public GameObject thankYouPanel;
+   // public GameObject thankYouPanel;
 
 
     public GameObject[] itemsToDrop;
@@ -45,8 +45,8 @@ public class Health : MonoBehaviour
     [SerializeField] private AudioSource playerHurtSound;
     [SerializeField] private AudioSource playerDeadSound;
 
-    [SerializeField] private AudioSource ghostHurtSound;
-    [SerializeField] private AudioSource ghostDeadSound;
+    [SerializeField] private AudioSource enemyHurtSound;
+    [SerializeField] private AudioSource enemyDeadSound;
 
     [SerializeField] private AudioSource chestOpenSound;
 
@@ -93,10 +93,10 @@ public class Health : MonoBehaviour
             TakeDamage(999);
         }
 
-        highestFloorCompleted = PlayerPrefs.GetInt("levelReached");
+       // highestFloorCompleted = PlayerPrefs.GetInt("levelReached");
 
-        floorName = SceneManager.GetActiveScene().name;
-        currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
+       // floorName = SceneManager.GetActiveScene().name;
+        //currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
         // Debug.Log("Scene number -3" + (SceneManager.GetActiveScene().buildIndex-3 ));
         // Debug.Log("levelReached"+PlayerPrefs.GetInt("levelReached"));
 
@@ -112,12 +112,15 @@ public class Health : MonoBehaviour
             if (gameObject.tag == "Player")
             {
                 playerHurtSound.Play();
-                anim.SetTrigger("hurt");
             }
-            if (gameObject.tag == "Ghost") 
+            else
             {
-                ghostHurtSound.Play();
+                if(enemyHurtSound!= null)
+                {
+                    enemyHurtSound.Play();
+                }
             }
+            anim.SetTrigger("hurt");
 
             StartCoroutine(Invunerability());
         }
@@ -142,33 +145,26 @@ public class Health : MonoBehaviour
                     playerDeadSound.Play();
                     gameManager.gameOver();
                 }
-
-                if (gameObject.tag == "Ghost")
-                {
-                    ghostDeadSound.Play();
-                    DropItem();
-                }
-
-                if (gameObject.tag == "Chest")
+                else if (gameObject.tag == "Chest")
                 {
                     chestOpenSound.Play();
                     DropItem();
                 }
-
-                if (gameObject.tag == "Miniboss")
+                else
                 {
-                    if(SceneManager.GetActiveScene().name == "Miniboss3")
+                    if(enemyDeadSound!= null)
                     {
-                        thankYouPanel.SetActive(true);
+                        enemyDeadSound.Play();
                     }
-                    ghostDeadSound.Play();
                     DropItem();
-                    //DropPortal
-                    Debug.Log("Portal dropped");
+                }
+                
+                if (gameObject.tag == "Boss")
+                {
+                    DropItem();
+
                     Instantiate(portalPrefab, transform.position = new Vector3(transform.position.x, 
-                    Random.Range(1, 1.1f), transform.position.z) , Quaternion.identity);
-
-
+                    Random.Range(1.4f, 1.5f), transform.position.z) , Quaternion.identity);
                 }
                 
             }
@@ -257,7 +253,7 @@ public class Health : MonoBehaviour
     {
 
         floorName = SceneManager.GetActiveScene().name;
-        if(floorName.Contains("Miniboss"))
+        if(floorName.Contains("Miniboss") || floorName.Contains("FinalBoss"))
         {
             foreach (GameObject itemToDrop in itemsToDrop) 
             {
