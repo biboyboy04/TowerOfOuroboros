@@ -32,9 +32,6 @@ public class Health : MonoBehaviour
     public GameObject portalPrefab;
 
     public int highestFloorCompleted;
-    public string floorName;
-    public int currentFloor;
-
    // public GameObject thankYouPanel;
 
 
@@ -163,8 +160,7 @@ public class Health : MonoBehaviour
                 {
                     DropItem();
 
-                    Instantiate(portalPrefab, transform.position = new Vector3(transform.position.x, 
-                    Random.Range(1.4f, 1.5f), transform.position.z) , Quaternion.identity);
+                    Instantiate(portalPrefab, transform.position, Quaternion.identity);
                 }
                 
             }
@@ -251,10 +247,11 @@ public class Health : MonoBehaviour
 
     public void DropItem()
     {
+        Vector3 originalTransformPos = transform.position;
 
-        floorName = SceneManager.GetActiveScene().name;
-        if(floorName.Contains("Miniboss") || floorName.Contains("FinalBoss"))
+        if(itemsToDrop != null && (SceneManager.GetActiveScene().buildIndex-3) >= PlayerPrefs.GetInt("levelReached"))
         {
+
             foreach (GameObject itemToDrop in itemsToDrop) 
             {
                 // Drop an item at the position of the carrier and put some offset
@@ -262,24 +259,7 @@ public class Health : MonoBehaviour
                 Random.Range(0, 0.1f), transform.position.z) , Quaternion.identity); 
             }
         }
-        else 
-        {
-            currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
-
-            Vector3 originalTransformPos = transform.position;
-
-            if(itemsToDrop != null && (SceneManager.GetActiveScene().buildIndex-3) >= PlayerPrefs.GetInt("levelReached"))
-            {
-
-                foreach (GameObject itemToDrop in itemsToDrop) 
-                {
-                    // Drop an item at the position of the carrier and put some offset
-                    Instantiate(itemToDrop, transform.position  += new Vector3(Random.Range(-0.5f, 0.5f), 
-                    Random.Range(0, 0.1f), transform.position.z) , Quaternion.identity); 
-                }
-            }
-            transform.position = originalTransformPos;
-        }
+        transform.position = originalTransformPos;
         
     }
  

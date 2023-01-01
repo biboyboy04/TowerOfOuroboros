@@ -249,7 +249,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 1
-  m_BlendStyleIndex: 0
+  m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.19
   m_Color: {r: 0.14901961, g: 0.8941177, b: 1, a: 1}
   m_Intensity: 3.22
@@ -258,7 +258,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 000000009fbc526d631239883f7e7a9875c62c41f5cb3aefe5c3eb035bfdf7b9
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 1
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
@@ -563,7 +563,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 1
-  m_BlendStyleIndex: 0
+  m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.617
   m_Color: {r: 0.14901961, g: 0.8941177, b: 1, a: 0}
   m_Intensity: 3.22
@@ -572,7 +572,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 000000009fbc526d631239883f7e7a9875c62c41f5cb3aefe5c3eb035bfdf7b9
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 1
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3
@@ -1110,7 +1110,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_ComponentVersion: 1
   m_LightType: 1
-  m_BlendStyleIndex: 0
+  m_BlendStyleIndex: 1
   m_FalloffIntensity: 0.617
   m_Color: {r: 0.14901961, g: 0.8941177, b: 1, a: 1}
   m_Intensity: 3.22
@@ -1119,7 +1119,7 @@ MonoBehaviour:
   m_ApplyToSortingLayers: 000000009fbc526d631239883f7e7a9875c62c41f5cb3aefe5c3eb035bfdf7b9
   m_LightCookieSprite: {fileID: 0}
   m_DeprecatedPointLightCookieSprite: {fileID: 0}
-  m_LightOrder: 0
+  m_LightOrder: 1
   m_AlphaBlendOnOverlap: 0
   m_OverlapOperation: 0
   m_NormalMapDistance: 3

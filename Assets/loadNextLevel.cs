@@ -35,7 +35,11 @@ public class loadNextLevel : MonoBehaviour
     {
         if (collision.tag == "Player")
         {   
-            PlayerPrefs.SetInt("levelReached", nextFloorNumber);
+            if(PlayerPrefs.GetInt("levelReached") < nextFloorNumber)
+            {
+                PlayerPrefs.SetInt("levelReached", nextFloorNumber);
+            }
+            
             PlayerPrefs.SetFloat("soulCountStart", PlayerPrefs.GetFloat("soulCount"));
             StartCoroutine(LoadAsynchronously());
         }

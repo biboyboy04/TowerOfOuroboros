@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 9147389319057647708}
   - component: {fileID: 1596978976217149883}
   - component: {fileID: 4977921838085322823}
+  - component: {fileID: 7152863107942855748}
   m_Layer: 6
   m_Name: SoulCollectible
   m_TagString: Player
@@ -125,3 +126,17 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   soulValue: 5
+--- !u!114 &7152863107942855748
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7120981561838499699}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dcb8199b565d63a47a2c95422e059227, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  distanceBetween: 5

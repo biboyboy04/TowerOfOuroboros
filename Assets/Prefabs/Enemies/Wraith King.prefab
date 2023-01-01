@@ -608,7 +608,7 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6007974459561218274}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 0
@@ -645,11 +645,11 @@ MonoBehaviour:
   player: {fileID: 0}
   speed: 8
   distanceBetween: 100
-  playerHealth: {fileID: 0}
   lights:
   - {fileID: 9127755072199998091}
   - {fileID: 2757563436059118066}
   - {fileID: 2569981763626243390}
+  playerHealth: {fileID: 0}
 --- !u!114 &7513924859216480950
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -685,7 +685,6 @@ MonoBehaviour:
   highestFloorCompleted: 0
   floorName: 
   currentFloor: 0
-  thankYouPanel: {fileID: 0}
   itemsToDrop:
   - {fileID: 7120981561838499699, guid: e7d53050c66b05e498c70d96c00e1a14, type: 3}
   - {fileID: 7120981561838499699, guid: e739944d4d29ae04abe749bbe697fe27, type: 3}
@@ -711,8 +710,8 @@ MonoBehaviour:
   checkpointSound: {fileID: 0}
   playerHurtSound: {fileID: 0}
   playerDeadSound: {fileID: 0}
-  ghostHurtSound: {fileID: 0}
-  ghostDeadSound: {fileID: 0}
+  enemyHurtSound: {fileID: 0}
+  enemyDeadSound: {fileID: 0}
   chestOpenSound: {fileID: 0}
 --- !u!50 &8819086783883182096
 Rigidbody2D:

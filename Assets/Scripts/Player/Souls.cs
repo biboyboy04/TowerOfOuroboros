@@ -140,6 +140,9 @@ public class Souls : MonoBehaviour
     {
         switch (PlayerPrefs.GetInt("souldUpgradeCount"))
         {
+            case 0:
+                swordColor = new Color(0.1490196f, 0.8941177f, 1f, 1f);
+                break;
             case 1:
                 swordColor = soulUpgrade1;
                 break;
@@ -156,7 +159,7 @@ public class Souls : MonoBehaviour
                 swordColor = soulUpgrade5;
                 break;
             default:
-                swordColor = new Color(0.1490196f, 0.8941177f, 1f, 1f);
+                swordColor = soulUpgrade5;
                 break;
         }
 
