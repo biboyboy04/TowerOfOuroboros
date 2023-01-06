@@ -6,6 +6,7 @@ using UnityEngine;
 public class CameraFollow : MonoBehaviour
 {    
     public Transform target;
+    public Health playerHealth;
     public Vector3 offset;
     [Range(1,10)]
     public float smoothFactor;
@@ -21,7 +22,7 @@ public class CameraFollow : MonoBehaviour
 
     private void FixedUpdate()
     {
-        if(!Health.playerDead)
+        if(!playerHealth.dead)
         {
             Follow();
         }

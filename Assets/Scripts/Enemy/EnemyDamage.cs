@@ -16,7 +16,8 @@ public class EnemyDamage : MonoBehaviour
 
     protected void OnTriggerEnter2D(Collider2D collision)
     {   
-        playerMovement = playerGameObject.GetComponent<PlayerMovement>();
+        if(playerGameObject!=null)
+            playerMovement = playerGameObject.GetComponent<PlayerMovement>();
 
         if (collision.tag == "Player")
         {

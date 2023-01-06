@@ -6,12 +6,20 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
+    private Transform currentCheckpoint;
+
+    public GameManagerScript gameManager;
+
+    [SerializeField] private GameObject deathCountObject;
+    private TMP_Text deathCountText;
+
+    private Animator anim;
+
     [Header ("Health")]
     [SerializeField] public float startingHealth;
     public float currentHealth { get; private set; }
-    private Animator anim;
-    public bool dead;
-    public static bool playerDead;
+    public bool dead { get; private set; }
+    public bool invulnerable { get; private set; }
 
     [Header("iFrames")]
     [SerializeField] private float iFramesDuration;
@@ -20,27 +28,18 @@ public class Health : MonoBehaviour
 
     [Header("Components")]
     [SerializeField] private Behaviour[] components;
-    public bool invulnerable;
 
-    private Transform currentCheckpoint;
-    public GameManagerScript gameManager;
-    public BorderHealthBar borderHealthBar;
+    
+    [Header("Drops")]
+    [SerializeField] private GameObject bossPortalDrop;
+    [SerializeField] private GameObject[] itemsToDrop;
+    
 
-    public GameObject deathCountObject;
-    private TMP_Text deathCountText;
-
-    public GameObject portalPrefab;
-
-    public int highestFloorCompleted;
-   // public GameObject thankYouPanel;
-
-
-    public GameObject[] itemsToDrop;
-
+    [Header("Audio")]
     [SerializeField] private AudioSource checkpointSound;
 
     [SerializeField] private AudioSource playerHurtSound;
-    [SerializeField] private AudioSource playerDeadSound;
+    [SerializeField] private AudioSource playerDeadSound;   
 
     [SerializeField] private AudioSource enemyHurtSound;
     [SerializeField] private AudioSource enemyDeadSound;
@@ -49,7 +48,6 @@ public class Health : MonoBehaviour
 
     private void Awake()
     {
-        
         currentHealth = startingHealth;
         anim = GetComponent<Animator>();
         spriteRend = GetComponent<SpriteRenderer>();
@@ -58,9 +56,8 @@ public class Health : MonoBehaviour
             deathCountText = deathCountObject.GetComponent<TextMeshProUGUI>();
         }
         
-
-
-        if((PlayerPrefs.GetInt("deathCount") == null)) 
+        // If the player's death count is not stored in PlayerPrefs, set it to 0
+        if(!PlayerPrefs.HasKey("deathCount"))
         {
             PlayerPrefs.SetInt("deathCount", 0);
         }
@@ -69,14 +66,14 @@ public class Health : MonoBehaviour
             PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount"));
         }
         
+        // Update the death count UI element with the value stored in PlayerPrefs
         if(deathCountObject!=null)
         {
             deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
         }
         
-
-
-        if((PlayerPrefs.GetInt("levelReached") == null)) 
+        // If the highest floor completed is not stored in PlayerPrefs, set it to 1
+        if(!PlayerPrefs.HasKey("levelReached"))
         {
             PlayerPrefs.SetInt("levelReached", 1);
         }
@@ -87,21 +84,14 @@ public class Health : MonoBehaviour
         // Kill the player if they fall too deep
         if (transform.position.y < -10)
         {
-            TakeDamage(999);
+            TakeDamage(9999);
         }
-
-       // highestFloorCompleted = PlayerPrefs.GetInt("levelReached");
-
-       // floorName = SceneManager.GetActiveScene().name;
-        //currentFloor = System.Int32.Parse(floorName.Substring(floorName.Length - 1));
-        // Debug.Log("Scene number -3" + (SceneManager.GetActiveScene().buildIndex-3 ));
-        // Debug.Log("levelReached"+PlayerPrefs.GetInt("levelReached"));
-
     }
 
     public void TakeDamage(float _damage)
     {
         if (invulnerable && gameObject.tag == "Player") return;
+
         currentHealth = Mathf.Clamp(currentHealth - _damage, 0, startingHealth);
 
         if (currentHealth > 0)
@@ -117,6 +107,7 @@ public class Health : MonoBehaviour
                     enemyHurtSound.Play();
                 }
             }
+
             anim.SetTrigger("hurt");
 
             StartCoroutine(Invunerability());
@@ -125,21 +116,17 @@ public class Health : MonoBehaviour
         {
             if (!dead)
             {
+                // Trigger the die animation, deactivate all attached component classes, and set the dead flag to true
                 anim.SetTrigger("die");
-                
-
-                //Deactivate all attached component classes
                 foreach (Behaviour component in components)
                     component.enabled = false;
-
                 dead = true;
-                
+
+                // If the entity is the player, increment the death count, play the player dead sound, and call the game over function
                 if (gameObject.tag == "Player")
                 {
-                    playerDead = dead;
-                    PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount") +1 );
+                    PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount") + 1);
                     deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
-                    playerDeadSound.Play();
                     gameManager.gameOver();
                 }
                 else if (gameObject.tag == "Chest")
@@ -159,8 +146,8 @@ public class Health : MonoBehaviour
                 if (gameObject.tag == "Boss")
                 {
                     DropItem();
-
-                    Instantiate(portalPrefab, transform.position, Quaternion.identity);
+ 
+                    Instantiate(bossPortalDrop, transform.position, Quaternion.identity);
                 }
                 
             }
@@ -176,12 +163,13 @@ public class Health : MonoBehaviour
     {
         invulnerable = true;
 
-        int enemies = 10;
-        int traps = 11;
+
+        int enemyLayerNumber = 10;
+        int trapLayerNumber = 11;
 
         if (gameObject.tag == "Player")
         {
-            Physics2D.IgnoreLayerCollision(enemies, traps, true);
+            Physics2D.IgnoreLayerCollision(enemyLayerNumber, trapLayerNumber, true);
         }
     
         for (int i = 0; i < numberOfFlashes; i++)
@@ -192,24 +180,17 @@ public class Health : MonoBehaviour
             yield return new WaitForSeconds(iFramesDuration / (numberOfFlashes * 2));
         }
 
-        Physics2D.IgnoreLayerCollision(enemies, traps, false);
+        Physics2D.IgnoreLayerCollision(enemyLayerNumber, trapLayerNumber, false);
         invulnerable = false;
-    }
-
-    private void Deactivate()
-    {
-        gameObject.SetActive(false);
     }
 
     //Respawn
     public void Respawn()
     {
         dead = false;
-        playerDead = false;
         AddHealth(startingHealth);
         anim.ResetTrigger("die");
         anim.Play("idle");
-        //invulnerable = false; 
 
         //Activate all attached component classes
         foreach (Behaviour component in components)
@@ -226,9 +207,6 @@ public class Health : MonoBehaviour
             invulnerable = false;
         }
         transform.position = currentCheckpoint.position; //Move player to checkpoint location 
-
-        //Move the camera to the checkpoint's room
-        //Camera.main.GetComponent<CameraController>().MoveToNewRoom(currentCheckpoint.parent);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)
@@ -237,11 +215,11 @@ public class Health : MonoBehaviour
         {
             currentCheckpoint = collision.transform;
             checkpointSound.Play();
+
+            //Change checkpoint color to blue
             collision.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 1);
-            //spriteRend.color = new Color(1, 0, 0, 0.5f);
-            //spriteRend.color = Color.red;
+
             collision.GetComponent<Collider2D>().enabled = false;
-            // collision.GetComponent<Animator>().SetTrigger("activate");
         }
     }
 

@@ -16,23 +16,26 @@ public class Souls : MonoBehaviour
     Color soulUpgrade2 = new Color(0, 1, 0, 0.5f);//green
     Color soulUpgrade3 = new Color(0, 0, 1, 0.5f);//blue
     Color soulUpgrade4 = new Color(1, 0, 1, 0.5f);//purple
-    Color soulUpgrade5 = new Color(1, 1, 0, 0.5f);//whiet
+    Color soulUpgrade5 = new Color(1, 1, 0, 0.5f);//yellow
 
 
     // Start is called before the first frame update
     void Start()
     {
-        if((PlayerPrefs.GetFloat("soulCount") == null)) 
+        if (!PlayerPrefs.HasKey("soulCount"))
         {
             PlayerPrefs.SetFloat("soulCount", 0);
         }
-        playerCombat = GetComponent<PlayerCombat>();
 
-        if((PlayerPrefs.GetInt("souldUpgradeCount") == null)) 
+        if (!PlayerPrefs.HasKey("soulUpgradeCount"))
         {
-            PlayerPrefs.SetInt("souldUpgradeCount", 0);
+            PlayerPrefs.SetInt("soulUpgradeCount", 0);
         }
 
+        // Get the player's combat script
+        playerCombat = GetComponent<PlayerCombat>();
+
+        // Change the color of the sword based on the number of soul upgrades
         ChangeWeaponColor();
 
     }
@@ -46,7 +49,7 @@ public class Souls : MonoBehaviour
     public void AddSouls(float _value)
     {
         PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCount")+_value);
-        Debug.Log("ADded"+_value);
+        Debug.Log("Added "+_value);
 
         if(PlayerPrefs.GetFloat("soulCount") >= 100)
         {
@@ -57,16 +60,17 @@ public class Souls : MonoBehaviour
 
     public void SoulUpgrade()
     {
+        // Reset the current number of souls to 0 and update the value in PlayerPrefs
         currentSouls = 0;
         PlayerPrefs.SetFloat("soulCount", currentSouls);
-
+        
         soulUpgradeCount = PlayerPrefs.GetInt("souldUpgradeCount");
         playerDamage = PlayerPrefs.GetFloat("playerDamage", 10f);
 
         PlayerPrefs.SetInt("souldUpgradeCount", soulUpgradeCount + 1);
         PlayerPrefs.SetFloat("playerDamage", playerDamage + 10f);
+
         StartCoroutine(AnimateColor());
-        //foreach (GameObject light in lights) { light.GetComponent<UnityEngine.Rendering.Universal.Light2D>().color = new Color(1, 0, 0, 0.5f); }
     }
 
     private IEnumerator AnimateColor()
@@ -101,10 +105,8 @@ public class Souls : MonoBehaviour
                     swordColor = soulUpgrade5;
                     break;
             }
-
-            lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity=1.5f;
-            lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius += 0.02f; 
             
+            // Gradually Change sword's previous color to the current one
             lights[0].GetComponent<UnityEngine.Rendering.Universal.Light2D>().color = Color.Lerp(
             lights[0].GetComponent<UnityEngine.Rendering.Universal.Light2D>().color, 
             swordColor, t);
@@ -121,6 +123,8 @@ public class Souls : MonoBehaviour
             lights[3].GetComponent<UnityEngine.Rendering.Universal.Light2D>().color, 
             swordColor, t);
 
+            // Levelup effect
+            // Circular light around the player that increments
             lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity=1.5f;
             lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius += 0.02f;
         
@@ -130,10 +134,9 @@ public class Souls : MonoBehaviour
         }
 
         ChangeWeaponColor();
-       
+        // Remove the circular light around the player after the duration
         lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().intensity=0;
         lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().pointLightOuterRadius = 0.82f;
-       // lights[4].GetComponent<UnityEngine.Rendering.Universal.Light2D>().falloffIntensity=0;
     }
 
     void ChangeWeaponColor()
