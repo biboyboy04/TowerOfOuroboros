@@ -3,39 +3,36 @@ using UnityEngine;
 public class EnemyDamage : MonoBehaviour
 {
     [SerializeField] protected float damage;
-    PlayerMovement playerMovement;
-    
+
+    private GameObject playerGameObject;
+
+    private PlayerMovement playerMovement;
+    private Health playerHealth;
+
+    void Start() 
+    {
+        playerGameObject = GameObject.FindWithTag("Player");
+    }
 
     protected void OnTriggerEnter2D(Collider2D collision)
-    {
-        //playerMovement = Greg.GetComponent<PlayerMovement>();
-        GameObject greg = GameObject.FindWithTag("Player");
-        playerMovement = greg.GetComponent<PlayerMovement>();
-
-        Health playerHealth = collision.GetComponent<Health>();
-
+    {   
+        playerMovement = playerGameObject.GetComponent<PlayerMovement>();
 
         if (collision.tag == "Player")
         {
+            playerHealth = collision.GetComponent<Health>();
+
+            // If the damage doesn't kill the player, apply knockback.
             if (damage < playerHealth.currentHealth)
             {
-                playerMovement.KBCounter = playerMovement.KBTotalTime;
-            
-                if (collision.transform.position.x <= transform.position.x)
-                {
-                    playerMovement.KnockFromRight = true;
-                }
+                // Calculate the direction of the knockback.
+                bool knockFromRight = collision.transform.position.x <= transform.position.x;
 
-                if (collision.transform.position.x > transform.position.x)
-                {
-                    playerMovement.KnockFromRight = false;
-                }
+                // Apply the knockback using the player's PlayerMovement script.
+                playerMovement.ApplyKnockback(knockFromRight);
             }
 
             playerHealth.TakeDamage(damage);
-            
         }
-
-            
     }
 }

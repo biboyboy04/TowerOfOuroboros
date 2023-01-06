@@ -2,7 +2,7 @@
 using System.Collections;
 using UnityEngine;
 
-// Credits to Dawnosaur
+// Special thanks to Dawnosaur for the base code for this script. Some modifications have been made to fit the needs of the game.
 
 public class PlayerMovement : MonoBehaviour
 {
@@ -12,6 +12,9 @@ public class PlayerMovement : MonoBehaviour
 
 	#region COMPONENTS
     public Rigidbody2D RB { get; private set; }
+	[SerializeField] private Joystick joystick;
+	private Animator anim;
+	
 	#endregion
 
 	#region STATE PARAMETERS
@@ -23,22 +26,14 @@ public class PlayerMovement : MonoBehaviour
 	public bool IsWallJumping { get; private set; }
 	public bool IsDashing { get; private set; }
 	public bool IsSliding { get; private set; }
+	public bool IsDoubleJumping { get; private set; }
+	public bool IsIceSliding { get; private set; }
 
 	//Timers (also all fields, could be private and a method returning a bool could be used)
 	public float LastOnGroundTime { get; private set; }
 	public float LastOnWallTime { get; private set; }
 	public float LastOnWallRightTime { get; private set; }
 	public float LastOnWallLeftTime { get; private set; }
-
-	// My declarations
-	private Animator anim;
-	private bool grounded;
-	public Joystick joystick;
-	private bool dash;
-	private bool IsWallSliding;
-	public float wallSlidingSpeed;
-	private bool canDoubleJump;
-	private bool IsDoubleJumping;
 
 	//Jump
 	private bool _isJumpCut;
@@ -55,22 +50,17 @@ public class PlayerMovement : MonoBehaviour
 	private bool _isDashAttacking;
 	public int targetFrameRate;
 
-	//Knockback
-	public float KBForce;
-	public float KBCounter;
-	public float KBTotalTime;
-	public bool isMoving;
-
+	// Knockback
+	[SerializeField] private float KBForce;
+	[SerializeField] private float KBCounter;
+	[SerializeField] private float KBTotalTime;
 	public bool KnockFromRight;
 
-	// The speed at which the player will slide
-    public float slideSpeed = 5f;
+	private bool IsGrounded;
+	public float wallSlidingSpeed;
+	private bool canDoubleJump;
 
-	private bool isSlipping;
-
-    // A reference to the player's Rigidbody component
-
-    // A reference to2 the collider that the player is currently standing on
+    // A reference to the collider that the player is currently standing on
     private Collider2D currentCollider;
 
 	[SerializeField] private AudioSource dashSound;
@@ -120,12 +110,12 @@ public class PlayerMovement : MonoBehaviour
 
 	private void Update()
 	{
-		Slip();
+		IceSlide();
 
 		// Ground check
-		if (RB.velocity.y < -0.1 && !IsWallJumping && !IsWallSliding)
+		if (RB.velocity.y < -0.1 && !IsWallJumping && !IsSliding)
 		{
-			grounded = false;
+			IsGrounded = false;
 		}
 
 		#region INPUT HANDLER
@@ -173,7 +163,7 @@ public class PlayerMovement : MonoBehaviour
 			if (Physics2D.OverlapBox(_groundCheckPoint.position, _groundCheckSize, 0, _groundLayer) && !IsJumping) //checks if set box overlaps with ground
 			{
 				LastOnGroundTime = Data.coyoteTime; //if so sets the lastGrounded to coyoteTime
-				grounded = true;
+				IsGrounded = true;
             }
 
 			//Right Wall Check
@@ -230,7 +220,7 @@ public class PlayerMovement : MonoBehaviour
 
 
 			anim.SetTrigger("jump");
-			grounded = false;
+			IsGrounded = false;
 		}
 
 		//WALL JUMP
@@ -335,11 +325,11 @@ public class PlayerMovement : MonoBehaviour
 
 		//sets animation parameters
 		anim.SetBool("run", (_moveInput.x > .3f || _moveInput.x < -.3f));
-		anim.SetBool("grounded", grounded);
+		anim.SetBool("grounded", IsGrounded);
 		//anim.SetBool("dash", IsDashing);
 		anim.SetBool("wallSliding", IsSliding);
 		anim.SetBool("doubleJump", IsDoubleJumping);
-		anim.SetBool("slip", isSlipping);
+		anim.SetBool("iceSlide", IsIceSliding);
 
     }
 
@@ -349,30 +339,24 @@ public class PlayerMovement : MonoBehaviour
 		//Handle Run
 		if (!IsDashing)
 		{
-			if (IsWallJumping)
+			if (IsWallJumping || KBCounter <= 0)
 			{
 				Run(Data.wallJumpRunLerp);
 			}
 			else
 			{
-				// Enemy Collision
-				if(KBCounter <= 0)
+				// Add knockback effect
+				if(KnockFromRight)
 				{
-					Run(1);
+					RB.velocity = new Vector2(-KBForce, KBForce/2);
 				}
 				else
 				{
-					if(KnockFromRight)
-					{
-						RB.velocity = new Vector2(-KBForce, KBForce/2);
-					}
-					if(!KnockFromRight)
-					{
-						RB.velocity = new Vector2(KBForce, KBForce/2);
-					}
-					KBCounter -= Time.deltaTime;
+					RB.velocity = new Vector2(KBForce, KBForce/2);
 				}
-				
+				// Decrease the knockback counter by the elapsed time since the last frame.
+				// When the counter reaches 0, the knockback effect ends. 
+				KBCounter -= Time.deltaTime;
 			}
 				
 		}
@@ -386,7 +370,7 @@ public class PlayerMovement : MonoBehaviour
 			Slide();
     }
 
-	void Slip()
+	private void IceSlide()
     {
         // Check if the player is standing on an "ice" collider
         if (currentCollider != null && currentCollider.tag == "Ice")
@@ -405,16 +389,14 @@ public class PlayerMovement : MonoBehaviour
 			{
 				slideDirection += Vector2.right;
             }
+			RB.AddForce(slideDirection * (Data.runMaxSpeed), ForceMode2D.Impulse);
 
-            // Apply the sliding force to the player's Rigidbody2D
-			
-            RB.AddForce(slideDirection * (Data.runMaxSpeed), ForceMode2D.Impulse);
+			IsIceSliding = true;
 
-			isSlipping = true;
-        }
+		}
 		else 
 		{
-			isSlipping = false;
+			IsIceSliding = false;
 		}
     }
 
@@ -659,18 +641,15 @@ public class PlayerMovement : MonoBehaviour
 	#region OTHER MOVEMENT METHODS
 	private void Slide()
 	{
-		//Works the same as the Run but only in the y-axis
-		//THis seems to work fine, buit maybe you'll find a better way to implement a slide into this system
-		//float speedDif = Data.slideSpeed-RB.velocity.y;	
-		//float movement = speedDif * Data.slideAccel * 0.25f;
-		//So, we clamp the movement here to prevent any over corrections (these aren't noticeable in the Run)
-		//The force applied can't be greater than the (negative) speedDifference * by how many times a second FixedUpdate() is called. For more info research how force are applied to rigidbodies.
-		//movement = -Mathf.Clamp(movement, -Mathf.Abs(speedDif)  * (1 / Time.fixedDeltaTime), Mathf.Abs(speedDif) * (1 / Time.fixedDeltaTime));
-
-		//RB.AddForce(movement*0.5f * Vector2.down);
 		RB.velocity = new Vector2(RB.velocity.x, -Mathf.Clamp(RB.velocity.y, wallSlidingSpeed, float.MaxValue));
-		//RB.velocity = new Vector2(RB.velocity.x, RB.velocity.y * 0.1f);
 	}
+
+	// This method can be called by other scripts to apply knockback to the player.
+    public void ApplyKnockback(bool knockFromRight)
+    {
+        KBCounter = KBTotalTime;
+        KnockFromRight = knockFromRight;
+    }
     #endregion
 	
 
@@ -688,7 +667,7 @@ public class PlayerMovement : MonoBehaviour
 
 	private bool CanDoubleJump()
 	{
-		return (canDoubleJump) && grounded == false;
+		return (canDoubleJump) && IsGrounded == false;
 	}
 
 	private bool CanWallJump()
