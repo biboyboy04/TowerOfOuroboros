@@ -979,7 +979,7 @@ TextureImporter:
     secondaryTextures: []
     nameFileIdTable:
       Health Bar 1_3: 1422563466
-      Health Bar 1_30: 1524640162
+      Health Bar 1_10: -2056736726
       Health Bar 1_18: -1389270731
       Health Bar 1_16: -469543052
       Health Bar 1_12: 920980813
@@ -1016,8 +1016,8 @@ TextureImporter:
       Health Bar 1_32: 1974164514
       Health Bar 1_34: -1498413415
       Health Bar 1_31: 105808379
-      Health Bar 1_10: -2056736726
       Health Bar 1_29: 2131349995
+      Health Bar 1_30: 1524640162
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

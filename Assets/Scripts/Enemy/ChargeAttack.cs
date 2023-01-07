@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class SideAttack : EnemyDamage
+public class ChargeAttack : EnemyDamage
 {
     [SerializeField] private float speed;
     [SerializeField] private float range;

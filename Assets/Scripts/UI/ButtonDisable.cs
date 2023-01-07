@@ -22,25 +22,22 @@ public class ButtonDisable : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(button.name == "DashButton" &&  DashCheck())
+
+        if(button.name == "DashButton")
         {
-            button.interactable = true;
-            image.color = Color.white;
-            
+            isInteractable = DashCheck();
         }
 
-        else if(button.name == "AttackButton" &&  AttackCheck())
+        else if(button.name == "AttackButton")
         {
-            button.interactable = true;
-            image.color = Color.white;
-            
+            isInteractable = AttackCheck();
         }
 
-        else
-        {
-            button.interactable = false;
-            image.color = new Color32(55, 55, 55, 255);
-        }
+        // Make the button interactable based on their checks
+        button.interactable = isInteractable;
+
+        // Make the button darker if it's not interactable otherwise do not tint the image
+        image.color = isInteractable ? Color.white : new Color32(55, 55, 55, 255);
     }
 
     bool DashCheck()

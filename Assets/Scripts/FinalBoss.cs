@@ -29,16 +29,17 @@ public class FinalBoss : MonoBehaviour
     [SerializeField] private LayerMask playerLayer;
     private float cooldownTimer = Mathf.Infinity;
 
-        //References
+    //References
     private Animator anim;
     public TeleportToPlayer teleport;
     private Health enemyHealth;
-    public Health playerHealth;
+    private Health playerHealth;
     bool canChangeValue = true;
 
 
     private void Awake()
     {
+        playerHealth = GameObject.FindGameObjectWithTag("Player").GetComponent<Health>();
         anim = GetComponent<Animator>();
     }
 
@@ -54,7 +55,7 @@ public class FinalBoss : MonoBehaviour
 
     void Update()
     {
-        if(playerHealth.currentHealth > 0)
+        if(playerHealth.currentHealth > 0 || playerHealth.currentHealth == null)
         {
             if(bossRigidbody.velocity == Vector2.zero)
             {

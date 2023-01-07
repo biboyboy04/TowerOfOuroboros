@@ -18,7 +18,7 @@ public class TeleportToPlayer : MonoBehaviour
 
     public bool canActivateAbility;
     public bool activatingAbility;
-    public SideAttack sideAttack;
+    public ChargeAttack chargeAttack;
 
     private float offsetPosition;
 
@@ -49,9 +49,9 @@ public class TeleportToPlayer : MonoBehaviour
         
         if(playerHealth.currentHealth > 0)
         {
-            if(sideAttack!=null && sideAttack.canTeleport)
+            if(chargeAttack!=null && chargeAttack.canTeleport)
             {
-                sideAttack.canTeleport= false;
+                chargeAttack.canTeleport= false;
                 canActivateAbility = true;
                 offsetPosition = 2;
                 TeleportBehind();
