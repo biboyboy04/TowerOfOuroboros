@@ -4,105 +4,80 @@ using UnityEngine;
 
 public class SpawnEnemies : MonoBehaviour
 {
-    // The animation to play
-    private Animator anim;
-    // The interval at which to play the animation, in seconds
-    public float interval;
-    // A timer to track when to play the animation
-    private float timer;
-
-    public GameObject enemyPrefab;
-    // The number of enemies to summon
-    public int enemyCount;
-    // The radius around the summoner to spawn the enemies
-    public float spawnRadius;
+    [SerializeField] private GameObject enemyToSummon;
+    [SerializeField] private float spawnInterval;
+    [SerializeField] private int numEnemiesToSpawn;
+    [SerializeField] private float spawnRadius;
 
     public Health playerHealth;
-
-    public bool canActivateAbility;
-
     public AudioSource spawnSound;
 
-    bool canChangeValue = true;
-
     private Health enemyHealth;
+    private SpriteRenderer spriteRenderer;
+    private float timer;
+    bool canPowerUp = true;
 
     // Start is called before the first frame update
     void Start()
     {
+        enemyHealth = this.GetComponent<Health>();
+        spriteRenderer = this.GetComponent<SpriteRenderer>();
     }
 
     // Update is called once per frame
-
-    void FixedUpdate() 
-    {
-        AbilityActivateIndicator();
-    }
-    
     void Update()
     {
-        
-         if(playerHealth.currentHealth > 0)
-        {
-
-            if(IsHalfHealth())
-            {
-                canChangeValue = false;
-                interval/=2;
-            }
-           // AbilityActivateIndicator();
-            // Increment the timer by the amount of time that has passed since the last frame
-            timer += Time.deltaTime;
-            
-            // If the timer has reached the interval, it's time to do something
-            if (timer >= interval)
-            {   
-                canActivateAbility = true;
-                Spawn();
-                timer = 0;
-            }
-            else
-            {
-                canActivateAbility = false;
-            }
-        }
+        MakeBossStrongWhenHealthIsLow();
+        AbilityActivateIndicator();
+        EnemySpawn();  
     }
 
-    void AbilityActivateIndicator()
+
+    private void AbilityActivateIndicator()
     {
-        // If the timer is 1 second before the interval, change the color of the boss
-        if(timer >= interval-1)
+        // If the timer is 1 second before the spawnInterval , change the color of the boss
+        if(timer >= spawnInterval -1)
         {
-            this.GetComponent<SpriteRenderer>().color = new Color(1, 0,1, 1);
+            spriteRenderer.color = new Color(1, 0, 1, 1);
         }
         else
         {
-            this.GetComponent<SpriteRenderer>().color = Color.white;
+            spriteRenderer.color = Color.white;
         } 
     }
 
-    void Spawn()
+
+    private void EnemySpawn()
     {
-        spawnSound.Play();
-        for (int i = 0; i < enemyCount; i++)
+        if(playerHealth.currentHealth > 0)
         {
-            // Calculate a random position within the spawn radius
-            Vector3 spawnPos = transform.position + Random.insideUnitSphere * spawnRadius;
-            // Instantiate the enemy prefab at the spawn position
-            Instantiate(enemyPrefab, spawnPos, Quaternion.identity);
+            // Increment the timer by the amount of time that has passed since the last frame
+            timer += Time.deltaTime;
+
+            if (timer >= spawnInterval)
+            {
+                spawnSound.Play();
+                for (int i = 0; i < numEnemiesToSpawn; i++)
+                {
+                    // Calculate a random position within the spawn radius
+                    Vector3 spawnPos = transform.position + Random.insideUnitSphere * spawnRadius;
+                    // Instantiate the enemy prefab at the spawn position
+                    Instantiate(enemyToSummon, spawnPos, Quaternion.identity);
+                }
+                timer = 0;
+            }
         }
     }
+    
 
-     private bool IsHalfHealth()
-    {   
-
-        enemyHealth = this.GetComponent<Health>();
-        if(canChangeValue)
+     private void MakeBossStrongWhenHealthIsLow()
+    {
+        if(enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2) && canPowerUp)
         {
-            return enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2);
-        }
-        else
-            return false;
+            spawnInterval /= 2;
+            numEnemiesToSpawn = 5;
+            canPowerUp = false;
+        } 
     }
 
 }

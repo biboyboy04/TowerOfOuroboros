@@ -31,50 +31,51 @@ public class TeleportToPlayer : MonoBehaviour
     // Update is called once per frame
     void Update()
     {   
-        if(playerHealth.currentHealth > 0)
+        // Change into the teleport animation before the cooldown 
+        // as an indicator that the enemy will teleport
+        anim.SetBool("teleport", (timer >= teleportCooldown-1.3f));
+
+        MakeBossStrongWhenHealthIsLow();
+
+        // When the timer is greater than or equal to the teleportCooldown, the Teleport function is called with a value of true.
+        Teleport(timer >= teleportCooldown);
+
+        if(chargeAttack != null)
         {
-            timer += Time.deltaTime;
-
-            // Change into the teleport animation 1 second before the cooldown 
-            // as an indicator that the enemy will teleport
-            anim.SetBool("teleport", (timer >= teleportCooldown-1));
-
-            MakeBossStrongWhenHealthIsLow();
-            Teleport(timer >= teleportCooldown);
-
-            if(chargeAttack != null)
-            {
-                Teleport(chargeAttack.canTeleport);
-                chargeAttack.canTeleport = false;
-            }
+            Teleport(chargeAttack.canTeleport);
         }
     }
 
 
     private void Teleport(bool canTeleport)
     {
-        if(canTeleport)
+        if(playerHealth.currentHealth > 0)
         {
-            bossTeleportSound.Play();
-            distanceToPlayer = Vector2.Distance(transform.position, playerTransform.transform.position);
+            timer += Time.deltaTime;
 
-            if (distanceToPlayer < teleportDistance)
+            if(canTeleport)
             {
-                // If enemy is at the right side of the player
-                if(this.transform.position.x > playerTransform.transform.position.x)
-                {
-                    playerFront = playerTransform.transform.position - playerTransform.transform.right * teleportOffset;
-                } 
-                else
-                { 
-                    playerFront = playerTransform.transform.position - playerTransform.transform.right * -teleportOffset;
-                }   
+                bossTeleportSound.Play();
+                distanceToPlayer = Vector2.Distance(transform.position, playerTransform.transform.position);
 
-                // Set the enemy's position to the calculated position at the front of the player 
-                transform.position = playerFront; 
+                if (distanceToPlayer < teleportDistance)
+                {
+                    // If enemy is at the right side of the player
+                    if(this.transform.position.x > playerTransform.transform.position.x)
+                    {
+                        playerFront = playerTransform.transform.position - playerTransform.transform.right * teleportOffset;
+                    } 
+                    else
+                    { 
+                        playerFront = playerTransform.transform.position - playerTransform.transform.right * -teleportOffset;
+                    }   
+
+                    // Set the enemy's position to the calculated position at the front of the player 
+                    transform.position = playerFront; 
+                }
+                // Reset the timer
+                timer = 0;
             }
-            // Reset the timer
-            timer = 0;
         }
     }
 

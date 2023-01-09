@@ -20,8 +20,7 @@ public class ChargeAttack : EnemyDamage
     private bool canPowerUp = true;
     private float teleportTimer;
 
-    [HideInInspector]
-    public bool canTeleport;
+    public bool canTeleport { get; private set; }
 
     [Header("SFX")]
     public AudioSource abilityActivateSound;
@@ -41,9 +40,8 @@ public class ChargeAttack : EnemyDamage
 
     private void Update()
     {
+        Debug.Log("teleportTimer"+teleportTimer);
         anim.SetBool("charging", charging);
-
-        ActivateOuroborosTeleport();
 
         if(charging)
         {
@@ -156,7 +154,7 @@ public class ChargeAttack : EnemyDamage
     {
         if(enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2) && canPowerUp)
         {
-            speed*=0.7f;
+            speed*=1.3f;
             chargeCooldown/=1.7f;
             canPowerUp = false;
         } 
@@ -166,7 +164,7 @@ public class ChargeAttack : EnemyDamage
     private void ActivateOuroborosTeleport()
     {
         // Enables Ouroboros teleport after charging when hp is below half
-        if(gameObject.name == "Ouroboros" && canPowerUp)
+        if(gameObject.name == "Ouroboros" && !canPowerUp)
         {
             teleportTimer+=Time.deltaTime;
 
