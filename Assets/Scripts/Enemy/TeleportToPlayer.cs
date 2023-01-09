@@ -8,8 +8,8 @@ public class TeleportToPlayer : MonoBehaviour
     private Health enemyHealth;
     private ChargeAttack chargeAttack;
     
-    public float teleportCooldown;
-    public float teleportDistance = 100f;
+    [SerializeField] private float teleportCooldown;
+    [SerializeField] private float teleportDistance = 100f;
     public Health playerHealth;
     public Transform playerTransform;
     public AudioSource bossTeleportSound;
@@ -17,7 +17,7 @@ public class TeleportToPlayer : MonoBehaviour
     private float timer;
     private float distanceToPlayer;
     private float teleportOffset = 1f;
-    private bool valueChanged = false;
+    private bool canPowerUp = true;
     private Vector2 playerFront;
 
     // Start is called before the first frame update
@@ -38,7 +38,7 @@ public class TeleportToPlayer : MonoBehaviour
             // Change into the teleport animation 1 second before the cooldown 
             // as an indicator that the enemy will teleport
             anim.SetBool("teleport", (timer >= teleportCooldown-1));
-            
+
             MakeBossStrongWhenHealthIsLow();
             Teleport(timer >= teleportCooldown);
 
@@ -81,10 +81,10 @@ public class TeleportToPlayer : MonoBehaviour
 
     private void MakeBossStrongWhenHealthIsLow()
     {
-        if(enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2) && !valueChanged)
+        if(enemyHealth.currentHealth <= (enemyHealth.startingHealth / 2) && canPowerUp)
         {
             teleportCooldown/=2;
-            valueChanged = true;
+            canPowerUp = false;
         } 
     }
 }

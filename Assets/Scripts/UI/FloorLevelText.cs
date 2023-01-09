@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 
 public class FloorLevelText : MonoBehaviour
 {
-    public GameObject gameObject;
     public TMP_Text floorLevelText;
     public Dialogue dialogue;
     private Animator anim;

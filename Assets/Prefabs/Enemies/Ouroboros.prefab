@@ -18,7 +18,6 @@ GameObject:
   - component: {fileID: 9010662641281208754}
   - component: {fileID: 9010662641281208752}
   - component: {fileID: 9010662641281208759}
-  - component: {fileID: 9010662641281208758}
   m_Layer: 10
   m_Name: Ouroboros
   m_TagString: Untagged
@@ -154,8 +153,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e447edafb0ad09f42bd06292a6b164e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  gameManager: {fileID: 0}
+  deathCountObject: {fileID: 0}
   startingHealth: 4000
-  dead: 0
   iFramesDuration: 0.5
   numberOfFlashes: 1
   components:
@@ -165,16 +165,8 @@ MonoBehaviour:
   - {fileID: 9010662641281208754}
   - {fileID: 9010662641281208752}
   - {fileID: 9010662641281208759}
-  - {fileID: 9010662641281208758}
-  invulnerable: 0
-  gameManager: {fileID: 0}
-  borderHealthBar: {fileID: 0}
-  deathCountObject: {fileID: 0}
-  portalPrefab: {fileID: 0}
-  highestFloorCompleted: 0
-  floorName: 
-  currentFloor: 0
-  thankYouPanel: {fileID: 0}
+  - {fileID: 0}
+  bossPortalDrop: {fileID: 0}
   itemsToDrop:
   - {fileID: 7120981561838499699, guid: e7d53050c66b05e498c70d96c00e1a14, type: 3}
   checkpointSound: {fileID: 0}
@@ -217,6 +209,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   moveSpeed: 5.5
+  playerTransform: {fileID: 0}
   player: {fileID: 0}
   attackCooldown: 2
   range: 1.11
@@ -226,8 +219,6 @@ MonoBehaviour:
   playerLayer:
     serializedVersion: 2
     m_Bits: 64
-  teleport: {fileID: 9010662641281208759}
-  playerHealth: {fileID: 0}
 --- !u!61 &9010662641281208752
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -266,31 +257,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b78d789199ed57646880a78a30e690e5, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  interval: 15
+  teleportCooldown: 0
   teleportDistance: 50
-  player: {fileID: 0}
   playerHealth: {fileID: 0}
-  canActivateAbility: 0
-  activatingAbility: 0
-  bossDash: {fileID: 9010662641281208758}
---- !u!114 &9010662641281208758
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 9010662641281208740}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3d5640fbfa956a84992f59b787c89f03, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 34
-  speed: 1
-  range: 10
-  checkDelay: 25
-  playerLayer:
-    serializedVersion: 2
-    m_Bits: 64
-  canTeleport: 0
-  impactSound: {fileID: 0}
+  playerTransform: {fileID: 0}
+  bossTeleportSound: {fileID: 0}
