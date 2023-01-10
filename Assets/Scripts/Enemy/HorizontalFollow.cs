@@ -8,10 +8,11 @@ public class HorizontalFollow : MonoBehaviour
     public float moveSpeed = 5.0f;
 
     private Rigidbody2D rb; // Rigidbody2D component attached to the ball
-    public Transform playerTransform; // Transform component of the playerTransform
     private Health enemyHealth;
-    public Health playerHealth;
     private Animator anim;
+
+    public Transform playerTransform; // Transform component of the playerTransform
+    public Health playerHealth;
 
     public bool IsFacingRight { get; private set; }
 
@@ -19,7 +20,6 @@ public class HorizontalFollow : MonoBehaviour
     {
         // Get the Rigidbody2D and Transform components
         rb = GetComponent<Rigidbody2D>();
-        //playerTransform = GameObject.FindWithTag("playerTransform").transform;
         IsFacingRight = false;
         enemyHealth = this.GetComponent<Health>();
         anim = this.GetComponent<Animator>();
@@ -28,33 +28,29 @@ public class HorizontalFollow : MonoBehaviour
 
     void Update()
     {
-        // If enemy is at the right side of the playerTransform
-        if(this.transform.position.x > playerTransform.transform.position.x && IsFacingRight){
+        // If enemy is at the right side of the playerTransform, flip towards the player
+        if(this.transform.position.x > playerTransform.transform.position.x && IsFacingRight)
+        {
                Turn();
         } 
 
         // If enemy is at the left side of the playerTransform
-        if(this.transform.position.x < playerTransform.transform.position.x && !IsFacingRight){ 
+        if(this.transform.position.x < playerTransform.transform.position.x && !IsFacingRight)
+        { 
                Turn();
         }
-        // Calculate the distance between the ball and the playerTransform
+
         float distance = Mathf.Abs(transform.position.x - playerTransform.position.x); distance = Vector2.Distance(transform.position, playerTransform.position);
 
-        // If the distance is greater than zero, continue rolling towards the playerTransform
-        if (distance > 0)
+        if (playerHealth.currentHealth > 0)
         {
-            // If the distance is less than the threshold, start rolling towards the playerTransform
-            if (distance < distanceThreshold && enemyHealth.invulnerable == false && playerHealth.invulnerable == false)
+            // If the distance is less than the threshold, start going towards the player
+            if (distance < distanceThreshold && !enemyHealth.invulnerable && !playerHealth.invulnerable)
             {
-                    //move towards the playerTransform horizontally
-                    float xMovement = moveSpeed * Mathf.Sign(playerTransform.position.x - transform.position.x);
-                    rb.velocity = new Vector2(xMovement, rb.velocity.y);
-                    
-                    if(anim!=null)
-                        anim.SetBool("idle", false);
+                MoveHorizontallyTowardsPlayer();
             }
         }
-        // Otherwise, stop the ball
+        // Otherwise, stop
         else
         {
             rb.velocity = Vector2.zero;
@@ -64,6 +60,17 @@ public class HorizontalFollow : MonoBehaviour
         }
     }
 
+
+    private void MoveHorizontallyTowardsPlayer()
+    {
+        float xMovement = moveSpeed * Mathf.Sign(playerTransform.position.x - transform.position.x);
+        rb.velocity = new Vector2(xMovement, rb.velocity.y);
+
+        if (anim != null)
+            anim.SetBool("idle", false);
+    }
+
+
     private void Turn()
 	{
 
@@ -71,7 +78,6 @@ public class HorizontalFollow : MonoBehaviour
 		Vector3 scale = transform.localScale; 
 		scale.x *= -1;
 		transform.localScale = scale;
-
 		IsFacingRight = !IsFacingRight;
 	}
 }

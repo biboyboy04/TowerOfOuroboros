@@ -14,24 +14,21 @@ public class StatusBar : MonoBehaviour
 
     private void Start()
     {
-        if(playerSoul == null)
+        if(health)
         {
             slider.maxValue = health.currentHealth;
-            //slider.value = health.currentHealth;
             fill.color = gradient.Evaluate(1f);
         }
 
-        else if (health == null)
+        else if (playerSoul)
         {
-            //slider.maxValue = playerSoul.currentSouls;
-            //slider.value = health.currentHealth;
         }
 
     }
 
     private void Update()
     {
-        if(health != null)
+        if(health)
         {
             slider.value = health.currentHealth;
             fill.color = gradient.Evaluate(slider.normalizedValue);
@@ -46,7 +43,7 @@ public class StatusBar : MonoBehaviour
             }
         }
 
-        else if (playerSoul != null)
+        else if (playerSoul)
         {
             slider.value = PlayerPrefs.GetFloat("soulCount");
         }
@@ -56,7 +53,6 @@ public class StatusBar : MonoBehaviour
 
      private bool IsHalfHealth()
     {   
-
         if(notRaged)
         {
             return health.currentHealth <= (health.startingHealth / 2);

@@ -6,11 +6,11 @@ using UnityEngine.SceneManagement;
 
 public class Health : MonoBehaviour
 {
-    private Transform currentCheckpoint;
-
+    [Header ("Greg References")]
     public GameManagerScript gameManager;
-
     [SerializeField] private GameObject deathCountObject;
+
+    private Transform currentCheckpoint;
     private TMP_Text deathCountText;
 
     private Animator anim;
