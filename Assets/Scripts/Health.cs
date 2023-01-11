@@ -35,15 +35,16 @@ public class Health : MonoBehaviour
     [SerializeField] private GameObject[] itemsToDrop;
     
 
-    [Header("Audio")]
-    [SerializeField] private AudioSource checkpointSound;
-
+    [Header("Player SFX")]
     [SerializeField] private AudioSource playerHurtSound;
     [SerializeField] private AudioSource playerDeadSound;   
+    [SerializeField] private AudioSource playerActivateCheckpoint;
 
+    [Header("Enemy SFX")]
     [SerializeField] private AudioSource enemyHurtSound;
     [SerializeField] private AudioSource enemyDeadSound;
 
+    [Header("Chest SFX")]
     [SerializeField] private AudioSource chestOpenSound;
 
     private void Awake()
@@ -125,6 +126,7 @@ public class Health : MonoBehaviour
                 // If the entity is the player, increment the death count, play the player dead sound, and call the game over function
                 if (gameObject.tag == "Player")
                 {
+                    playerDeadSound.Play();
                     PlayerPrefs.SetInt("deathCount", PlayerPrefs.GetInt("deathCount") + 1);
                     deathCountText.text = "DEATH COUNT: " + PlayerPrefs.GetInt("deathCount");
                     gameManager.gameOver();
@@ -214,7 +216,7 @@ public class Health : MonoBehaviour
         if (collision.gameObject.tag == "Checkpoint")
         {
             currentCheckpoint = collision.transform;
-            checkpointSound.Play();
+            playerActivateCheckpoint.Play();
 
             //Change checkpoint color to blue
             collision.GetComponent<SpriteRenderer>().color = new Color(0, 1, 1, 1);
