@@ -15,7 +15,7 @@ GameObject:
   - component: {fileID: 6808294298866063103}
   - component: {fileID: 9115553125340294473}
   - component: {fileID: -3394945588646643060}
-  m_Layer: 0
+  m_Layer: 11
   m_Name: Spinning Blade
   m_TagString: Untagged
   m_Icon: {fileID: 0}

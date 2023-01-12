@@ -5,9 +5,11 @@ using UnityEngine.UI;
 
 public class ButtonDisable : MonoBehaviour
 {
-
+    [Header("Reference for Dash")]
     public PlayerMovement playerMovement;
+    [Header("Reference for Attack")]
     public PlayerCombat playerCombat;
+    
     public Button button;
     private Image image;
     private bool isInteractable;

@@ -33,9 +33,11 @@ public class TeleportToPlayer : MonoBehaviour
     {   
         // Change into the teleport animation before the cooldown 
         // as an indicator that the enemy will teleport
-        anim.SetBool("teleport", (timer >= teleportCooldown-1.3f));
+        anim.SetBool("teleport", (timer >= teleportCooldown-1f));
 
         MakeBossStrongWhenHealthIsLow();
+
+        timer += Time.deltaTime;
 
         // When the timer is greater than or equal to the teleportCooldown, the Teleport function is called with a value of true.
         Teleport(timer >= teleportCooldown);
@@ -51,8 +53,6 @@ public class TeleportToPlayer : MonoBehaviour
     {
         if(playerHealth.currentHealth > 0)
         {
-            timer += Time.deltaTime;
-
             if(canTeleport)
             {
                 bossTeleportSound.Play();
