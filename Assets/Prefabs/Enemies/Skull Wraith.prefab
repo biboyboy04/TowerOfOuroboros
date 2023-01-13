@@ -44,8 +44,8 @@ GameObject:
   - component: {fileID: 4671478266064319937}
   - component: {fileID: 4671478266064319949}
   - component: {fileID: 8931239024441421723}
-  - component: {fileID: 7626635960736963396}
   - component: {fileID: 7626635960852129086}
+  - component: {fileID: 7626635960736963396}
   - component: {fileID: 4615382466348998089}
   - component: {fileID: 4735732447740043373}
   - component: {fileID: 4156009465409199186}
@@ -178,7 +178,6 @@ MonoBehaviour:
   - {fileID: 8931239024441421723}
   - {fileID: 4671478266064319949}
   - {fileID: 7626635960852129086}
-  - {fileID: 4615382466348998089}
   bossPortalDrop: {fileID: 0}
   itemsToDrop:
   - {fileID: 7120981561838499699, guid: e739944d4d29ae04abe749bbe697fe27, type: 3}
@@ -188,6 +187,31 @@ MonoBehaviour:
   enemyHurtSound: {fileID: 0}
   enemyDeadSound: {fileID: 0}
   chestOpenSound: {fileID: 0}
+--- !u!114 &7626635960852129086
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4671478266064319951}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: db5e8c1f4c363fe4387efd8c8b04f7f0, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 3
+  lineOfSite: 10.86
+  shootingRange: 4.03
+  bullet: {fileID: 2380436720186517722, guid: f733306488dd44640a50d7e8e79b2691, type: 3}
+  bulletParent: {fileID: 1420023990664267376}
+  player: {fileID: 0}
+  playerObject: {fileID: 0}
+  isBoss: 0
+  attackCooldown: 2.5
+  changeAttackCooldown: 0
+  projectileSounds: {fileID: 7626635960736963396}
+  playerHealth: {fileID: 0}
+  rapidFireSound: {fileID: 0}
 --- !u!82 &7626635960736963396
 AudioSource:
   m_ObjectHideFlags: 0
@@ -284,31 +308,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 4
---- !u!114 &7626635960852129086
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4671478266064319951}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db5e8c1f4c363fe4387efd8c8b04f7f0, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 3
-  lineOfSite: 10.86
-  shootingRange: 4.03
-  bullet: {fileID: 2380436720186517722, guid: f733306488dd44640a50d7e8e79b2691, type: 3}
-  bulletParent: {fileID: 1420023990664267376}
-  player: {fileID: 0}
-  playerObject: {fileID: 0}
-  isBoss: 0
-  attackCooldown: 2.5
-  changeAttackCooldown: 0
-  projectileSounds: {fileID: 7626635960736963396}
-  playerHealth: {fileID: 0}
-  rapidFireSound: {fileID: 0}
 --- !u!70 &4615382466348998089
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
