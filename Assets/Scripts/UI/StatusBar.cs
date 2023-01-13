@@ -22,12 +22,14 @@ public class StatusBar : MonoBehaviour
 
         else if (playerSoul)
         {
+            slider.maxValue = 100;
         }
 
     }
 
     private void Update()
     {
+        Debug.Log(slider.value);
         if(health)
         {
             slider.value = health.currentHealth;

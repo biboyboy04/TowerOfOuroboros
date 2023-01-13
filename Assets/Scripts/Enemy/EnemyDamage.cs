@@ -34,6 +34,7 @@ public class EnemyDamage : MonoBehaviour
             }
 
             playerHealth.TakeDamage(damage);
+            Debug.Log("Damaged Playe4r");
         }
     }
 }

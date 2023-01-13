@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class ChargeAttack : EnemyDamage
+public class ChargeAttack : MonoBehaviour
 {
     [SerializeField] private float speed;
     [SerializeField] private float range;
@@ -138,14 +138,13 @@ public class ChargeAttack : EnemyDamage
     }
 
 
-    private void OnTriggerEnter2D(Collider2D collision)
+    protected void OnTriggerEnter2D(Collider2D collision)
     {
         if(charging && impactSound!=null)
         {
             impactSound.Play();
         }
-
-        base.OnTriggerEnter2D(collision);
+        
         Stop(); //Stop once it hits something
     }
 

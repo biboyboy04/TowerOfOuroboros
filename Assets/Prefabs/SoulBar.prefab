@@ -85,7 +85,7 @@ MonoBehaviour:
   m_FillRect: {fileID: 6267878418007552652}
   m_HandleRect: {fileID: 0}
   m_Direction: 0
-  m_MinValue: 0
+  m_MinValue: -2
   m_MaxValue: 100
   m_WholeNumbers: 1
   m_Value: 100
@@ -156,7 +156,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c30753f69b290d64e98640158f268eac, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  playerHealth: {fileID: 0}
+  health: {fileID: 0}
   playerSoul: {fileID: 0}
   slider: {fileID: 6267878416461326659}
   gradient:
@@ -189,6 +189,7 @@ MonoBehaviour:
     m_NumColorKeys: 2
     m_NumAlphaKeys: 2
   fill: {fileID: 6267878418007552691}
+  bossRageText: {fileID: 0}
 --- !u!1 &6267878417715130355
 GameObject:
   m_ObjectHideFlags: 0

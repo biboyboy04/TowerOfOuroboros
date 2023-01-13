@@ -13,9 +13,9 @@ GameObject:
   - component: {fileID: 1596978976217149883}
   - component: {fileID: 4977921838085322823}
   - component: {fileID: 7152863107942855748}
-  m_Layer: 6
+  m_Layer: 0
   m_Name: SoulCollectible
-  m_TagString: Player
+  m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

@@ -8,7 +8,7 @@ public class CameraFollow : MonoBehaviour
     public Transform target;
     public Health playerHealth;
     public Vector3 offset;
-    [Range(1,10)]
+    [Range(1,20)]
     public float smoothFactor;
     [HideInInspector]
     public Vector3 minValues, maxValue;
@@ -38,7 +38,7 @@ public class CameraFollow : MonoBehaviour
             Mathf.Clamp(targetPosition.x, minValues.x, maxValue.x),
             Mathf.Clamp(targetPosition.y, minValues.y, maxValue.y),
             Mathf.Clamp(targetPosition.z, minValues.z, maxValue.z));
-
+        //Vector3 smoothPosition = Vector3.MoveTowards(transform.position, boundPosition, smoothFactor*Time.fixedDeltaTime);
         Vector3 smoothPosition = Vector3.Lerp(transform.position, boundPosition, smoothFactor*Time.fixedDeltaTime);
         transform.position = smoothPosition;
     }
