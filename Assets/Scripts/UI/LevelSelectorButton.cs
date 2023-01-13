@@ -21,7 +21,7 @@ public class LevelSelectorButton : MonoBehaviour
         int levelReached = PlayerPrefs.GetInt("levelReached", 0);
 		for (int i = 0; i < levelButtons.Length; i++)
 		{
-			if (i + 1 > 11)
+			if (i + 1 > levelReached)
 			{
 				levelButtons[i].interactable = false;
 				levelButtons[i].GetComponent<Image>().color = new Color32(55, 55, 55, 0);
