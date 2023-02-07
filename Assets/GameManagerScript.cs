@@ -8,6 +8,7 @@ public class GameManagerScript : MonoBehaviour
 {
     public GameObject gameOverUI;
     public GameObject pauseUI;
+    public GameObject newGameUI;
     public Health health;
     public BorderHealthBar borderHealthBar;
     public GameObject loadingScreen;
@@ -33,17 +34,34 @@ public class GameManagerScript : MonoBehaviour
         Time.timeScale = 1f;
         PlayerPrefs.SetFloat("soulCount", PlayerPrefs.GetFloat("soulCountStart"));
         StartCoroutine(LoadAsynchronously(1));
-        
     }
 
     // GameMenu
     public void NewGame()
+    {
+        if(PlayerPrefs.GetInt("levelReached") == null || PlayerPrefs.GetInt("levelReached") == 0) 
+        {
+            StartNewGame();
+        }
+        else
+        {
+            newGameUI.SetActive(true);
+        }
+    }
+
+    public void StartNewGame() 
     {
         uiSound.Play();
         PlayerPrefs.DeleteAll();
         PlayerPrefs.SetFloat("soulCount", 0);
         //PlayerPrefs.SetBool("isNewGame", true);
         StartCoroutine(LoadAsynchronously(3));
+    }
+
+    public void DoNotStartNewGame()
+    {
+        uiSound.Play();
+        newGameUI.SetActive(false);
     }
 
     public void ContinueGame()

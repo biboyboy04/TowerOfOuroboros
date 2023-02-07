@@ -5367,18 +5367,18 @@ struct LayoutCache_tF844B2FAD6933B78FD5EFEBDE0529BCBAC19BA60  : public RuntimeOb
 	GUILayoutGroup_tD08496E80F283C290B5B90D7BFB3C9C7CC33CD8D* ___windows_3;
 };
 
-// GameManagerScript/<LoadAsynchronously>d__18
-struct U3CLoadAsynchronouslyU3Ed__18_tF20F53D005736F79C87A19A1DD7586127E888096  : public RuntimeObject
+// GameManagerScript/<LoadAsynchronously>d__21
+struct U3CLoadAsynchronouslyU3Ed__21_t5F3D6A5E437FD1DC28FAED092BF2697FFCBE4E90  : public RuntimeObject
 {
-	// System.Int32 GameManagerScript/<LoadAsynchronously>d__18::<>1__state
+	// System.Int32 GameManagerScript/<LoadAsynchronously>d__21::<>1__state
 	int32_t ___U3CU3E1__state_0;
-	// System.Object GameManagerScript/<LoadAsynchronously>d__18::<>2__current
+	// System.Object GameManagerScript/<LoadAsynchronously>d__21::<>2__current
 	RuntimeObject* ___U3CU3E2__current_1;
-	// System.Int32 GameManagerScript/<LoadAsynchronously>d__18::sceneToLoad
+	// System.Int32 GameManagerScript/<LoadAsynchronously>d__21::sceneToLoad
 	int32_t ___sceneToLoad_2;
-	// GameManagerScript GameManagerScript/<LoadAsynchronously>d__18::<>4__this
+	// GameManagerScript GameManagerScript/<LoadAsynchronously>d__21::<>4__this
 	GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0* ___U3CU3E4__this_3;
-	// UnityEngine.AsyncOperation GameManagerScript/<LoadAsynchronously>d__18::<operation>5__2
+	// UnityEngine.AsyncOperation GameManagerScript/<LoadAsynchronously>d__21::<operation>5__2
 	AsyncOperation_tD2789250E4B098DEDA92B366A577E500A92D2D3C* ___U3CoperationU3E5__2_4;
 };
 
@@ -24359,20 +24359,22 @@ struct GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0  : public Mon
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___gameOverUI_4;
 	// UnityEngine.GameObject GameManagerScript::pauseUI
 	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___pauseUI_5;
+	// UnityEngine.GameObject GameManagerScript::newGameUI
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___newGameUI_6;
 	// Health GameManagerScript::health
-	Health_t1ED9B3565743C4664CA097759AFE6D7B6A6DF2B1* ___health_6;
+	Health_t1ED9B3565743C4664CA097759AFE6D7B6A6DF2B1* ___health_7;
 	// BorderHealthBar GameManagerScript::borderHealthBar
-	BorderHealthBar_tCF81F30D3D2E1EF003AB0032228833AC5F43421B* ___borderHealthBar_7;
+	BorderHealthBar_tCF81F30D3D2E1EF003AB0032228833AC5F43421B* ___borderHealthBar_8;
 	// UnityEngine.GameObject GameManagerScript::loadingScreen
-	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___loadingScreen_8;
+	GameObject_t76FEDD663AB33C991A9C9A23129337651094216F* ___loadingScreen_9;
 	// UnityEngine.UI.Slider GameManagerScript::slider
-	Slider_t87EA570E3D6556CABF57456C2F3873FFD86E652F* ___slider_9;
+	Slider_t87EA570E3D6556CABF57456C2F3873FFD86E652F* ___slider_10;
 	// UnityEngine.AudioSource GameManagerScript::uiSound
-	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___uiSound_10;
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___uiSound_11;
 	// System.Boolean GameManagerScript::canPause
-	bool ___canPause_11;
+	bool ___canPause_12;
 	// UnityEngine.AudioSource GameManagerScript::pauseSound
-	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___pauseSound_12;
+	AudioSource_t871AC2272F896738252F04EE949AEF5B241D3299* ___pauseSound_13;
 };
 
 // Health
@@ -31259,10 +31261,10 @@ IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4413[9] =
 	static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___player_4)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___speed_5)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___spriteRend_6)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___originColor_7)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___distanceBetween_8)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___U3CIsFacingRightU3Ek__BackingField_9)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___distance_10)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___animator_11)),static_cast<int32_t>(offsetof(FollowPlayer_tC92033F1F4FD4547E9C5E32B878BB3DB993E2327, ___enemyHealth_12)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4414[5] = 
 {
-	static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__18_tF20F53D005736F79C87A19A1DD7586127E888096, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__18_tF20F53D005736F79C87A19A1DD7586127E888096, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__18_tF20F53D005736F79C87A19A1DD7586127E888096, ___sceneToLoad_2)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__18_tF20F53D005736F79C87A19A1DD7586127E888096, ___U3CU3E4__this_3)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__18_tF20F53D005736F79C87A19A1DD7586127E888096, ___U3CoperationU3E5__2_4)),};
-IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4415[9] = 
+	static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__21_t5F3D6A5E437FD1DC28FAED092BF2697FFCBE4E90, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__21_t5F3D6A5E437FD1DC28FAED092BF2697FFCBE4E90, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__21_t5F3D6A5E437FD1DC28FAED092BF2697FFCBE4E90, ___sceneToLoad_2)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__21_t5F3D6A5E437FD1DC28FAED092BF2697FFCBE4E90, ___U3CU3E4__this_3)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__21_t5F3D6A5E437FD1DC28FAED092BF2697FFCBE4E90, ___U3CoperationU3E5__2_4)),};
+IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4415[10] = 
 {
-	static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___gameOverUI_4)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___pauseUI_5)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___health_6)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___borderHealthBar_7)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___loadingScreen_8)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___slider_9)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___uiSound_10)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___canPause_11)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___pauseSound_12)),};
+	static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___gameOverUI_4)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___pauseUI_5)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___newGameUI_6)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___health_7)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___borderHealthBar_8)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___loadingScreen_9)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___slider_10)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___uiSound_11)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___canPause_12)),static_cast<int32_t>(offsetof(GameManagerScript_tFEC42C3B664C260FC63E2D13CB3155EFBCAEEBC0, ___pauseSound_13)),};
 IL2CPP_EXTERN_C const int32_t g_FieldOffsetTable4416[4] = 
 {
 	static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__9_t8340C430E846480D002F35EDCA812A1FE31B0DB4, ___U3CU3E1__state_0)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__9_t8340C430E846480D002F35EDCA812A1FE31B0DB4, ___U3CU3E2__current_1)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__9_t8340C430E846480D002F35EDCA812A1FE31B0DB4, ___U3CU3E4__this_2)),static_cast<int32_t>(offsetof(U3CLoadAsynchronouslyU3Ed__9_t8340C430E846480D002F35EDCA812A1FE31B0DB4, ___U3CoperationU3E5__2_3)),};
